@@ -12,7 +12,12 @@
 </head>
 <body class="alineacion">
     <div class="formulario">
-        Hola Mundo
+    <div><img class="user" src="../Assets/img/user.jpg" /></div>
+            <form  class="cont" action="" method="POST" class="login-form">
+                <input type="text"  placeholder="Usuario" required autocomplete="off">
+                <input type="password"  placeholder="Contraseña" required autocomplete="off">
+                <button>Acceder</button>
+            </form>
     </div>
 </body>
 </html>
