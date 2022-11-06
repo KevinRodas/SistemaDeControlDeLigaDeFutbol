@@ -3,13 +3,11 @@
 <head>
     <title>Inicio</title>
     <?php include './inc/link.php'; ?>
-</head> 
+</head>
 <body id="container-page-index">
     <?php include './inc/navbar.php'; ?>
     <div class="jumbotron" id="jumbotron-index">
       <h1><span class="tittles-pages-logo">Ferreteria Handal y Sobrinos </span> <small style="color: #fff;"></small></h1>
-
-      
       <p>
           Bienvenido a nuestra tienda en linea.
       </p>
