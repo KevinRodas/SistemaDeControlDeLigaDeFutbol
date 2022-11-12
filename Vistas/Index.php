@@ -1,52 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<title><?php echo $data["titulo"]; ?></title>
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-		<script src="assets/js/bootstrap.min.js" ></script>
-	</head>
-	
-	<body>
-		<div class="container">
-			<h2><?php echo $data["titulo"]; ?></h2>
-			
-			<a href="index.php?c=vehiculos&a=nuevo" class="btn btn-primary">Agregar</a>
-			
-			<br />
-			<br />
-			<div class="table-responsive">
-				<table border="1" width="80%" class="table">
-					<thead>
-						<tr class="table-primary">
-							<th>Placa</th>
-							<th>Marca</th>
-							<th>Modelo</th>
-							<th>Año</th>
-							<th>Color</th>
-							<th>Editar</th>
-							<th>Eliminar</th>
-						</tr>
-					</thead>
-					
-					<tbody>
-						<?php foreach($data["vehiculos"] as $dato) {
-							echo "<tr>";
-							echo "<td>".$dato["placa"]."</td>";
-							echo "<td>".$dato["marca"]."</td>";
-							echo "<td>".$dato["modelo"]."</td>";
-							echo "<td>".$dato["anio"]."</td>";
-							echo "<td>".$dato["color"]."</td>";
-							echo "<td><a href='index.php?c=vehiculos&a=modificar&id=".$dato["id"]."' class='btn btn-warning'>Modificar</a></td>";
-							echo "<td><a href='index.php?c=vehiculos&a=eliminar&id=".$dato["id"]."' class='btn btn-danger'>Eliminar</a></td>";
-							echo "</tr>";
-						}
-						?>
-					</tbody>
-					
-				</table>
-			</div>
-		</div>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="../Assets/css/index.css">
+</head>
+<body>
+<div class="menu">
+    <nav>
+        <ul>
+            <li>Inicio</li>
+            <li>Acerca de</li>
+            <li>Partidos</li>
+            <li>Noticias</li>
+            <li>Equipos</li>
+            <li>Login</li>
+        </ul>
+    </nav>
+</div>
+
+<div class="slider">
+    <ul>
+        <li>
+            <img src="https://i.pinimg.com/originals/74/52/db/7452db2aafa89196801ef4fe680137e0.jpg">
+        </li>
+        <li>
+            <img src="https://s1.1zoom.me/big0/160/354276-admin.jpg">
+        </li>
+        <li>
+            <img src="https://mobimg.b-cdn.net/pic/v2/gallery/preview/goroda-pejzazh-ulicy-22228.jpg">
+        </li>
+        <li>
+            <img src="http://2.bp.blogspot.com/-dNtt1v-HAOE/UFdRpT_pY9I/AAAAAAAABXw/gBzxja1td3Y/s1600/fondos-escritorio-ciudades-1280.jpg">
+        </li>
+    </ul>
+</div>
+
+<div class="container">
+    <img class="imagen" src="../Assets/img/imagen1.PNG">
+</div>
+
+</body>
 </html>
