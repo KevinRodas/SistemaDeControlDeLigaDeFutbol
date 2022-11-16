@@ -10,6 +10,9 @@
 <div class="menu">
     <nav>
         <ul>
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+        </ul>
+        <ul>       
             <li>Inicio</li>
             <li>Acerca de</li>
             <li>Partidos</li>
@@ -23,23 +26,92 @@
 <div class="slider">
     <ul>
         <li>
-            <img src="https://i.pinimg.com/originals/74/52/db/7452db2aafa89196801ef4fe680137e0.jpg">
+            <img src="../Assets/img/noticia1.jpg" alt="">
         </li>
         <li>
-            <img src="https://s1.1zoom.me/big0/160/354276-admin.jpg">
+            <img src="../Assets/img/noticia6.jpg">
         </li>
         <li>
-            <img src="https://mobimg.b-cdn.net/pic/v2/gallery/preview/goroda-pejzazh-ulicy-22228.jpg">
+            <img src="../Assets/img/noticia7.jpg">
         </li>
         <li>
-            <img src="http://2.bp.blogspot.com/-dNtt1v-HAOE/UFdRpT_pY9I/AAAAAAAABXw/gBzxja1td3Y/s1600/fondos-escritorio-ciudades-1280.jpg">
+            <img src="../Assets/img/noticia8.jpg">
         </li>
     </ul>
 </div>
 
-<div class="container">
-    <img class="imagen" src="../Assets/img/imagen1.PNG">
+<div class="container2">
+
+<div class="card">
+    <div class="face front">
+        <img src="../Assets/img/noticia6.jpg" alt="">
+        <h3>Tarjeta Uno</h3>
+    </div>
+    <div class="face back">
+        <h3>Tarjeta Uno</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
+        <div class="link">
+            <a href="">Detalles</a>
+        </div>
+    </div>
 </div>
+
+
+<div class="card">
+    <div class="face front">
+        <img src="../Assets/img/noticia7.jpg" alt="">
+        <h3>Tarjeta Uno</h3>
+    </div>
+    <div class="face back">
+        <h3>Tarjeta Uno</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
+        <div class="link">
+            <a href="">Detalles</a>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="face front">
+        <img src="../Assets/img/noticia8.jpg" alt="">
+        <h3>Tarjeta Uno</h3>
+    </div>
+    <div class="face back">
+        <h3>Tarjeta Uno</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
+        <div class="link">
+            <a href="">Detalles</a>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="face front">
+        <img src="../Assets/img/noticia1.jpg" alt="">
+        <h3>Tarjeta Uno</h3>
+    </div>
+    <div class="face back">
+        <h3>Tarjeta Uno</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
+        <div class="link">
+            <a href="">Detalles</a>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+<div class="container">
+
+</div>
+
+<footer class="footer">
+
+    <p>©2022 Grupo # 1 Administracion de proyectos | Todos los derechos reservados</p>
+    <p>Políticas de Privacidad | Desarrollado por Grupo #1 API Sistema Web </p>
+    
+</footer>
 
 </body>
 </html>
