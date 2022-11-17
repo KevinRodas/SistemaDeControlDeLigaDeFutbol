@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Administrar Jugadores</title>
+    <title>Administrar Representante</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
 </head>
 <body>
@@ -30,15 +30,15 @@
 <div class="container2">
 
 <button class="boton">
-    <p>Registrar Jugador</p>
+    <p>Registrar Representante</p>
 </button>
 
 <button class="boton">
-    <p>Actualizar Jugador</p>
+    <p>Actualizar Representante</p>
 </button>
 
 <button class="boton">
-    <p>Listado de Jugadores</p>
+    <p>Listado de Representantes</p>
 </button>
 
 </div>
