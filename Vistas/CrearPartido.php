@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Administrar Reportes</title>
+    <title>Crear Partidos</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
 </head>
 <body>
@@ -13,9 +13,9 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
         <ul>       
-            <li>Crear Reporte</li>
-            <li>Descripción de Reporte</li>
-            <li>Listado de Reporte</li>
+            <li>Crear Partido</li>
+            <li>Listado de Reportes de Partidos</li>
+            <li>Lista de Partidos</li>
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
@@ -23,19 +23,9 @@
     </nav>
 </div>
 
-<div class="container2">
+<div class="container3">
 
-<button class="boton">
-    <p>Crear Reportes</p>
-</button>
 
-<button class="boton">
-    <p>descripción de Reportes</p>
-</button>
-
-<button class="boton">
-    <p>Lista de Reportes</p>
-</button>
 
 </div>
 

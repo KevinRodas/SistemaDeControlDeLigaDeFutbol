@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Administrar Reportes</title>
+    <title>Acerca De</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
 </head>
 <body>
@@ -13,29 +13,25 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
         <ul>       
-            <li>Crear Reporte</li>
-            <li>Descripción de Reporte</li>
-            <li>Listado de Reporte</li>
-        </ul>
-        <ul>
-        <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
+            <li>Inicio</li>
+            <li>Acerca de</li>
+            <li>Partidos</li>
+            <li>Noticias</li>
+            <li>Equipos</li>
+            <li>Login</li>
         </ul>
     </nav>
 </div>
 
-<div class="container2">
 
-<button class="boton">
-    <p>Crear Reportes</p>
-</button>
+<div class="container3">
 
-<button class="boton">
-    <p>descripción de Reportes</p>
-</button>
+    <h1>Acerca De</h1>
 
-<button class="boton">
-    <p>Lista de Reportes</p>
-</button>
+    <p>Gema Emperatriz Manzano</p>
+    <p>Kevin Josue Martinez</p>
+    <p>Nelson Eduardo Vásquez</p>
+    <p>Juan Jose Corvera</p>
 
 </div>
 

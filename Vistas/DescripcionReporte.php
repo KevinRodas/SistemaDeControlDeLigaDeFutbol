@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Administrar Reportes</title>
+    <title>Descripción de Reporte</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
 </head>
 <body>
@@ -13,9 +13,10 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
         <ul>       
+            <li>Inicio</li>
             <li>Crear Reporte</li>
             <li>Descripción de Reporte</li>
-            <li>Listado de Reporte</li>
+            <li>Listado de Reportes</li>
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
@@ -23,20 +24,22 @@
     </nav>
 </div>
 
-<div class="container2">
 
-<button class="boton">
-    <p>Crear Reportes</p>
-</button>
+<div class="container3">
 
-<button class="boton">
-    <p>descripción de Reportes</p>
-</button>
+    <p>N° de Reporte <input type="text"></p>
 
-<button class="boton">
-    <p>Lista de Reportes</p>
-</button>
+</div>
 
+<div class="">
+
+    <p>Observaciones</p>
+    <textarea name="Comentarios" id="" cols="40" rows="10"></textarea>
+
+</div>
+
+<div class="container3">
+    <button class="boton-enviar">Enviar</button>
 </div>
 
 <footer class="footer">
