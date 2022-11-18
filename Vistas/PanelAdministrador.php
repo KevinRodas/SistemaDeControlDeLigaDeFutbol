@@ -20,6 +20,8 @@
             <li>Sanciones</li>
             <li>Localidades</li>
             <li>Noticias</li>
+            <li><a href="http://localhost/SistemaDeControlDeLigaDeFutbol/Login/salir"> LogOut</a></li>
+            
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
