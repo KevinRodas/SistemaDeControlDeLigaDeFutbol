@@ -1,6 +1,3 @@
-<?php
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +9,22 @@
 </head>
 <body class="alineacion">
     <div class="formulario">
+   
     <div><img class="user" src="../Assets/img/user.jpg" /></div>
-            <form  class="cont" action="" method="POST" class="login-form">
-                <input type="text"  placeholder="Usuario" required autocomplete="off">
-                <input type="password"  placeholder="Contraseña" required autocomplete="off">
-                <button>Acceder</button>
-            </form>
+        <form  class="cont" method="POST" action=" http://localhost/SistemaDeControlDeLigaDeFutbol/Login/loginVerify"  class="login-form">
+            <input type="text"  placeholder="Usuario" name="id_usuario" required autocomplete="off">
+            <input type="password"  placeholder="Contraseña" name="password" required autocomplete="off">
+            <button>Acceder</button>
+            <?php 
+           require_once 'Controladores/LoginController.php';
+           if(!empty($_POST)){
+                $n=new LoginController();
+                //echo $mensaje;
+                $n->mensaje_error();
+           }
+            
+            ?>
+        </form>
     </div>
 </body>
 </html>
