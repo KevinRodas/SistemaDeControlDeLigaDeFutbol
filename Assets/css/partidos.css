@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    flex-wrap: wrap;
+    display: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.imagen{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 30%;
+}
+.menu{
+   background-color: aliceblue;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+   font-size: large;
+   color: white;
+   background-color: #3360CF;
+}
+
+nav{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-equipo {
+    width: 50px;
+    height: 50px;
+    border-radius: 75%;
+    margin: 50%;
+}
+
+ul li{
+    display: inline-block;
+    list-style: none;
+    padding: 6px 20px;
+    font-weight: 500;
+    font-size: 1.7rem;
+    transition: all 0.3s ease 0s;
+}
+
+.container {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    background-color: aquamarine;
+}
+
+.footer {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    background-color: #3360CF; 
+    border-color: 5px black;
+    color: white;
+    align-items: center;
+    text-align: center;
+}
+
+.bloque {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.detalle {
+    margin: 0px auto;
+    border: 1px solid black;
+    float: left;
+    width: 33.3333%;
+    padding: 10px;
+    height: 100px;
+}
+
+.resultados {
+    background-image: url("Assets/img/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 10px;
+    background-color: antiquewhite;
+    border: 25px;
+}
+
+.resultados h1 {
+    text-align: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: darkgray;
+}
+
+.resultados h4 {
+    text-align: center;
+    align-items: center;
+    color: black;
+    text-align: center;
+    text-align: justify;
+}
+
+.titulo-fecha {
+   color: white; 
+   text-align: center;
+   margin: 0px;
+   font-family: sans-serif;
+}
+
+.container-resultados{
+    width: 45%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+
+}
