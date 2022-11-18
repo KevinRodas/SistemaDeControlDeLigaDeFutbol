@@ -1,5 +1,5 @@
 <?php
-class Jugador{
+class Equipo{
     public $codigo;
     public $nombre;
     public $direccion;
