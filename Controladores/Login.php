@@ -1,5 +1,5 @@
 <?php
-class Jugador{
+class Login{
     public $usuario;
     public $contraseña;
     
