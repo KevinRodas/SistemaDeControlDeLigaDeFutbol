@@ -29,6 +29,7 @@ class LoginController
                    //require_once('Vistas/PanelAdministrador');
                    
                     header('Location:'.BASE_DIR.'/PanelAdministrador/showHome');
+                    
                    
                 }     
                
@@ -53,17 +54,18 @@ class LoginController
             }
         } 
         elseif(!empty($_COOKIE["Rol"])){
-            echo ($_COOKIE["Rol"]);
+          /*  echo ($_COOKIE["Rol"]);
 
             if($_COOKIE["Rol"]==ROL_ADMIN){
-                header('Location:'.BASE_DIR.'/PanelAdministrador/showHome');
+               header('Location:'.BASE_DIR.'/PanelAdministrador/showHome');
+               // echo "Hola";
             }
             elseif ($_COOKIE["Rol"]== ROL_REP) {
                 header('Location:'.BASE_DIR.'/PanelRepresentante/showHome');
             }
             elseif($_COOKIE["Rol"]== ROL_ARB){
                 header('Location:'.BASE_DIR.'/PanelArbitro/showHome');
-            }
+            }*/
         }
      
 

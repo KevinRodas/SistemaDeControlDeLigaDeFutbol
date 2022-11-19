@@ -6,11 +6,8 @@ require_once "config/db_config.php";
 
 //require_once "Vistas/Inicio.php";
 /**************** CONTROLADOR FRONTAL *********************/
-//$i=new InicioController();
-  
-//$i->show();
 
-// Definimos un ontrolador por defecto
+// Definimos un controlador por defecto
 $controller = DEFAULT_CONTROLLER;
 
 // Tomamos el controlador requerido por el usuario
@@ -68,50 +65,38 @@ if(is_file($fullController))
     {
         if($controller=='InicioController'){
             //echo 'Entro en el if';
-            if ($action='showInicio') {
+            if ($action=='showInicio') {
                 //echo 'valido funcion'; 
                 $inicio= new InicioController();      
                 $inicio->showInicio();       
             }
         }  
         elseif ($controller=='LoginController') {
-            if ($action='login') {
+            if ($action=='login') {
                 $inicio= new LoginController();      
                 $inicio->login();      
             }
-            if ($action='loginVerify') {
+            if ($action=='loginVerify') {
                 $inicio= new LoginController();      
                 $inicio->loginVerify();       
                 
             }
-            if($action='salir') {
+            if($action=='salir') {
                 $inicio= new LoginController();      
                 $inicio->salir();      
             }
         }
 
-
-
-
-       
-        elseif ($controller=='PanelAdministradorController') {
-             //require_once "config/loginVerify.php";
-             
+        elseif ($controller=='PanelAdministradorController') { 
              if(!empty($_COOKIE["Rol"])){
                  if ($_COOKIE["Rol"] == ROL_ADMIN) {
-                    if ($action='showHome') {
-                        $inicio= new PanelAdministradorController();     
-                        $inicio->showHome();  
-                    }
-                    else{
-                        echo 'No existe esa accion';
-                    }
-                 }
+                    $panelAdmin= new PanelAdministradorController();     
+                    $panelAdmin->buscarDireccion($action);
+                }
                  else{
                      //intento acceder a un area que no le corresponde
                     header('Location: '.BASE_DIR);
                  }
-
             }
             else{
                 //no hay cookie
@@ -127,6 +112,7 @@ if(is_file($fullController))
                         $inicio->showHome();  
                         
                     }
+                    
                     else{
                         echo 'No existe esa accion';
                     }
@@ -173,6 +159,22 @@ if(is_file($fullController))
             //require_once "config/loginVerify.php";
             
         }
+        elseif ($controller=='AdministrarPartidosController') { //controlador vinculado al entorno administrador
+            if(!empty($_COOKIE["Rol"])){
+                if ($_COOKIE["Rol"] == ROL_ADMIN) {
+                   $panelAdmin= new AdministrarPartidosController();     
+                   $panelAdmin->buscarDireccion($action);
+               }
+                else{
+                    //intento acceder a un area que no le corresponde
+                   header('Location: '.BASE_DIR);
+                }
+           }
+           else{
+               //no hay cookie
+               header('Location: '.BASE_DIR);
+           }
+       }
         else{
             echo 'No hay controlador';
         }
