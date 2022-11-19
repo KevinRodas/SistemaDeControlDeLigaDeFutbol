@@ -1,5 +1,5 @@
 <?php
-class Jugador{
+class Reportes{
     public $cod_reporte;
     public $cod_partido;
     public $ntarjetas;
