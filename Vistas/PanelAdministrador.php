@@ -1,3 +1,6 @@
+<?php
+require_once "./config/configGeneral.php";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,13 +16,13 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
         <ul>       
-            <li>Inicio</li>
-            <li>Partidos</li>
-            <li>Equipos</li>
-            <li>Miembros</li>
-            <li>Sanciones</li>
-            <li>Localidades</li>
-            <li>Noticias</li>
+            <li><a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>">Inicio</a> </li>
+            <li><a href="<?= BASE_DIR.'PanelAdministrador/showAdminPartido' ?>">Partidos</a> </li>
+            <li><a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>">Equipos</a> </li>
+            <li><a href="">Miembros</a> </li>
+            <li><a href="">Sanciones</a> </li>
+            <li><a href="">Localidades</a> </li>
+            <li><a href="">Noticias</a> </li>
             <li><a href="http://localhost/SistemaDeControlDeLigaDeFutbol/Login/salir"> LogOut</a></li>
             
         </ul>
@@ -32,15 +35,20 @@
 <div class="container3">
 
 <button class="boton">
-    <p>Administrar Partidos</p>
+    <a href="<?= BASE_DIR.'PanelAdministrador/showAdminPartido' ?>">
+    Administrar Partidos
+</a>
+
 </button>
 
-<button class="boton">
-    <p>Administrar Equipos</p>
+<button class="boton" >
+   <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>"><p>Administrar Equipos</p></a> 
 </button>
 
-<button class="boton">
-    <p>Cancelación de sanciones</p>
+<button class="boton" >
+<a href="<?= BASE_DIR.'/PanelAdministrador/cancelarSancion'?>">
+Cancelación de sanciones</a> 
+    
 </button>
 
 </div>
@@ -48,15 +56,20 @@
 <div class="container3">
 
 <button class="boton">
-    <p>Administrar Notocias</p>
+<a href="<?= BASE_DIR.'PanelAdministrador/showAdminNoticias' ?>" >
+<p>Administrar Noticias</p></a> 
+    
+   
 </button>
 
 <button class="boton">
-    <p>Administrar Miembros</p>
+    <a href="<?= BASE_DIR.'PanelAdministrador/showAdminMiembro' ?>" >
+    <p>Administrar Miembros</p></a> 
 </button>
 
 <button class="boton">
-    <p>Administrar Localidades</p>
+    <a href="<?= BASE_DIR.'PanelAdministrador/showAdminLocal' ?>" >
+    <p>Administrar Localidades</p></a> 
 </button>
 
 </div>

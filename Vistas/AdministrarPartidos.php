@@ -1,3 +1,6 @@
+<?php
+require_once "./config/configGeneral.php";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,16 +13,18 @@
 <div class="menu">
     <nav>
         <ul>
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+        <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
         <ul>       
-            <li>Inicio</li>
-            <li>Partidos</li>
-            <li>Equipos</li>
-            <li>Miembros</li>
-            <li>Sanciones</li>
-            <li>Localidades</li>
-            <li>Noticias</li>
+        <li><a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>">Inicio</a> </li>
+            <li><a href="<?= BASE_DIR.'PanelAdministrador/showAdminPartido' ?>">Partidos</a> </li>
+            <li><a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>">Equipos</a> </li>
+            <li><a href="">Miembros</a> </li>
+            <li><a href="">Sanciones</a> </li>
+            <li><a href="">Localidades</a> </li>
+            <li><a href="">Noticias</a> </li>
+            <li><a href="<?= BASE_DIR.'/Login/salir'?>"> LogOut</a></li>
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
@@ -30,15 +35,15 @@
 <div class="container2">
 
 <button class="boton">
-    <p>Crear Partidos</p>
+<a href="<?= BASE_DIR.'AdministrarPartidos/createPartido' ?>">Crear Partidos</a>
 </button>
 
 <button class="boton">
-    <p>Listado de reportes de Partidos</p>
+<a href="<?= BASE_DIR.'AdministrarPartidos/showReporte' ?>">Listado de reportes de Partidos</a>
 </button>
 
 <button class="boton">
-    <p>Lista de Partidos</p>
+<a href="<?= BASE_DIR.'AdministrarPartidos/showPartido' ?>">Lista de Partidos</a>
 </button>
 
 </div>
