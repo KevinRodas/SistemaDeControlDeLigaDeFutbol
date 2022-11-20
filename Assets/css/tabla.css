@@ -1,0 +1,36 @@
+table {
+    margin-top: 5px;
+    width: 80%;
+    /*border-collapse: collapse;*/
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 50%;
+
+   
+  }
+h1{
+    text-align: center;
+    margin-top: 50px;;
+}
+/*
+.tabla{
+    //padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+}*/
+
+thead{
+    background-color: black;
+    color: antiquewhite;
+    text-align: center;
+}
+tbody{
+    background-color: #A7D0CD;
+    color: black;
+    text-align: center;
+}
+
+th,tr{
+    height: 30px;
+}
