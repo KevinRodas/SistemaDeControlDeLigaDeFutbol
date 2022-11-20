@@ -35,15 +35,11 @@ require_once "./config/configGeneral.php";
 <div class="container2">
 
 <button class="boton">
-<a href="<?= BASE_DIR.'AdministrarPartidos/createPartido' ?>">Crear Partidos</a>
+<a href="<?= BASE_DIR.'Torneo/showcreateTorneo' ?>">Crear Torneo</a>
 </button>
 
 <button class="boton">
-<a href="<?= BASE_DIR.'AdministrarPartidos/showReporte' ?>">Listado de reportes de Partidos</a>
-</button>
-
-<button class="boton">
-<a href="<?= BASE_DIR.'AdministrarPartidos/showPartido' ?>">Lista de Partidos</a>
+<a href="<?= BASE_DIR.'Torneo/showTorneos' ?>">Listado de torneos</a>
 </button>
 
 </div>

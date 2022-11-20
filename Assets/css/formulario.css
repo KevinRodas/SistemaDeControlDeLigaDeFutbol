@@ -1,0 +1,93 @@
+body{
+    margin: 0;
+    background-image: url(../img/fondo-2.png);
+    background-position-x:0 ;
+    background-position-y: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.form{
+    padding: 80px;
+  
+}
+
+.formulario{
+    
+    width: 40%;
+    height: 75%;
+    display: table-cell;
+    vertical-align: middle;
+    z-index: 1;
+    background-color: rgba(255,255, 255, 0.3);
+        margin: 0 auto 100px;
+    padding: 30px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    text-align: center;
+    -webkit-box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+}
+
+input {
+    -webkit-box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+    outline: 0;
+    background: white;
+    color: black;
+    width: 55%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+select{
+    -webkit-box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+    outline: 0;
+    background: white;
+    color: black;
+    width: 55%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    box-sizing: border-box;
+    font-size: 14px; 
+}
+
+button{
+    -webkit-box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+    outline: 0;
+    background: #2146C7;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    width: 55%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+button:hover{
+    background: #4649FF;
+}

@@ -1,3 +1,6 @@
+<?php
+require_once "./config/configGeneral.php";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,14 +16,14 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
         <ul>       
-            <li>Inicio</li>
-            <li>Partidos</li>
-            <li>Equipos</li>
-            <li>Miembros</li>
-            <li>Sanciones</li>
-            <li>Localidades</li>
-            <li>Noticias</li>
-            <li><a href="http://localhost/SistemaDeControlDeLigaDeFutbol/Login/salir"> LogOut</a></li>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminPartido' ?>"><li>Partidos</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>"><li>Equipos</li></a>
+            <a href=""><li>Miembros</li></a> 
+            <a href=""><li>Sanciones</li></a>
+            <a href=""><li>Localidades</li></a>
+            <a href=""><li>Noticias</li></a>
+            <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a></li>
             
         </ul>
         <ul>
@@ -31,34 +34,52 @@
 
 <div class="container3">
 
-<button class="boton">
-    <p>Administrar Partidos</p>
-</button>
 
-<button class="boton">
-    <p>Administrar Equipos</p>
-</button>
+<a href="<?= BASE_DIR.'PanelAdministrador/showAdminPartido' ?>">
+    <button class="boton">Administrar Partidos </button>
+</a>
 
-<button class="boton">
-    <p>Cancelación de sanciones</p>
-</button>
+<a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>">
+    <button class="boton" ><p>Administrar Equipos</p></button>
+</a>
+
+<a href="<?= BASE_DIR.'/PanelAdministrador/showAdminTorneo'?>">
+    <button class="boton" ><p>Administrar Torneos</p></button>
+</a>
+
 
 </div>
 
 <div class="container3">
 
-<button class="boton">
-    <p>Administrar Notocias</p>
-</button>
 
-<button class="boton">
-    <p>Administrar Miembros</p>
-</button>
+    <a href="<?= BASE_DIR.'PanelAdministrador/showAdminNoticias' ?>" >
+        <button class="boton">Administrar Noticias</button>
+    </a> 
 
-<button class="boton">
-    <p>Administrar Localidades</p>
-</button>
+    <a href="<?= BASE_DIR.'PanelAdministrador/showAdminMiembro' ?>" >
+        <button class="boton">
+            <p>Administrar Miembros</p> 
+        </button>
+    </a> 
 
+    <a href="<?= BASE_DIR.'PanelAdministrador/showAdminLocal' ?>" >
+        <button class="boton">
+            <p>Administrar Localidades</p> 
+        </button>
+    </a> 
+</div>
+
+<div class="container3">
+
+<a href="<?= BASE_DIR.'/PanelAdministrador/cancelarSancion'?>">
+    <button class="boton" > Cancelación de sanciones</button>
+</a>
+
+<a href="<?= BASE_DIR.'/PanelAdministrador/showHome'?>">
+    <button class="boton"><p>Solvencia de equipos</p></button>
+</a>
+    
 </div>
 
 <footer class="footer">
