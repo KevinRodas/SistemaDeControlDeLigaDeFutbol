@@ -36,6 +36,10 @@ public function showAdminNoticias(){
      require_once "Vistas/AdministrarEstadio.php";
 }
 
+public function showAdminTorneo(){
+    require_once "Vistas/AdministrarTorneo.php";
+}
+
 public function buscarDireccion($action){
      if ($action=='showHome') {
           $this->showHome();
@@ -58,6 +62,9 @@ public function buscarDireccion($action){
       elseif ($action == 'showAdminLocal') {
           $this->showAdminLocal();
       }
+      elseif ($action == 'showAdminTorneo') {
+        $this->showAdminTorneo();
+    }
       else{
           return false;
       }
