@@ -13,6 +13,14 @@ class Torneo extends Database{
         parent::__construct();
     }
 
+    public function getIdTorneo(){
+        return $this->cod_torneo;
+    }
+
+    public function setIdTorneo($id){
+        $this->cod_torneo = $id;
+        return $this;
+    }
     public function getNombre(){
         return $this->nom;
     }
@@ -26,8 +34,8 @@ class Torneo extends Database{
         return $this->fecha_inicio;
     }
 
-    public function setFecha_inicio($f){
-        $this->fecha_inicio = $f;
+    public function setFecha_inicio($i){
+        $this->fecha_inicio = $i;
         return $this;
     }
     public function getFecha_final(){
@@ -71,10 +79,31 @@ class Torneo extends Database{
         return $row;
     }
     public function Modificar_Torneo(){
+        $query = " UPDATE " . T_TORNEO . "SET(". TOR_ID. ','. TOR_NOM.','. TOR_INICIO.','.TOR_FINAL.")" . 
+        " VALUES(:" . TOR_ID . ", :" . TOR_NOM. ", :" . TOR_INICIO . ", :" . TOR_FINAL . ") WHERE " . TOR_ID . "= :" . TOR_ID;
 
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . TOR_ID, $this->getIdTorneo());
+        $statement->bindValue(':' . TOR_NOM, $this->getNombre());
+        $statement->bindValue(':' . TOR_INICIO, $this->getFecha_inicio());
+        $statement->bindValue(':' . TOR_FINAL, $this->getFecha_final());
+
+        $message = "<h1>Error al modificar datos!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos modificados con éxito!</h1>";
+        }
+        return $message;
     }
     
     public function Eliminar_Torneo(){
+        $query = "DELETE FROM " . T_TORNEO . " WHERE " . TOR_ID . "= :" . TOR_ID ;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . TOR_ID, $this->getIdTorneo());
 
+        $message = "<h1>Error al ELIMINAR estadio!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos eliminados con éxito!</h1>";
+        }
+        return $message;
     }
 }
