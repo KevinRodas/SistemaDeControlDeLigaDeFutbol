@@ -1,13 +1,9 @@
-
-<html>
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Panel Representantes</title>
+    <title>Listado de Reportes de Partidos</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
 </head>
 <body>
@@ -17,13 +13,9 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
         <ul>       
-            <li>Inicio</li>
-            <li>Partidos</li>
-            <li>Equipos</li>
-            <li>Miembros</li>
-            <li>Sanciones</li>
-            <li>Localidades</li>
-            <li>Noticias</li>
+            <li>Crear Partido</li>
+            <li>Listado de Reportes de Partidos</li>
+            <li>Listado de Partidos</li>
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
@@ -31,19 +23,17 @@
     </nav>
 </div>
 
-<div class="container2">
 
-<button class="boton">
-    <p>Registrar Representante</p>
-</button>
+<div class="container-filtrar">
 
-<button class="boton">
-    <p>Actualizar Representante</p>
-</button>
+    <button class="boton-filtrar">Filtrar</button>
+    <input type="text">
 
-<button class="boton">
-    <p>Listado de Representantes</p>
-</button>
+</div>
+
+<div class="">
+
+    <textarea name="Comentarios" id="" cols="40" rows="10"></textarea>
 
 </div>
 
