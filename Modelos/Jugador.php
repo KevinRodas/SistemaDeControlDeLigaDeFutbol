@@ -113,6 +113,6 @@ class Jugador{
     }
     
     public function Mostrar_Partidos(){
-
+        
     }
 }
