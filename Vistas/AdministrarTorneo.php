@@ -17,7 +17,7 @@ require_once "./config/configGeneral.php";
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
         <ul>       
-        <li><a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>">Inicio</a> </li>
+            <li><a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>">Inicio</a> </li>
             <li><a href="<?= BASE_DIR.'PanelAdministrador/showAdminPartido' ?>">Partidos</a> </li>
             <li><a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>">Equipos</a> </li>
             <li><a href="">Miembros</a> </li>

@@ -10,16 +10,18 @@
 <div class="menu">
     <nav>
         <ul>
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+        <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
         <ul>       
-            <li>Inicio</li>
-            <li>Partidos</li>
-            <li>Equipos</li>
-            <li>Miembros</li>
-            <li>Sanciones</li>
-            <li>Localidades</li>
-            <li>Noticias</li>
+        <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminPartido' ?>"><li>Partidos</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>"><li>Equipos</li></a>
+            <a href=""><li>Miembros</li></a> 
+            <a href=""><li>Sanciones</li></a>
+            <a href=""><li>Localidades</li></a>
+            <a href=""><li>Noticias</li></a>
+            <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a></li>
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
@@ -29,17 +31,17 @@
 
 <div class="container2">
 
-<button class="boton">
-    <p>Registrar Estadio</p>
-</button>
+<a href="<?= BASE_DIR.'Estadio/showRegistro' ?>">
+    <button class="boton">Registrar Estadio</button>
+</a>
 
-<button class="boton">
-    <p>Actualizar Estadio</p>
-</button>
+<a href="<?= BASE_DIR.'Estadio/showUpdate' ?>">
+    <button class="boton">Actualizar Estadio</button>
+</a>
 
-<button class="boton">
-    <p>Listado de Estadios</p>
-</button>
+<a href="<?= BASE_DIR.'Estadio/showEstadios' ?>">
+    <button class="boton">Listado de Estadios</button>
+</a>
 
 </div>
 
