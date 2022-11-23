@@ -42,7 +42,8 @@ define('EST_ID','id_estadio');
 define('EST_NOM','nombre');
 define('EST_DIR','direccion');
 define('EST_DISP','disponibilidad');
-
+define('EST_ENC','encargado');
+define('EST_TEL','telefono');
 //Definiciones de constantes para tabla partido
 
 define('T_PARTIDO','tbl_partido');
@@ -101,7 +102,6 @@ define('T_REPORTE','tbl_reporte');
 define('REPORT_ID','id_reporte');
 define('REPORT_PART','id_partido');
 define('REPORT_TARJ','n_tarjetas');
-define('REPORT_DET','id_detalle');
 define('REPORT_OBSERV','observaciones');
 
 //Definiciones de constantes para tabla sanciones
@@ -117,4 +117,11 @@ define('SANCION_DIA','dias_penalizado');
 define('SANCION_PR','precio');
 define('SANCION_EST','estado');
 
+//Definiciones de constantes para tabla Detalle Sanciones
+define('T_DETALLE','tbl_detalle_sancion');
+define('DET_ID','id_detalle');
+define('DET_REPORTE','id_reporte');
+define('DET_SANCION','id_sancion');
+define('DET_DESCRIP','descripcion');
+define('DET_EST','estado');
 ?>
