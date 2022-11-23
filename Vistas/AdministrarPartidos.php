@@ -1,6 +1,8 @@
+
 <?php
 require_once "./config/configGeneral.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,6 +15,7 @@ require_once "./config/configGeneral.php";
 <div class="menu">
     <nav>
         <ul>
+
         <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
@@ -25,6 +28,18 @@ require_once "./config/configGeneral.php";
             <li><a href="">Localidades</a> </li>
             <li><a href="">Noticias</a> </li>
             <li><a href="<?= BASE_DIR.'/Login/salir'?>"> LogOut</a></li>
+
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+        </ul>
+        <ul>       
+            <li>Inicio</li>
+            <li>Partidos</li>
+            <li>Equipos</li>
+            <li>Miembros</li>
+            <li>Sanciones</li>
+            <li>Localidades</li>
+            <li>Noticias</li>
+
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
@@ -35,6 +50,7 @@ require_once "./config/configGeneral.php";
 <div class="container2">
 
 <button class="boton">
+
 <a href="<?= BASE_DIR.'AdministrarPartidos/createPartido' ?>">Crear Partidos</a>
 </button>
 
@@ -44,6 +60,17 @@ require_once "./config/configGeneral.php";
 
 <button class="boton">
 <a href="<?= BASE_DIR.'AdministrarPartidos/showPartido' ?>">Lista de Partidos</a>
+
+    <p>Crear Partidos</p>
+</button>
+
+<button class="boton">
+    <p>Listado de reportes de Partidos</p>
+</button>
+
+<button class="boton">
+    <p>Lista de Partidos</p>
+
 </button>
 
 </div>

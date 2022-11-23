@@ -10,6 +10,7 @@
 <div class="menu">
     <nav>
         <ul>
+
         <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
@@ -22,6 +23,18 @@
             <a href=""><li>Localidades</li></a>
             <a href=""><li>Noticias</li></a>
             <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a></li>
+
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+        </ul>
+        <ul>       
+            <li>Inicio</li>
+            <li>Partidos</li>
+            <li>Equipos</li>
+            <li>Miembros</li>
+            <li>Sanciones</li>
+            <li>Localidades</li>
+            <li>Noticias</li>
+
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
@@ -30,6 +43,7 @@
 </div>
 
 <div class="container2">
+
 
 <a href="<?= BASE_DIR.'Estadio/showRegistro' ?>">
     <button class="boton">Registrar Estadio</button>
@@ -42,6 +56,19 @@
 <a href="<?= BASE_DIR.'Estadio/showEstadios' ?>">
     <button class="boton">Listado de Estadios</button>
 </a>
+
+<button class="boton">
+    <p>Registrar Estadio</p>
+</button>
+
+<button class="boton">
+    <p>Actualizar Estadio</p>
+</button>
+
+<button class="boton">
+    <p>Listado de Estadios</p>
+</button>
+
 
 </div>
 
