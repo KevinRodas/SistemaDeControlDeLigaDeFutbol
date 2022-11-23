@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2022 a las 04:58:44
+-- Tiempo de generación: 23-11-2022 a las 04:05:24
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -53,7 +53,9 @@ CREATE TABLE `tbl_arbitro` (
 
 CREATE TABLE `tbl_detalle_sancion` (
   `id_detalle` int(10) NOT NULL,
+  `id_reporte` varchar(50) NOT NULL,
   `id_sancion` int(11) NOT NULL,
+  `descripcion` varchar(200) NOT NULL,
   `estado` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -85,8 +87,17 @@ CREATE TABLE `tbl_estadio` (
   `id_estadio` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `direccion` varchar(100) NOT NULL,
-  `disponibilidad` enum('Disponible','No Disponible') NOT NULL
+  `disponibilidad` enum('Disponible','No Disponible') NOT NULL,
+  `encargado` varchar(50) NOT NULL,
+  `telefono` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_estadio`
+--
+
+INSERT INTO `tbl_estadio` (`id_estadio`, `nombre`, `direccion`, `disponibilidad`, `encargado`, `telefono`) VALUES
+(7, 'Estadio Juan Francisco Barraza', '12a Avenida Norte, Departamento de San Miguel, El Salvador.', 'Disponible', 'Alonso Castellanos', 76987777);
 
 -- --------------------------------------------------------
 
@@ -150,7 +161,6 @@ CREATE TABLE `tbl_reporte` (
   `id_reporte` varchar(50) NOT NULL,
   `id_partido` int(11) NOT NULL,
   `n_tarjetas` int(11) NOT NULL,
-  `id_detalle` int(11) NOT NULL,
   `observaciones` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -305,7 +315,7 @@ ALTER TABLE `tbl_detalle_sancion`
 -- AUTO_INCREMENT de la tabla `tbl_estadio`
 --
 ALTER TABLE `tbl_estadio`
-  MODIFY `id_estadio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_estadio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_horario`
