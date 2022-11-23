@@ -19,6 +19,15 @@ class Sanciones{
         parent::__construct();
     }
 
+    public function getCodSancion(){
+        return $this->cod_sancion;
+    }
+
+    public function setCodSancion($csan){
+        $this->cod_sancion = $csan;
+        return $this;
+    }
+
     public function getCodPartido(){
         return $this->cod_partido;
     }
@@ -121,8 +130,31 @@ class Sanciones{
         }
         return $message;
     }
+    
+    public function Actualizar_Sancion(){
+        $query = " UPDATE " . T_SANCIONES . "SET(". SANCION_ID. ','. SANCION_PART.','. SANCION_ARB.','. SANCION_ID_SAN.','. SANCION_CAT.','. SANCION_INICIO.','. SANCION_FIN.','. SANCION_DIA.','. SANCION_PR.','. SANCION_EST.")" . 
+        " VALUES(:" . SANCION_ID . ", :" . SANCION_PART. ", :" . SANCION_ARB . ", :" . SANCION_ID_SAN . ", :" . SANCION_CAT . ", :" . SANCION_INICIO . ", :" . SANCION_FIN . ", :" . SANCION_DIA . ", :" . SANCION_PR . ", :" . SANCION_EST .") WHERE " . SANCION_ID . "= :" . SANCION_ID;
 
-    public function get_Sancion(){
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . SANCION_ID, NULL);
+        $statement->bindValue(':' . SANCION_PART, $this->getCodPartido());
+        $statement->bindValue(':' . SANCION_ARB, $this->getCodArbitro());
+        $statement->bindValue(':' . SANCION_ID_SAN, $this->getCodSancionado());
+        $statement->bindValue(':' . SANCION_CAT, $this->getCategoria());
+        $statement->bindValue(':' . SANCION_INICIO, $this->getFecha_Sancion());
+        $statement->bindValue(':' . SANCION_FIN, $this->getFecha_Fin());
+        $statement->bindValue(':' . SANCION_DIA, $this->getDias_Penalizacion());
+        $statement->bindValue(':' . SANCION_PR, $this->getPrecio());
+        $statement->bindValue(':' . SANCION_EST, $this->getEstado());
+
+        $message = "<h1>Error al modificar datos!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos modificados con éxito!</h1>";
+        }
+        return $message;
+    }
+    
+    public function Ver_Sancion(){
         $row=false;
         $query = "SELECT * FROM " .T_SANCIONES;
         $statement = $this->conexion->prepare($query);
@@ -132,16 +164,17 @@ class Sanciones{
         }
         return $row;
     }
-    
-    public function Actualizar_Sancion(){
-
-    }
-    
-    public function Ver_Sancion(){
-
-    }
 
     public function Buscar_Sancion(){
+        $row=false;
+        $query = "SELECT * FROM " .T_SANCIONES . "WHERE " . SANCION_ID . "= :" . SANCION_ID ;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . SANCION_ID, $this->getCodSancion());
 
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
     }
 }
