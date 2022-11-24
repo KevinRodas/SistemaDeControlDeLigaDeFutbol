@@ -29,6 +29,10 @@
 
 <div class="container2">
 
+<a href="<?= BASE_DIR.'PanelArbitro/showAdminRepote' ?>">
+    <button class="boton">Crear Reportes </button>
+</a>
+
 
 
 </div>
