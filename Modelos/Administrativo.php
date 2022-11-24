@@ -245,7 +245,13 @@ class Administrativo extends Database{
     }
 
     public function Mostrar_Lista_Report_Partido(){
-
+        $query = "SELECT * FROM " . T_REPORTE;
+        $statement = $this->conexion->prepare($query);
+        $rows = false;
+        if ($statement->execute()) {
+            $rows = $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $rows;
     }
 
     public function Ver_Reporte(){
@@ -257,15 +263,22 @@ class Administrativo extends Database{
     }
 
     public function Eliminar_Reporte(){
-
+        
     }
 
     public function Buscar_Reporte(){
-
+        
     }
 
     public function Mostar_Lista_Jugadores(){
-
+        $row=false;
+        $query = "SELECT * FROM " .T_JUGADOR;
+        $statement = $this->conexion->prepare($query);
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
     }
 
     public function Ver_Jugador(){
@@ -277,15 +290,22 @@ class Administrativo extends Database{
     }
 
     public function Eliminar_Jugador(){
-
+        
     }
 
     public function Buscar_Jugador(){
-
+        
     }
 
     public function Mostar_Lista_Equipos(){
-
+        $row=false;
+        $query = "SELECT * FROM " .T_EQUIPO;
+        $statement = $this->conexion->prepare($query);
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
     }
 
     public function Ver_Equipo(){
@@ -305,7 +325,14 @@ class Administrativo extends Database{
     }
 
     public function Mostrar_Lista_Arbitros(){
-
+        $row=false;
+        $query = "SELECT * FROM " .T_ARBITRO;
+        $statement = $this->conexion->prepare($query);
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
     }
 
     public function Crear_Arbitro(){
@@ -329,7 +356,14 @@ class Administrativo extends Database{
     }
 
     public function Mostrar_Lista_Representantes(){
-
+        $row=false;
+        $query = "SELECT * FROM " .T_REPRE;
+        $statement = $this->conexion->prepare($query);
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
     }
 
     public function Crear_Representante(){
@@ -353,6 +387,13 @@ class Administrativo extends Database{
     }
 
     public function Mostar_Lista_Partidos(){
-
+        $row=false;
+        $query = "SELECT * FROM " .T_PARTIDO;
+        $statement = $this->conexion->prepare($query);
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
     }
 }

@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Crear Partidos</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
+
     <link rel="stylesheet" href="../Assets/css/formulario.css">
+
 </head>
 <body>
 <div class="menu">
     <nav>
         <ul>
+
             <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
             
@@ -22,12 +25,21 @@
             <a href="<?= BASE_DIR.'AdministrarPartidos/showPartido' ?>"><li>Lista de Partidos</li></a>
             
             
+
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+        </ul>
+        <ul>       
+            <li>Crear Partido</li>
+            <li>Listado de Reportes de Partidos</li>
+            <li>Lista de Partidos</li>
+
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
         </ul>
     </nav>
 </div>
+
 
 <div class="form">
     <form  class="formulario" method="POST" action="">
@@ -47,6 +59,11 @@
         <button>Guardar</button>
 
     </form>
+
+<div class="container3">
+
+
+
 
 </div>
 

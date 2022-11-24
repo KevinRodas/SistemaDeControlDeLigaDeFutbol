@@ -16,10 +16,11 @@ class Jugador extends Database{
         parent::__construct();
     }
 
+
     public function getIdJugador(){
         return $this->codigo;
     }
-
+    
     public function setIdJugador($id){
         $this->codigo = $id;
         return $this;

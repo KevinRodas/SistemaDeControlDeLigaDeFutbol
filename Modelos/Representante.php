@@ -1,6 +1,7 @@
 <?php
 require_once('database/Database.php');
 require_once "config/configGeneral.php";
+require_once "Modelos/Jugador.php";
 
 class Representante extends Database{
     public $codigo;
@@ -12,7 +13,7 @@ class Representante extends Database{
         parent::__construct();
     }
 
-    public function getIdRepre(){
+     public function getIdRepre(){
         return $this->codigo;
     }
 
@@ -107,6 +108,34 @@ class Representante extends Database{
     
     public function Registar_Jugadores(){
         
+        $j= new Jugador();
+        $query = "INSERT INTO " . T_USUARIO . "(". U_ID. ','. U_NOM.','. U_LN.','.U_AGE.','.U_TEL.','.U_MAIL.','.U_PASS.','.U_ROL.")" . " VALUES(:" . U_ID . ", :" . U_NOM. ", :" . U_LN . ", :" . U_AGE . ", :". U_TEL . ", :". U_MAIL. ", :". U_PASS . ", :". U_ROL. ")";
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . U_ID, $j->getCodigo());
+        $statement->bindValue(':' . U_NOM, $j->getNombre());
+        $statement->bindValue(':' . U_LN, $j->getApellido());
+        $statement->bindValue(':' . U_AGE, $j->getEdad());
+        $statement->bindValue(':' . U_TEL, $j->getNtelefono());
+        $statement->bindValue(':' . U_MAIL, $j->getCorreo());
+        $statement->bindValue(':' . U_PASS, "1234");
+        $statement->bindValue(':' . U_ROL, "Jugador");
+
+        
+        $query1 = "INSERT INTO " . T_JUGADOR . "(". JUG_ID. ','. JUG_USER.','. JUG_EQP.','.JUG_PART.','.JUG_SANC.','.JUG_GOL.")" . " VALUES(:" . JUG_ID . ", :" . JUG_USER. ", :" . JUG_EQP . ", :" . JUG_PART . ", :". JUG_SANC. . ", :". JUG_GOL. ")";
+        $statement1 = $this->conexion->prepare($query1);
+        $statement1->bindValue(':' . JUG_ID, NULL);
+        $statement1->bindValue(':' . JUG_USER, $j->getCodigo());
+        $statement1->bindValue(':' . JUG_EQP, $j->getCodEquipo());
+        $statement1->bindValue(':' . JUG_PART, "0");
+        $statement1->bindValue(':' . JUG_SANC, "0");
+        $statement1->bindValue(':' . JUG_GOL, "0");
+
+        $message = "<h1>Error al ingresar datos!</h1>";
+        if ($statement->execute() && $statement1->execute()) {
+            $message = "<h1>Datos ingresados con éxito!</h1>";
+        }
+        return $message;
+
     }
     
     public function Aceptar_Partido(){
