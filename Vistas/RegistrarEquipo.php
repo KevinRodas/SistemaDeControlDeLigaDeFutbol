@@ -17,9 +17,9 @@
         </ul>
         <ul>       
             
-            <a href="<?= ?>"><li>Registrar Equipo</li></a>
-            <a href="<?= ?>"><li>Listado de Equipos </li></a>
-            <a href="<?= ?>"><li>Administrar Indumentaria de Equipo</li></a>
+            <a href="<?= BASE_DIR?>"><li>Registrar Equipo</li></a>
+            <a href="<?= BASE_DIR?>"><li>Listado de Equipos </li></a>
+            <a href="<?= BASE_DIR?>"><li>Administrar Indumentaria de Equipo</li></a>
             
             
         </ul>
