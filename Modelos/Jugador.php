@@ -21,6 +21,15 @@ class Jugador extends Database{
         parent::__construct();
     }
 
+    public function getCodigo(){
+        return $this->codigo;
+    }
+
+    public function setCodigo($cod){
+        $this->codigo = $cod;
+        return $this;
+    }
+
     public function getNombre(){
         return $this->nombre;
     }
