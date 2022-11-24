@@ -84,6 +84,7 @@ ul li{
     align-items: center;
     margin: 50px;
     padding: 10px;
+   
 
 }
 
@@ -224,6 +225,7 @@ p {
 .footer {
     width: 100%;
     height: 200px;
+    margin-top: 15%;
     display: flex;
     background-color: #3360CF; 
     border-color: 5px black;
