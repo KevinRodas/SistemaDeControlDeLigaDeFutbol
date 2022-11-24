@@ -1,6 +1,7 @@
 <?php 
+require_once "Modelos/Equipo.php";
 //session_start();
-class PanelAdministradorController
+class EquipoController
 {
 public function __construct()
 {
@@ -40,8 +41,19 @@ public function showAdminTorneo(){
     require_once "Vistas/AdministrarTorneo.php";
 }
 
+public function llenarSelect(){
+    $e = new Equipo();
+    
+    $registros = $e->Mostrar_Equipos(); //Pedimos la lista de torneos
+        $data[T_EQUIPO] = "";
+
+        if ($registros != null) {
+            $data[T_EQUIPO] = $registros;           
+        }
+}
+
 public function buscarDireccion($action){
-     if ($action=='showHome') {
+     /*if ($action=='showHome') {
           $this->showHome();
      }
       elseif ($action=="showAdminPartido") {
@@ -70,7 +82,7 @@ public function buscarDireccion($action){
       }
       else{
           return false;
-      }
+      }*/
 }
 
 }

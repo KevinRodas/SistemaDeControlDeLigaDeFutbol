@@ -91,11 +91,10 @@ define('REP_EQP','id_equipo');
 //Definiciones de constantes para tabla jugador
 define('T_JUGADOR','tbl_jugador');
 define('JUG_ID','id_jugador');
-define('JUG_USER','id_usuario');
-define('JUG_EQP','tbl_jugador');
-define('JUG_PART','tbl_jugador');
-define('JUG_SANC','tbl_jugador');
-define('JUG_GOL','tbl_jugador');
+define('JUG_EQP','id_equipo');
+define('JUG_PART','n_partidos');
+define('JUG_SANC','n_sanciones');
+define('JUG_GOL','n_goles');
 
 //Definiciones de constantes para tabla reporte
 define('T_REPORTE','tbl_reporte');
