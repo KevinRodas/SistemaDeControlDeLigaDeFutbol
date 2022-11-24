@@ -27,9 +27,9 @@ require_once "./config/configGeneral.php";
             <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminPartido' ?>"><li>Partidos</li></a>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>"><li>Equipos</li></a>
-            <a href=""><li>Miembros</li></a> 
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminMiembro'?>"><li>Miembros</li></a> 
             <a href=""><li>Sanciones</li></a>
-            <a href=""><li>Localidades</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminLocal'?>"><li>Localidades</li></a>
             <a href=""><li>Noticias</li></a>
             <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a></li>
             

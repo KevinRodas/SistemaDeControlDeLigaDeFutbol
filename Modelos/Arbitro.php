@@ -4,11 +4,7 @@ require_once "config/configGeneral.php";
 
 class Arbitro extends Database{
     public $codigo;
-    public $nombre;
-    public $apellido;
-    public $edad;
-    public $ntelefono;
-    public $correo;
+   
     public $direccion;
     public $disponibilidad;
     public $npartidos;
@@ -18,51 +14,16 @@ class Arbitro extends Database{
         parent::__construct();
     }
 
-    public function getNombre(){
-        return $this->nombre;
+    public function getId(){
+        return $this->codigo;
     }
 
-    public function setNombre($nom){
-        $this->nombre = $nom;
+    public function setId($id){
+        $this->codigo = $id;
         return $this;
     }
 
-    public function getApellido(){
-        return $this->apellido;
-    }
-
-    public function setApellido($ap){
-        $this->apellido = $ap;
-        return $this;
-    }
-
-    public function getEdad(){
-        return $this->edad;
-    }
-
-    public function setEdad($ed){
-        $this->edad = $ed;
-        return $this;
-    }
-
-    public function getNtelefono(){
-        return $this->ntelefono;
-    }
-
-    public function setNtelefono($ntel){
-        $this->ntelefono = $ntel;
-        return $this;
-    }
-
-    public function getCorreo(){
-        return $this->correo;
-    }
-
-    public function setCorreo($cor){
-        $this->correo = $cor;
-        return $this;
-    }
-
+    
     public function getDireccion(){
         return $this->direccion;
     }
@@ -90,6 +51,74 @@ class Arbitro extends Database{
         return $this;
     }
     
+    public function Crear_Arbitro(){
+        $query = "INSERT INTO " . T_ARBITRO. " (". ARB_ID. ', '. ARB_DIR.', '. ARB_DISP.', '. ARB_PART.")" . 
+        " VALUES(:" . ARB_ID . ", :" . ARB_DIR. ", :" . ARB_DISP . ", :" . ARB_PART.")";
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . ARB_ID, $this->getId());
+        $statement->bindValue(':' . ARB_DIR, $this->getDireccion());
+        $statement->bindValue(':' . ARB_DISP, $this->getDisponibilidad());
+        $statement->bindValue(':' . ARB_PART, $this->getNpartidos());
+        
+        var_dump($statement);
+        $message = "<h1>Error al ingresar datos!</h1>";
+        if ($statement->execute()) {
+            var_dump($statement);
+            $message = "<h1>Datos ingresados con éxito!</h1>";
+        }
+        return $message;
+    }
+    
+    public function Modificar_Arbitro(){
+        $query = " UPDATE " . T_REPRE . "SET(".  ARB_ID. ', '. ARB_DIR.', '. ARB_DISP.', '. ARB_PART.")" . 
+        " VALUES(:" .  ARB_ID . ", :" . ARB_DIR. ", :" . ARB_DISP . ", :" . ARB_PART. ")";
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . ARB_ID, $this->getId());
+        $statement->bindValue(':' . ARB_DIR, $this->getDireccion());
+        $statement->bindValue(':' . ARB_DISP, $this->getDisponibilidad());
+        $statement->bindValue(':' . ARB_PART, $this->getNpartidos());
+
+        $message = "<h1>Error al modificar datos!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos modificados con éxito!</h1>";
+        }
+        return $message;
+    }
+    
+    public function Ver_Arbitro(){
+        $row=false;
+        $query = "SELECT * FROM " .T_ARBITRO;
+        $statement = $this->conexion->prepare($query);
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
+    
+    public function Buscar_Arbitro(){
+        $query = "SELECT * FROM " . T_ARBITRO . "WHERE " . ARB_ID . "= :" . ARB_ID ;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . ARB_ID, $this->getId());
+        $row = false;
+        if ($statement->execute()) {
+            $row = $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $row;
+    }
+
+    public function Eliminar_Arbitro(){
+        $query = "DELETE FROM " . T_ARBITRO . " WHERE " . ARB_ID . "= :" . ARB_ID ;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . ARB_ID, $this->getId());
+
+        $message = "<h1>Error al ELIMINAR !</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos eliminados con éxito!</h1>";
+        }
+        return $message;
+    }
+
     public function Crear_Reportes(){
         
     }
