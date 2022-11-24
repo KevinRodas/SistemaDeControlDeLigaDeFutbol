@@ -1,7 +1,7 @@
 <?php
 require_once('database/Database.php');
 require_once "config/configGeneral.php";
-
+require_once "Modelos/Reportes.php";
 class Arbitro extends Database{
     public $codigo;
    
@@ -120,7 +120,9 @@ class Arbitro extends Database{
     }
 
     public function Crear_Reportes(){
-        
+        $cr = new Reportes();
+
+        $cr->Crear_Reporte();
     }
     
     public function Describir_Reporte(){
@@ -128,6 +130,13 @@ class Arbitro extends Database{
     }
     
     public function Lista_Reportes(){
-
+        $row=false;
+        $query = "SELECT * FROM " .T_REPORTE;
+        $statement = $this->conexion->prepare($query);
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
     }
 }
