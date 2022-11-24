@@ -2,7 +2,7 @@
 require_once('database/Database.php');
 require_once "config/configGeneral.php";
 
-class Sanciones{
+class Sanciones extends Database{
     public $cod_sancion;
     public $cod_partido;
     public $cod_arbitro;

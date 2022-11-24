@@ -2,7 +2,7 @@
 require_once('database/Database.php');
 require_once "config/configGeneral.php";
 
-class Representante{
+class Representante extends Database{
     public $codigo;
     public $nombre;
     public $apellido;
@@ -81,6 +81,7 @@ class Representante{
     }
 
     ///////////////////////Atributos y metodos jugador////////////////////////////////
+   /*
     public $codigo;
     public $nombre;
     public $apellido;
@@ -142,7 +143,7 @@ class Representante{
         $this->correo = $cor;
         return $this;
     }
-
+*/
 
     /////////////////////////////////////////////////////////////////////////////////////////
     

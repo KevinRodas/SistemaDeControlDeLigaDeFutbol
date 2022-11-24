@@ -18,9 +18,9 @@ require_once "./config/configGeneral.php";
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
         <ul>       
-            <a href="<?=  ?>"><li>Registrar Equipo</li></a>
-            <a href="<?=  ?>"><li>Listado de Equipos</li></a>
-            <a href="<?=  ?>"><li>Administrar Indumentaria</li></a>
+            <a href="<?= BASE_DIR ?>"><li>Registrar Equipo</li></a>
+            <a href="<?= BASE_DIR ?>"><li>Listado de Equipos</li></a>
+            <a href="<?= BASE_DIR ?>"><li>Administrar Indumentaria</li></a>
             <a href="<?= BASE_DIR.'/Login/salir'?>"> <li>LogOut</li></a>
         </ul>
         <ul>

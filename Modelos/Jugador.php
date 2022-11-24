@@ -2,7 +2,7 @@
 require_once('database/Database.php');
 require_once "config/configGeneral.php";
 
-class Jugador{
+class Jugador extends Database{
 //Atributos
     public $codigo;
     public $nombre;
@@ -113,6 +113,6 @@ class Jugador{
     }
     
     public function Mostrar_Partidos(){
-        
+
     }
 }

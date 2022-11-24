@@ -2,7 +2,7 @@
 require_once('database/Database.php');
 require_once "config/configGeneral.php";
 
-class Administrativo{
+class Administrativo extends Database{
     public $codigo;
     public $nombre;
     public $apellido;
@@ -70,7 +70,7 @@ class Administrativo{
         return $this;
     }
 
-
+/*
     ///////////////////////Atributos y metodos Arbitro///////////////////////////////////////
     public $codigo;
     public $nombre;
@@ -229,7 +229,7 @@ class Administrativo{
         $this->cod_equipo = $ceq;
         return $this;
     }
-
+*/
     /////////////////////////////////////////////////////////////////////////////////////////
     
     public function Cancelacion_Sanciones(){
