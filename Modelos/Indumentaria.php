@@ -2,7 +2,7 @@
 require_once('database/Database.php');
 require_once "config/configGeneral.php";
 
-class Indumentaria{
+class Indumentaria extends Database{
     public $cod_indumentaria;
     public $cod_logo;
     public $color_pri;
