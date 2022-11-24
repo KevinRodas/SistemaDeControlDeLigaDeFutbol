@@ -12,10 +12,11 @@
         <ul>
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
-        <ul>       
-            <li>Registrar Jugador</li>
-            <li>Actualizar Jugador</li>
-            <li>Listado de Jugador</li>
+        <ul>     
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>  
+            <a href="<?= BASE_DIR.'/Jugador/showRegistro' ?>"><li>Registrar Jugador</li></a>
+            <a href="<?= BASE_DIR.'/Jugador/showUpdate' ?>"><li>Actualizar Jugador</li></a>
+            <a href="<?= BASE_DIR.'/Jugador/showListado'?>"><li>Listado de Jugador</li></a>
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
@@ -24,21 +25,28 @@
 </div>
 
 <div class="formulario-registro">
-
-    <h4>Registro de Jugadores</h4>
-    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese el Nombre del Jugador">
-    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese el Apellido del Jugador">
-    <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese el Correo electronico">
-    <input class="controls" type="text" name="equipo" id="equipo" placeholder="Ingrese el equipo al que pertenece">
-    <input class="controls" type="text" name="numero" id="numero" placeholder="Ingrese el numero de telefono">
-    <input class="controls" type="text" name="direccion" id="direccion" placeholder="Ingrese la dirección">
+<form action="<?= BASE_DIR.'/Jugador/createJugador'?>" method="post">
+<h4>Registro de Jugadores</h4>
+    <input class="controls" type="text" name="<?=U_ID  ?>" id="usuario" placeholder="Ingrese Nombre de Usuario">
+    <input class="controls" type="text" name="<?= U_NOM ?>" id="nombres" placeholder="Ingrese el Nombre del Jugador">
+    <input class="controls" type="text" name="<?= U_LN ?>" id="apellidos" placeholder="Ingrese el Apellido del Jugador">
+    <input class="controls" type="email" name="<?= U_MAIL?>" id="correo" placeholder="Ingrese el Correo electronico">
+    <input class="controls" type="text" name="<?= JUG_EQP ?>" id="equipo" placeholder="Ingrese el equipo al que pertenece">
+    <input class="controls" type="text" name="<?= U_TEL ?>" id="numero" placeholder="Ingrese el numero de telefono">
+    <input class="controls" type="text" name="<?= U_AGE ?>" id="edad" placeholder="Ingrese edad">
+    <input class="controls" type="text" name="<?= U_PASS ?>" id="contraseña" placeholder="Ingrese contraseña para usuario">
     <input class="botons" type="submit" value="Registrar">
+</form>
+<?php
+    if (!empty($m)) {
+        echo '<h1>'.$m.'</h1>';
+    }
+?>
+    
   
+    
 </div>
 
-<div class="container-filtrar">
-    <button class="boton-regresar">Regresar</button>
-</div>
 
 <footer class="footer">
 
