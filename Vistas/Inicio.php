@@ -7,113 +7,54 @@
 
     <link rel="stylesheet" href="Assets/css/index.css">
 
-    <link rel="stylesheet" href="../Assets/css/index.css">
-
 </head>
 <body>
 <div class="menu">
     <nav>
         <ul>
 
-            <li><img class ="imagen" src="Assets/img/logo.jpg" alt=""></li>
 
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+            <li><img class ="imagen" src="./Assets/img/logo.jpg" alt=""></li>
 
         </ul>
         <ul>       
-            <li>Inicio</li>
-            <li>Acerca de</li>
-            <li>Partidos</li>
-            <li>Noticias</li>
-            <li>Equipos</li>
+            <a href="<?= BASE_DIR ?>"><li>Inicio </li></a>
+            <a href="<?= BASE_DIR.'//Vistas/AcercaDe.php' ?>"><li>Acaerca De</li></a>
+            <a href="<?= BASE_DIR.'//Vistas/Partidos.php'?>"><li>Partidos</li></a>
+            <a href="<?= BASE_DIR.'//Vistas/Noticias.php'?>"><li>Noticias</li></a> 
+            <a href="<?= BASE_DIR.'//Vistas/Equipos.php'?>"><li>Equipos</li></a>
 
             <li> <a href="http://localhost/SistemaDeControlDeLigaDeFutbol/Login/login">Login</a></li>
         </ul>
     </nav>
 </div>
-<div class="slider">
-    <ul>
-        <li>
-            <img src="Assets/img/noticia1.jpg" alt="">
-        </li>
-        <li>
-            <img src="Assets/img/noticia6.jpg">
-        </li>
-        <li>
-            <img src="Assets/img/noticia7.jpg">
-        </li>
-        <li>
-            <img src="Assets/img/noticia8.jpg">
-        </li>
-    </ul>
-</div>
+
 <div class="container2">
-<div class="card">
-    <div class="face front">
-        <img src="Assets/img/noticia6.jpg" alt="">
-
-            <li>Login</li>
-        </ul>
-    </nav>
-</div>
 
 <div class="slider">
     <ul>
         <li>
-            <img src="../Assets/img/noticia1.jpg" alt="">
+            <img src="./Assets/img/noticia1.jpg" alt="">
         </li>
         <li>
-            <img src="../Assets/img/noticia6.jpg">
+            <img src="./Assets/img/noticia6.jpg">
         </li>
         <li>
-            <img src="../Assets/img/noticia7.jpg">
+            <img src="./Assets/img/noticia7.jpg">
         </li>
         <li>
-            <img src="../Assets/img/noticia8.jpg">
+            <img src="./Assets/img/noticia8.jpg">
         </li>
     </ul>
+</div>
 </div>
 
 <div class="container2">
 
 <div class="card">
     <div class="face front">
-        <img src="../Assets/img/noticia6.jpg" alt="">
+        <img src="./Assets/img/noticia6.jpg" alt="">
 
-        <h3>Tarjeta Uno</h3>
-    </div>
-    <div class="face back">
-        <h3>Tarjeta Uno</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
-        <div class="link">
-            <a href="">Detalles</a>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-<div class="card">
-    <div class="face front">
-        <img src="../Assets/img/noticia7.jpg" alt="">
-        <h3>Tarjeta Uno</h3>
-    </div>
-    <div class="face back">
-        <h3>Tarjeta Uno</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
-        <div class="link">
-            <a href="">Detalles</a>
-        </div>
-    </div>
-</div>
-
-
-
-<div class="card">
-    <div class="face front">
-        <img src="../Assets/img/noticia8.jpg" alt="">
         <h3>Tarjeta Uno</h3>
     </div>
     <div class="face back">
@@ -127,7 +68,35 @@
 
 <div class="card">
     <div class="face front">
-        <img src="../Assets/img/noticia1.jpg" alt="">
+        <img src="./Assets/img/noticia7.jpg" alt="">
+        <h3>Tarjeta Uno</h3>
+    </div>
+    <div class="face back">
+        <h3>Tarjeta Uno</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
+        <div class="link">
+            <a href="">Detalles</a>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="face front">
+        <img src="./Assets/img/noticia8.jpg" alt="">
+        <h3>Tarjeta Uno</h3>
+    </div>
+    <div class="face back">
+        <h3>Tarjeta Uno</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
+        <div class="link">
+            <a href="">Detalles</a>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="face front">
+        <img src="./Assets/img/noticia1.jpg" alt="">
         <h3>Tarjeta Uno</h3>
     </div>
     <div class="face back">
@@ -142,15 +111,7 @@
 </div>
 <div class="container">
 </div>
-<footer class="footer">
 
-
-</div>
-
-
-<div class="container">
-
-</div>
 
 <footer class="footer">
 

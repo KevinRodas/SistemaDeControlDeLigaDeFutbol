@@ -6,6 +6,8 @@
     <title>Registrar Equipo</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
     <link rel="stylesheet" href="../Assets/css/formulario.css">
+    <link rel="stylesheet" href="../Assets/css/administrador.css">
+
 </head>
 <body>
 <div class="menu">
@@ -19,8 +21,12 @@
             
             <a href="<?= BASE_DIR?>"><li>Registrar Equipo</li></a>
             <a href="<?= BASE_DIR?>"><li>Listado de Equipos </li></a>
-            <a href="<?= BASE_DIR?>"><li>Administrar Indumentaria de Equipo</li></a>
+            <!-- <a href=""><li>Administrar Indumentaria de Equipo</li></a> -->
             
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>  
+            <a href="<?= BASE_DIR.'/Jugador/showRegistro' ?>"><li>Registrar Equipo</li></a>
+            <a href="<?= BASE_DIR.'/Jugador/showUpdate' ?>"><li>Listado de Equipos</li></a>
+            <a href="<?= BASE_DIR.'/Jugador/showListado'?>"><li>Listado de Jugador</li></a>
             
         </ul>
         <ul>

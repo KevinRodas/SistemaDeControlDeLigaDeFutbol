@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Panel Representantes</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
+
 </head>
 <body>
 <div class="menu">
@@ -17,13 +18,11 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
         <ul>       
-            <li>Inicio</li>
-            <li>Partidos</li>
-            <li>Equipos</li>
-            <li>Miembros</li>
-            <li>Sanciones</li>
-            <li>Localidades</li>
-            <li>Noticias</li>
+            <a href="<?= BASE_DIR.'Jugador/showRegistro'?>"><li> Registrar jugadores</li></a></li>
+            <li></li>
+            <li>Lista de partidos</li>
+            <li>Listado de Jugadores</li>
+             <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a></li>
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
@@ -32,18 +31,22 @@
 </div>
 
 <div class="container2">
+<a href="<?= BASE_DIR.'Jugador/showRegistro'?>"><button class="boton">
+    <p>Registrar jugadores</p>
+</button></a>
 
-<button class="boton">
-    <p>Registrar Representante</p>
-</button>
+<a href=""><button class="boton">
+    <p>Lista de partidos</p>
+</button></a>
 
-<button class="boton">
-    <p>Actualizar Representante</p>
-</button>
 
-<button class="boton">
-    <p>Listado de Representantes</p>
-</button>
+<a href="<?= BASE_DIR.'Jugador/showListado'?>">
+    <button class="boton">
+        <p>Listado de Jugadores</p>
+    </button>
+</button></a>
+
+
 
 </div>
 

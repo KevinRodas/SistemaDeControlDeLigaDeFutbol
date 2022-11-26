@@ -34,14 +34,6 @@ require_once "./config/configGeneral.php";
             <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a></li>
             
 
-            <li>Inicio</li>
-            <li>Partidos</li>
-            <li>Equipos</li>
-            <li>Miembros</li>
-            <li>Sanciones</li>
-            <li>Localidades</li>
-            <li>Noticias</li>
-
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
@@ -64,19 +56,6 @@ require_once "./config/configGeneral.php";
 <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminTorneo'?>">
     <button class="boton" ><p>Administrar Torneos</p></button>
 </a>
-
-
-<button class="boton">
-    <p>Administrar Partidos</p>
-</button>
-
-<button class="boton">
-    <p>Administrar Equipos</p>
-</button>
-
-<button class="boton">
-    <p>Cancelación de sanciones</p>
-</button>
 
 
 </div>
@@ -113,17 +92,6 @@ require_once "./config/configGeneral.php";
 </a>
     
 
-<button class="boton">
-    <p>Administrar Notocias</p>
-</button>
-
-<button class="boton">
-    <p>Administrar Miembros</p>
-</button>
-
-<button class="boton">
-    <p>Administrar Localidades</p>
-</button>
 
 
 </div>

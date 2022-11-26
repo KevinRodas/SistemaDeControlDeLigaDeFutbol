@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Descripción de Reporte</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
+    <link rel="stylesheet" href="../Assets/css/administrador.css">
+
 </head>
 <body>
 <div class="menu">

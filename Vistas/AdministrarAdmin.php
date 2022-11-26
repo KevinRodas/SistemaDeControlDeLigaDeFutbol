@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Administrar Representante</title>
+    <title>Administrar Administradores</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
+
 </head>
 <body>
 <div class="menu">
@@ -20,9 +21,9 @@
             <a href=""><li>Sanciones</li></a>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminLocal'?>"><li>Localidades</li></a>
             <a href=""><li>Noticias</li></a>
-            <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a>
+            <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a></li>
+            
         </ul>
-
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
         </ul>
@@ -30,21 +31,20 @@
 </div>
 
 <div class="container2">
-    <a href="<?= BASE_DIR.'/Representante/showRegistro' ?>">
+    <a href="<?= BASE_DIR.'/Administrador/showRegistro' ?>">
         <button class="boton">
-            <p>Registrar Representante</p>
+            <p>Registrar Administrador</p>
         </button>
     </a>
-    <a href="<?= BASE_DIR.'/Representante/showUpdate' ?>">
+  
+    <a href="<?= BASE_DIR.'/Administrador/showListado' ?>">
         <button class="boton">
-            <p>Actualizar Representante</p>
+        <p>Listado de Administradores</p>
         </button>
     </a>
-    <a href="<?= BASE_DIR.'/Representante/showListado' ?>">
-        <button class="boton">
-            <p>Listado de Representantes</p>
-        </button>
-    </a>
+
+
+
 </div>
 
 <footer class="footer">
