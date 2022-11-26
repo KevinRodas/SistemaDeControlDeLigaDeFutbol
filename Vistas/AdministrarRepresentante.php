@@ -13,14 +13,16 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
         <ul>       
-            <li>Inicio</li>
-            <li>Partidos</li>
-            <li>Equipos</li>
-            <li>Miembros</li>
-            <li>Sanciones</li>
-            <li>Localidades</li>
-            <li>Noticias</li>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminPartido' ?>"><li>Partidos</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>"><li>Equipos</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminMiembro'?>"><li>Miembros</li></a> 
+            <a href=""><li>Sanciones</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminLocal'?>"><li>Localidades</li></a>
+            <a href=""><li>Noticias</li></a>
+            <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a>
         </ul>
+
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
         </ul>
@@ -28,19 +30,21 @@
 </div>
 
 <div class="container2">
-
-<button class="boton">
-    <p>Registrar Representante</p>
-</button>
-
-<button class="boton">
-    <p>Actualizar Representante</p>
-</button>
-
-<button class="boton">
-    <p>Listado de Representantes</p>
-</button>
-
+    <a href="<?= BASE_DIR.'/Representante/showRegistro' ?>">
+        <button class="boton">
+            <p>Registrar Representante</p>
+        </button>
+    </a>
+    <a href="<?= BASE_DIR.'/Representante/showUpdate' ?>">
+        <button class="boton">
+            <p>Actualizar Representante</p>
+        </button>
+    </a>
+    <a href="<?= BASE_DIR.'/Representante/showListado' ?>">
+        <button class="boton">
+            <p>Listado de Representantes</p>
+        </button>
+    </a>
 </div>
 
 <footer class="footer">

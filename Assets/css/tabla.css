@@ -1,0 +1,74 @@
+.tb{
+    margin-bottom: 30%;
+}
+table {
+    margin-top: 30%;
+    width: 80%;
+    /*border-collapse: collapse;*/
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 50%;
+
+   
+  }
+h1{
+    text-align: center;
+    margin-top: 50px;;
+}
+/*
+.tabla{
+    //padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+}*/
+
+thead{
+    background-color: #181818;
+    border-radius: 30%;
+    border-start-end-radius: 30px;
+    color: antiquewhite;
+    text-align: center;
+}
+
+tbody{
+    background-color: #D6E4E5;
+    color: black;
+    text-align: center;
+}
+
+th,tr{
+    height: 50px;
+}
+
+.boton-edit{
+  border: none;
+  background-color: #FFD372;
+  padding: 2px;
+  border-radius: 10px;
+  margin: 10px;
+
+}
+
+.boton-ver{
+    border: none;
+    background-color: #5DA7DB;
+    padding: 2px;
+    border-radius: 10px;
+    margin: 10px;
+
+  }
+
+.boton-delete{
+    border: none;
+    background-color: #FF5858;
+    padding: 2px;
+    border-radius: 10px;
+    margin: 10px;
+
+  }
+
+.img-boton{
+    width: 35px;
+    height: 35px;
+}

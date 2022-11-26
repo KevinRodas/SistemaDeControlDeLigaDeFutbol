@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Actualizar Jugadores</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
+
 </head>
 <body>
 <div class="menu">
@@ -13,9 +14,11 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
         <ul>       
-            <li>Registrar Jugador</li>
-            <li>Actualizar Jugador</li>
-            <li>Listado de Jugador</li>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>
+            <a href="<?= BASE_DIR.'/Jugador/showRegistro' ?>"><li>Registrar Jugador</li></a>
+            <a href="<?= BASE_DIR.'/Jugador/showUpdate' ?>"><li>Actualizar Jugador</li></a>
+            <a href="<?= BASE_DIR.'/Jugador/showListado'?>"><li>Listado de Jugador</li></a>
+         
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>

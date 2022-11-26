@@ -14,12 +14,12 @@
         </ul>
         <ul>       
             <li>Inicio</li>
-            <li>Partidos</li>
-            <li>Equipos</li>
-            <li>Miembros</li>
+            <li>Crear Reporte</li>
+            <li>Detalle Sanciones</li>
+            <li>Listado de reportes</li>
             <li>Sanciones</li>
-            <li>Localidades</li>
-            <li>Noticias</li>
+            <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a></li>
+
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
@@ -28,6 +28,18 @@
 </div>
 
 <div class="container2">
+
+<a href="<?= BASE_DIR.'Reporte/showcreateReporte' ?>">
+    <button class="boton">Crear Reportes </button>
+</a>
+
+<a href="<?= BASE_DIR.'PanelArbitro/showAdminRepote' ?>">
+    <button class="boton">Detalle Sanciones</button>
+</a>
+
+<a href="<?= BASE_DIR.'PanelArbitro/showAdminRepote' ?>">
+    <button class="boton">Listado de reportes</button>
+</a>
 
 
 

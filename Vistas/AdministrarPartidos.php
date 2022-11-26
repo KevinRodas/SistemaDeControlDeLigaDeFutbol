@@ -1,3 +1,8 @@
+
+<?php
+require_once "./config/configGeneral.php";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,17 +15,21 @@
 <div class="menu">
     <nav>
         <ul>
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+
+        <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
         <ul>       
-            <li>Inicio</li>
-            <li>Partidos</li>
-            <li>Equipos</li>
-            <li>Miembros</li>
-            <li>Sanciones</li>
-            <li>Localidades</li>
-            <li>Noticias</li>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminPartido' ?>"><li>Partidos</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>"><li>Equipos</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminMiembro'?>"><li>Miembros</li></a> 
+            <a href=""><li>Sanciones</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminLocal'?>"><li>Localidades</li></a>
+            <a href=""><li>Noticias</li></a>
+            <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a></li>
         </ul>
+        
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
         </ul>
@@ -29,17 +38,29 @@
 
 <div class="container2">
 
-<button class="boton">
-    <p>Crear Partidos</p>
-</button>
 
-<button class="boton">
-    <p>Listado de reportes de Partidos</p>
-</button>
 
-<button class="boton">
-    <p>Lista de Partidos</p>
+<a href="<?= BASE_DIR.'AdministrarPartidos/showcreatePartido' ?>">
+    <button class="boton">
+    Crear Partidos
+    </button>
+</a>
+
+
+
+<a href="<?= BASE_DIR.'AdministrarPartidos/showReporte' ?>">
+<button class="boton">Listado de reportes de Partidos
 </button>
+</a>
+
+
+
+<a href="<?= BASE_DIR.'AdministrarPartidos/showPartido' ?>">
+    <button class="boton">Lista de Partidos
+    </button>
+    </a>
+
+
 
 </div>
 

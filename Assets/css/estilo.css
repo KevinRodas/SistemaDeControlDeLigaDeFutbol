@@ -27,9 +27,14 @@ body {
    color: white;
    background-color: #3360CF;
 }
+.menu ul a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    color: white;
+ }
 
 nav{
     width: 100%;
+    color: white;
     height: 150px;
     display: flex;
     align-items: center;
@@ -348,3 +353,5 @@ p {
     margin: 16px 0;
     font-size: 16px;
   }
+
+ 

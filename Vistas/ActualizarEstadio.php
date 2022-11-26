@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Actualizar Estadio</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
+
 </head>
 <body>
 <div class="menu">
     <nav>
         <ul>
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+
+        <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
         <ul>       
-            <li>Registrar Estadio</li>
-            <li>Actualizar Estadio</li>
-            <li>Listado de Estadio</li>
-        </ul>
-        <ul>
+            <a href="<?= BASE_DIR.'Estadio/showRegistro' ?>"><li>Registrar Estadio</li></a>
+            <a href="<?= BASE_DIR.'Estadio/showUpdate' ?>"><li>Actualizar Estadio</li></a>
+            <a href="<?= BASE_DIR.'Estadio/showEstadios' ?>"><li>Listado de Estadios</li></a>
+            <a href="<?= BASE_DIR.'/Login/salir'?>"> <li>LogOut</li></a>         
+
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
         </ul>
     </nav>
