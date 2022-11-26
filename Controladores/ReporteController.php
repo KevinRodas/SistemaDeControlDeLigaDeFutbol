@@ -29,7 +29,7 @@ class ReporteController
     }
 
     public function showcreateReporte(){
-        require_once "Vistas/CrearReporte.php";
+        require_once "Vistas/RegistrarReporte.php";
         
    }
    public function showReportes(){

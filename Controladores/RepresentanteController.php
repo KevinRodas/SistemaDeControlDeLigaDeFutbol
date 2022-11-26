@@ -3,6 +3,8 @@
 require_once "config/configGeneral.php";
 require_once "config/db_config.php";
 require_once "Modelos/Representante.php";
+require_once "Modelos/Representante.php";
+
 class RepresentanteController
 {
 public function __construct()
@@ -13,7 +15,7 @@ public function createRepresentante(){
     $m=NULL;
     if(!empty($_POST)){
         $j= new Representante();
-        $j->setIdRepre($_POST[REP_ID]);
+        $j->setIdRepre($_POST[U_ID]);
         $j->setCodEquipo($_POST[REP_EQP]);
         $j->setDireccion($_POST[REP_DIR]);
 
@@ -80,9 +82,10 @@ public function showListado(){
     $data[T_REPRE] = "";
 
     if ($registros != null) {
-        $data[T_REPRE] = $registros;           
+        $data[T_REPRE] = $registros;     
+        require_once "Vistas/ListadoRepresentantes.php";
+      
     }
-    require_once "Vistas/ListadoRepresentantes.php";
 }
 
 //public function showDelete()

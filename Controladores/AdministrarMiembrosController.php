@@ -20,7 +20,7 @@ public function showAdminArbitro(){
 
 }
 public function showAdminAdministrador(){
-     //require_once "Vistas/";
+     require_once "Vistas/AdministrarAdmin.php";
 }
 
 public function buscarDireccion($action){
