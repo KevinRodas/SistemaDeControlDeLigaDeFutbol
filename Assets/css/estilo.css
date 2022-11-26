@@ -14,48 +14,27 @@ body {
     font-family: sans-serif;
 }
 
-
-.enlace {
-    outline: none;
-    text-decoration:none;
-    color: #ffffff;
-}
-
-
-
-.imagen {
-
 .imagen{
-
     width: 100px;
     height: 100px;
     border-radius: 50%;
     margin: 30%;
 }
-
-
-
-
 .menu{
-
    background-color: aliceblue;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
    font-size: large;
    color: white;
    background-color: #3360CF;
 }
-
-
-.menu a {
+.menu ul a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     color: white;
-    font-size: 50px;
-    text-align: center;
-    align-items: center;
-}
-
+ }
 
 nav{
     width: 100%;
+    color: white;
     height: 150px;
     display: flex;
     align-items: center;
@@ -94,7 +73,6 @@ ul li{
     align-items: center;
     margin: 50px;
     padding: 10px;
-   
 
 }
 
@@ -235,7 +213,6 @@ p {
 .footer {
     width: 100%;
     height: 200px;
-    margin-top: 15%;
     display: flex;
     background-color: #3360CF; 
     border-color: 5px black;
@@ -376,3 +353,5 @@ p {
     margin: 16px 0;
     font-size: 16px;
   }
+
+ 

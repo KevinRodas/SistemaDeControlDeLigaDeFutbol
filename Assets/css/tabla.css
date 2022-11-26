@@ -2,7 +2,7 @@
     margin-bottom: 30%;
 }
 table {
-    margin-top: 5px;
+    margin-top: 30%;
     width: 80%;
     /*border-collapse: collapse;*/
     margin-left: 10%;
@@ -24,16 +24,51 @@ h1{
 }*/
 
 thead{
-    background-color: black;
+    background-color: #181818;
+    border-radius: 30%;
+    border-start-end-radius: 30px;
     color: antiquewhite;
     text-align: center;
 }
+
 tbody{
-    background-color: #A7D0CD;
+    background-color: #D6E4E5;
     color: black;
     text-align: center;
 }
 
 th,tr{
-    height: 30px;
+    height: 50px;
+}
+
+.boton-edit{
+  border: none;
+  background-color: #FFD372;
+  padding: 2px;
+  border-radius: 10px;
+  margin: 10px;
+
+}
+
+.boton-ver{
+    border: none;
+    background-color: #5DA7DB;
+    padding: 2px;
+    border-radius: 10px;
+    margin: 10px;
+
+  }
+
+.boton-delete{
+    border: none;
+    background-color: #FF5858;
+    padding: 2px;
+    border-radius: 10px;
+    margin: 10px;
+
+  }
+
+.img-boton{
+    width: 35px;
+    height: 35px;
 }

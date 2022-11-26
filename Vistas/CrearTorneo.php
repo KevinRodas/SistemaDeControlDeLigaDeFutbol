@@ -10,6 +10,7 @@ require_once "./config/db_config.php";
     <title>Crear Partidos</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
     <link rel="stylesheet" href="../Assets/css/formulario.css">
+
 </head>
 <body>
 <div class="menu">

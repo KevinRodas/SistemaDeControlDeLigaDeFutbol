@@ -27,8 +27,8 @@
 </div>
 
 <div class="formulario-registro">
-<form action="<?= BASE_DIR.'/Jugador/createJugador'?>" method="post">
-<h4>Registro de Jugadores</h4>
+<form action="<?= BASE_DIR.'/'?>" method="post">
+<h4>Creacion de Reporte</h4>
     <input class="controls" type="text" name="<?=U_ID  ?>" id="usuario" placeholder="Ingrese Nombre de Usuario">
     <input class="controls" type="text" name="<?= U_NOM ?>" id="nombres" placeholder="Ingrese el Nombre del Jugador">
     <input class="controls" type="text" name="<?= U_LN ?>" id="apellidos" placeholder="Ingrese el Apellido del Jugador">
