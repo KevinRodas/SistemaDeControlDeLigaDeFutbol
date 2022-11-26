@@ -4,11 +4,6 @@ require_once "config/configGeneral.php";
 
 class Administrativo extends Database{
     public $codigo;
-    public $nombre;
-    public $apellido;
-    public $edad;
-    public $ntelefono;
-    public $correo;
     public $puesto;
 
     public function __construct()
@@ -16,50 +11,16 @@ class Administrativo extends Database{
         parent::__construct();
     }
 
-    public function getNombre(){
-        return $this->nombre;
+    public function getId(){
+        return $this->codigo;
     }
 
-    public function setNombre($nom){
-        $this->nombre = $nom;
+    public function setId($i){
+        $this->codigo = $i;
         return $this;
     }
 
-    public function getApellido(){
-        return $this->apellido;
-    }
-
-    public function setApellido($ap){
-        $this->apellido = $ap;
-        return $this;
-    }
-
-    public function getEdad(){
-        return $this->edad;
-    }
-
-    public function setEdad($ed){
-        $this->edad = $ed;
-        return $this;
-    }
-
-    public function getNtelefono(){
-        return $this->ntelefono;
-    }
-
-    public function setNtelefono($ntel){
-        $this->ntelefono = $ntel;
-        return $this;
-    }
-
-    public function getCorreo(){
-        return $this->correo;
-    }
-
-    public function setCorreo($cor){
-        $this->correo = $cor;
-        return $this;
-    }
+    
 
     public function getPuesto(){
         return $this->puesto;
@@ -232,6 +193,32 @@ class Administrativo extends Database{
 */
     /////////////////////////////////////////////////////////////////////////////////////////
     
+    public function Crear_Administrativo(){
+        $query = "INSERT INTO " . T_ADMIN. " (". ADMIN_ID. ', '. ADMIN_P .")" . 
+        " VALUES(:" . ADMIN_ID . ", :" . ADMIN_P.")";
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . ADMIN_ID, $this->getId());
+        $statement->bindValue(':' . ADMIN_P, $this->getPuesto());
+      
+        var_dump($statement);
+        $message = "<h1>Error al ingresar datos!</h1>";
+        if ($statement->execute()) {
+            var_dump($statement);
+            $message = "<h1>Datos ingresados con éxito!</h1>";
+        }
+        return $message;
+    }
+
+    public function Ver_Administrativo(){
+        $row=false;
+        $query = "SELECT * FROM " .T_ADMIN;
+        $statement = $this->conexion->prepare($query);
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
     public function Cancelacion_Sanciones(){
 
     }
