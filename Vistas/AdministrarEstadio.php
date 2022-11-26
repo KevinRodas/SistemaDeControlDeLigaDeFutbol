@@ -18,24 +18,14 @@
         <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminPartido' ?>"><li>Partidos</li></a>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>"><li>Equipos</li></a>
-            <a href=""><li>Miembros</li></a> 
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminMiembro'?>"><li>Miembros</li></a> 
             <a href=""><li>Sanciones</li></a>
-            <a href=""><li>Localidades</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminLocal'?>"><li>Localidades</li></a>
             <a href=""><li>Noticias</li></a>
             <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a></li>
 
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
-        <ul>       
-            <li>Inicio</li>
-            <li>Partidos</li>
-            <li>Equipos</li>
-            <li>Miembros</li>
-            <li>Sanciones</li>
-            <li>Localidades</li>
-            <li>Noticias</li>
-
-        </ul>
+        
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
         </ul>
@@ -57,17 +47,6 @@
     <button class="boton">Listado de Estadios</button>
 </a>
 
-<button class="boton">
-    <p>Registrar Estadio</p>
-</button>
-
-<button class="boton">
-    <p>Actualizar Estadio</p>
-</button>
-
-<button class="boton">
-    <p>Listado de Estadios</p>
-</button>
 
 
 </div>

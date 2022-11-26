@@ -50,7 +50,7 @@ class LoginController
             }
             else{
                
-                //header('Location:'.BASE_DIR.'/Login/login');
+                header('Location:'.BASE_DIR.'/Login/login');
             }
         } 
         elseif(!empty($_COOKIE["Rol"])){

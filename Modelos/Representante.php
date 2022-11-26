@@ -105,9 +105,9 @@ class Representante extends Database{
         }
         return $message;
     }
-    
+      /*
     public function Registar_Jugadores(){
-        
+      
         $j= new Jugador();
         $query = "INSERT INTO " . T_USUARIO . "(". U_ID. ','. U_NOM.','. U_LN.','.U_AGE.','.U_TEL.','.U_MAIL.','.U_PASS.','.U_ROL.")" . " VALUES(:" . U_ID . ", :" . U_NOM. ", :" . U_LN . ", :" . U_AGE . ", :". U_TEL . ", :". U_MAIL. ", :". U_PASS . ", :". U_ROL. ")";
         $statement = $this->conexion->prepare($query);
@@ -135,11 +135,11 @@ class Representante extends Database{
             $message = "<h1>Datos ingresados con éxito!</h1>";
         }
         return $message;
+public function Aceptar_Partido(){
 
     }
+    }*/
     
-    public function Aceptar_Partido(){
-
-    }
+    
 
 }

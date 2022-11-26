@@ -9,6 +9,7 @@ require_once "./config/configGeneral.php";
     <title>Administrar Indumentaria de Equipos</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
     <link rel="stylesheet" href="../Assets/css/tabla.css">
+
 </head>
 <body>
 <div class="menu">

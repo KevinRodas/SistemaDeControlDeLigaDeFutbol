@@ -9,6 +9,8 @@ require_once "./config/configGeneral.php";
     <title>Administrador Partidos</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
     <link rel="stylesheet" href="../Assets/css/tabla.css">
+    <link rel="stylesheet" href="../Assets/css/administrador.css">
+
 </head>
 <body>
 <div class="menu">

@@ -7,6 +7,8 @@
     <title>Listado de Jugadores</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
     <link rel="stylesheet" href="../Assets/css/tabla.css">
+    <link rel="stylesheet" href="../Assets/css/administrador.css">
+
 </head>
 <body>
 <div class="menu">
@@ -26,13 +28,9 @@
     </nav>
 </div>
 
+<br><br><br><br><br><br>
 
-<div class="container-filtrar">
 
-    <button class="boton-filtrar">Filtrar</button>
-    <input type="text">
-
-</div>
 
 
                 <?php
@@ -79,7 +77,7 @@
                 }
                 ?>
 
-<br><br><br><br><br><br>
+<br><br>
 
 <footer class="footer">
 

@@ -1,5 +1,7 @@
 <?php 
 //session_start();
+require_once "Modelos/Arbitro.php";
+require_once "Modelos/Usuario.php";
 class ArbitroController
 {
 public function __construct()
@@ -10,7 +12,7 @@ public function createArbitro(){
     $m=NULL;
     if(!empty($_POST)){
         $j= new Arbitro();
-        $j->setId($_POST[ARB_ID]);
+        $j->setId($_POST[U_ID]);
         $j->setDireccion($_POST[ARB_DIR]);
         $j->setDisponibilidad ('Disponible');
         $j->setNpartidos(0);
@@ -23,7 +25,7 @@ public function createArbitro(){
         $u->setNtelefono($_POST[U_TEL]);
         $u->setCorreo($_POST[U_MAIL]);
         $u->setContra($_POST[U_PASS]);
-        $u->setRol("Representante");
+        $u->setRol("Arbitro");
         
         if ($u->Crear_Usuario() && $j->Crear_Arbitro()) {
             header("Location:".BASE_DIR.'/AdministrarMiembros/showAdminArbitro');
@@ -60,25 +62,25 @@ public function updateArbitro(){
 
 public function showRegistro(){
    
-    require_once "Vistas/RegistrarRepresentante.php";
+    require_once "Vistas/RegistrarArbitro.php";
     
 }
 
 public function showUpdate(){
 
-        require_once "Vistas/ActualizarRepresentante.php";
+        require_once "Vistas/ActualizarArbitro.php";
 }
 
 public function showListado(){
-    $Repre = new Representante(); //Creamos una instancia de la clase Torneo
+    $a = new Arbitro(); //Creamos una instancia de la clase Torneo
 
-    $registros = $Repre->Ver_Representante(); //Pedimos la lista de torneos
-    $data[T_REPRE] = "";
+    $registros = $a->Ver_Arbitro(); //Pedimos la lista de torneos
+    $data[T_ARBITRO] = "";
 
     if ($registros != null) {
-        $data[T_REPRE] = $registros;           
+        $data[T_ARBITRO] = $registros;           
     }
-    require_once "Vistas/ListadoRepresentantes.php";
+    require_once "Vistas/ListadoArbitros.php";
 }
 
 //public function showDelete()

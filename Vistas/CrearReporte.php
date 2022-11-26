@@ -23,55 +23,37 @@
         </ul>
     </nav>
 </div>
-
-
 <div class="container3">
-
     <p>N° de Partidos: <input type="text"></p>
     <p>Equipo 1: <input type="text"></p>
-
 </div>
-
+<h3>Observaciones: </h3>
 <div class="">
-
     <textarea name="Comentarios" id="" cols="40" rows="10"></textarea>
-
 </div>
-
 <div class="container3">
   
     <p>Equipo 2: <input type="text"></p>
-
 </div>
-
 <div class="">
-
     <textarea name="Comentarios" id="" cols="40" rows="10"></textarea>
-
 </div>
-
 <div class="container-resultados">
 <img class="logo-equipo" src="../Assets/img/portugal.png" alt="">
     <input type="text" name="" id="">
     <h1> - </h1>
     <input type="text">
     <img class="logo-equipo" src="../Assets/img/japon.png" alt="">
-
 </div>
-
 <div class="container3">
 <button class="boton-enviar">
     <p>Enviar</p>
 </button>
 </div>
-
-
 <footer class="footer">
-
     <p>©2022 Grupo # 1 Administracion de proyectos | Todos los derechos reservados</p>
     <p>Políticas de Privacidad | Desarrollado por Grupo #1 API Sistema Web </p>
     
 </footer>
-
 </body>
 </html>
