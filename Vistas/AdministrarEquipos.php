@@ -34,6 +34,7 @@
     <p>Registrar Equipo</p>
 </button>
 
+<a href="<?= BASE_DIR.'AdministrarEquipos/showEquipos' ?>">
 <button class="boton">
     <p>Listado de Equipos</p>
 </button>
