@@ -84,6 +84,18 @@ class JugadorController
         require_once "Vistas/ListadoJugadores.php";
     }
 
+    public function showListadoEquipo($equipo){
+        $Jugador = new Jugador(); //Creamos una instancia de la clase Torneo
+
+        $registros = $Jugador->Ver_Jugadores(); //Pedimos la lista de torneos
+        $data[T_JUGADOR] = "";
+
+        if ($registros != null) {
+            $data[T_JUGADOR] = $registros;           
+        }
+        require_once "Vistas/ListadoJugadores.php";
+    }
+
     //public function showDelete()
 
     public function buscarDireccion($action){
