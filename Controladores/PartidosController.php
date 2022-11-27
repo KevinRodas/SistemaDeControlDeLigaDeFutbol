@@ -53,7 +53,7 @@ class PartidosController
             
         }
 
-        require_once "Vistas/";
+        require_once "Vistas/ListaPartidos.php";
     
     }
 
