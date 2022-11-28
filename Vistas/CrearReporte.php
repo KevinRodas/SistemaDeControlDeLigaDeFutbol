@@ -90,7 +90,6 @@
         ?>
         
 <!-- inicio tabla equipo1 -->
-<input type="text" name="" id="" value="" invisible>
 <div>
     
     <?php
@@ -99,11 +98,18 @@
             echo "<h1>EQUIPO 1 </h1>";
             echo "<form action='".BASE_DIR."/Reporte/crearReporte"."' method='post' id='form_reporte'>";
             $reporte='REPORT_'.$nombrepartido;
+            $IDpart = $IDpartido;
             echo  "ID Reporte: "."<input type='text' name='".REPORT_ID."' id='' value='".$reporte."'>";
             echo "<p>Nombre partido: ".$nombrepartido."</p>";
             echo "ID Arbitro: "."<input type='text' name='".SANCION_ARB."' id='' value='".$idArb."'>";
-            
+            $contador=0;
+            foreach ($data2[T_JUGADOR] as $dato){
+                $contador++;
+            }
 
+            echo "<input type='hidden' name='datos1' id='' value='".$contador."' >";
+            echo "<input type='hidden' name='".PART_ID."' id='' value='".$IDpart."' >";
+            
            
             echo "<table cellspacing=0>";
             echo "<thead class='theader'";

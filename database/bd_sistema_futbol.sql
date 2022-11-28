@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2022 a las 04:05:24
+-- Tiempo de generación: 28-11-2022 a las 11:46:56
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -24,13 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_admininstrativo`
+-- Estructura de tabla para la tabla `tbl_administrativo`
 --
 
-CREATE TABLE `tbl_admininstrativo` (
+CREATE TABLE `tbl_administrativo` (
   `id_admin` varchar(11) NOT NULL,
   `puesto` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_administrativo`
+--
+
+INSERT INTO `tbl_administrativo` (`id_admin`, `puesto`) VALUES
+('admin001', 'Gerente');
 
 -- --------------------------------------------------------
 
@@ -44,6 +51,13 @@ CREATE TABLE `tbl_arbitro` (
   `disponibilidad` enum('Disponible','No Disponible') NOT NULL,
   `n_partidos` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_arbitro`
+--
+
+INSERT INTO `tbl_arbitro` (`id_arbitro`, `direccion`, `disponibilidad`, `n_partidos`) VALUES
+('ARB_001', '12a Avenida Norte, Departamento de San Miguel, El Salvador', 'Disponible', 0);
 
 -- --------------------------------------------------------
 
@@ -76,6 +90,14 @@ CREATE TABLE `tbl_equipo` (
   `n_sanciones` int(11) NOT NULL,
   `estado` enum('Activo','Inactivo','Suspendido') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_equipo`
+--
+
+INSERT INTO `tbl_equipo` (`id_equipo`, `nombre`, `direccion`, `departamento`, `id_representante`, `n_ integrantes`, `id_indumentaria`, `n_sanciones`, `estado`) VALUES
+('EQP_MIG', 'Equipo Migueleño', 'Colonia. España', 'San Miguel', 'Repre_MIG', 11, '1', 0, 'Activo'),
+('EQP_RIO', 'Equipo Rio de Janeiro', 'Col Santa Clarita', 'San Miguel', 'Repre-RIO', 11, '2', 0, 'Activo');
 
 -- --------------------------------------------------------
 
@@ -120,13 +142,20 @@ CREATE TABLE `tbl_horario` (
 --
 
 CREATE TABLE `tbl_jugador` (
-  `id_juador` varchar(50) NOT NULL,
-  `id_usuario` varchar(50) NOT NULL,
+  `id_jugador` varchar(50) NOT NULL,
   `id_equipo` varchar(50) NOT NULL,
   `n_partidos` int(11) NOT NULL,
   `n_sanciones` int(11) NOT NULL,
   `n_goles` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_jugador`
+--
+
+INSERT INTO `tbl_jugador` (`id_jugador`, `id_equipo`, `n_partidos`, `n_sanciones`, `n_goles`) VALUES
+('JUG_1', 'EQP_MIG', 0, 0, 0),
+('JUG_ST', 'EQP_MIG', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -136,6 +165,7 @@ CREATE TABLE `tbl_jugador` (
 
 CREATE TABLE `tbl_partido` (
   `id_partido` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
   `id_torneo` int(11) NOT NULL,
   `estado` enum('Finalizado','Pendiente') NOT NULL,
   `id_equipo1` varchar(50) NOT NULL,
@@ -150,6 +180,13 @@ CREATE TABLE `tbl_partido` (
   `estado_repre1` enum('Confirmado','Sin Confirmar') NOT NULL,
   `estado_repre2` enum('Confirmado','Sin Confirmar') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_partido`
+--
+
+INSERT INTO `tbl_partido` (`id_partido`, `nombre`, `id_torneo`, `estado`, `id_equipo1`, `id_equipo2`, `sol_equipo1`, `sol_equipo2`, `id_arbitro`, `id_representante1`, `id_representante2`, `n_goles1`, `n_goles2`, `estado_repre1`, `estado_repre2`) VALUES
+(2, 'MIG_VS_RIO_26-11-2022', 1, 'Finalizado', 'EQP_MIG', 'EQP_RIO', 'Solventada', 'Solventada', 'ARB_001', 'EQP_MIGREPRE', 'EQP_RIOREPRE', 1, 0, 'Confirmado', 'Confirmado');
 
 -- --------------------------------------------------------
 
@@ -175,6 +212,13 @@ CREATE TABLE `tbl_representante` (
   `direccion` varchar(100) NOT NULL,
   `id_equipo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_representante`
+--
+
+INSERT INTO `tbl_representante` (`id_representante`, `direccion`, `id_equipo`) VALUES
+('Repre_MIG', 'Col Hirleman San Miguel', 'EQP_MIG');
 
 -- --------------------------------------------------------
 
@@ -240,11 +284,21 @@ CREATE TABLE `tbl_usuario` (
 --
 
 INSERT INTO `tbl_usuario` (`id_usuario`, `nombre`, `apellido`, `edad`, `telefono`, `correo`, `password`, `rol`) VALUES
-('admin001', 'Juan', 'Romero', 30, 76892344, 'juanromero@gmail.com', '1234', 'Administrador');
+('admin001', 'Juan', 'Romero', 30, 76892344, 'juanromero@gmail.com', '1234', 'Administrador'),
+('ARB_001', 'Fernando', 'Mendez', 31, 76341234, 'FC@gmail.com', '1234', 'Arbitro'),
+('JUG_1', 'Juan', 'Mendez', 23, 34567890, 'jose@gmail.com', '2345', 'Jugador'),
+('JUG_ST', 'Sebastian', 'Treminio', 21, 34567890, 'st@gmail.com', '1234', 'Jugador'),
+('Repre_MIG', 'Sebastian', 'Acosta', 31, 45671234, 'sa@gmail.com', '1234', 'Representante');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `tbl_administrativo`
+--
+ALTER TABLE `tbl_administrativo`
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Indices de la tabla `tbl_arbitro`
@@ -259,6 +313,12 @@ ALTER TABLE `tbl_detalle_sancion`
   ADD PRIMARY KEY (`id_detalle`);
 
 --
+-- Indices de la tabla `tbl_equipo`
+--
+ALTER TABLE `tbl_equipo`
+  ADD PRIMARY KEY (`id_equipo`);
+
+--
 -- Indices de la tabla `tbl_estadio`
 --
 ALTER TABLE `tbl_estadio`
@@ -271,16 +331,29 @@ ALTER TABLE `tbl_horario`
   ADD PRIMARY KEY (`id_horario`);
 
 --
+-- Indices de la tabla `tbl_jugador`
+--
+ALTER TABLE `tbl_jugador`
+  ADD PRIMARY KEY (`id_jugador`);
+
+--
 -- Indices de la tabla `tbl_partido`
 --
 ALTER TABLE `tbl_partido`
-  ADD PRIMARY KEY (`id_partido`);
+  ADD PRIMARY KEY (`id_partido`),
+  ADD UNIQUE KEY `nombre` (`nombre`);
 
 --
 -- Indices de la tabla `tbl_reporte`
 --
 ALTER TABLE `tbl_reporte`
   ADD PRIMARY KEY (`id_reporte`);
+
+--
+-- Indices de la tabla `tbl_representante`
+--
+ALTER TABLE `tbl_representante`
+  ADD PRIMARY KEY (`id_representante`);
 
 --
 -- Indices de la tabla `tbl_sanciones`
@@ -327,7 +400,7 @@ ALTER TABLE `tbl_horario`
 -- AUTO_INCREMENT de la tabla `tbl_partido`
 --
 ALTER TABLE `tbl_partido`
-  MODIFY `id_partido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_partido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_sanciones`
@@ -344,6 +417,12 @@ ALTER TABLE `tbl_torneo`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `tbl_administrativo`
+--
+ALTER TABLE `tbl_administrativo`
+  ADD CONSTRAINT `tbl_administrativo_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `tbl_usuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `tbl_sanciones`

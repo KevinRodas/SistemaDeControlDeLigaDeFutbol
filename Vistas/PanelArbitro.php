@@ -15,7 +15,7 @@
         <ul>       
             <li>Inicio</li>
             <li>Crear Reporte</li>
-            <li>Detalle Sanciones</li>
+            <li>Detalle Reporte</li>
             <li>Listado de reportes</li>
             <li>Sanciones</li>
             <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a></li>
@@ -34,7 +34,7 @@
 </a>
 
 <a href="<?= BASE_DIR.'PanelArbitro/showAdminRepote' ?>">
-    <button class="boton">Detalle Sanciones</button>
+    <button class="boton">Detalle Reporte</button>
 </a>
 
 <a href="<?= BASE_DIR.'PanelArbitro/showAdminRepote' ?>">
