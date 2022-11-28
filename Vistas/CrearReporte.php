@@ -90,12 +90,22 @@
         ?>
         
 <!-- inicio tabla equipo1 -->
+<input type="text" name="" id="" value="" invisible>
 <div>
+    
     <?php
         
         if(!empty($data2[T_JUGADOR])){
             echo "<h1>EQUIPO 1 </h1>";
-            echo "<table cellspacing=0 class='tb'>";
+            echo "<form action='".BASE_DIR."/Reporte/crearReporte"."' method='post' id='form_reporte'>";
+            $reporte='REPORT_'.$nombrepartido;
+            echo  "ID Reporte: "."<input type='text' name='".REPORT_ID."' id='' value='".$reporte."'>";
+            echo "<p>Nombre partido: ".$nombrepartido."</p>";
+            echo "ID Arbitro: "."<input type='text' name='".SANCION_ARB."' id='' value='".$idArb."'>";
+            
+
+           
+            echo "<table cellspacing=0>";
             echo "<thead class='theader'";
                echo "<tr>";
                     echo"<th>Jugador</th>";
@@ -108,20 +118,21 @@
                     echo"<th>Precio</th>";
                 echo "</tr>";
                 echo "</thead>";
-                echo "<form>";
                 echo "<tbody>";
                 $i=1;
                     foreach ($data2[T_JUGADOR] as $dato) {
                         
                         echo "<tr>";
-                        echo "<td name='e1-id".$i."'>" . $dato[JUG_ID] . "</td>";
+                        echo "<td>" . $dato[JUG_ID] ."<input type='hidden' name='e1-id".$i."' id='' value='".$dato[JUG_ID]."' >". "</td>";
                         echo "<td>" . "</td>";
                         echo "<td>" . "</td>";
                         echo "<td>" ."<input type='number' name='e1-amarilla".$i."' id=''>". "</td>";
                         echo "<td>" ."<input type='number' name='e1-roja".$i."' id=''>". "</td>";
-                        echo "<td>" ."<input style='height=30px' type='text' name='e1-motv".$i."' id=''>". "</td>";
+                        //echo "<td>" ."<input style='height=30px' type='text' name='e1-motv".$i."' id=''>". "</td>";
+                        echo "<td>" ."<textarea style='height: 100px; border:none;' form='form_reporte' id='' name='e1-motv".$i."' rows='2' cols='20'></textArea>". "</td>";
+                        
                         echo "<td>" ."<input type='number' name='e1-dias".$i."' id=''>". "</td>";
-                        echo "<td>" ."<input type='number' name='e1-precio".$i."' id=''>". "</td>";
+                        echo "<td>" ."<input type='number' name='e1-precio".$i."' id='' >". "</td>";
                                    
                         //echo "<td><a class='btn btn-prestar ' href='" . BASE_DIR . "Inventario/datosInventario&id=" . $dato[I_ID] . "'><span data-tooltip='Visualizar'><p class='fas fa-eye fa-lg'></p></span></a></td>";
                         //echo "<td><a class='btn btn-modificar' href='" . BASE_DIR . "Inventario/modificar&id=" . $dato[I_ID] . "'><span data-tooltip='Modificar'><p class='fas fa-pen-alt fa-lg'></p></span></a></td>";
@@ -132,7 +143,9 @@
                     }
                 echo "</tbody>";
                 echo "</table>";  
-                echo "<form>";
+                echo "<button type='submit'>Crear Reporte</button>";
+                echo "</form>";
+                
         }
         else {
             echo "<h1>No hay datos</h1>";
@@ -142,6 +155,7 @@
 
                     
 ?>
+
 </div>
 <!-- fin tabla equipo 1-->
 
