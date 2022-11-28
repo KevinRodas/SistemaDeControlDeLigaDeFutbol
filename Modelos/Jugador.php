@@ -86,7 +86,7 @@ class Jugador extends Database{
         " VALUES(:" .  JUG_ID . ", :" . JUG_EQP. ", :" . JUG_PART . ", :" . JUG_SANC . ", :". JUG_GOL . ") WHERE " . JUG_ID . "= :" . JUG_ID ;
         $statement = $this->conexion->prepare($query);
         $statement = $this->conexion->prepare($query);
-        $statement = $this->conexion->prepare($query);
+
         $statement->bindValue(':' . JUG_ID, $this->getIdJugador());
         $statement->bindValue(':' . JUG_EQP, $this->getCodEquipo());
         $statement->bindValue(':' . JUG_PART, $this->getNpartidos());
@@ -123,7 +123,7 @@ class Jugador extends Database{
     }
     
     public function Buscar_Jugador(){
-        $query = "SELECT * FROM " . T_USUARIO . "WHERE " . JUG_ID . "= :" . JUG_ID ;
+        $query = "SELECT * FROM " . T_JUGADOR . " WHERE " . JUG_ID . "= :" . JUG_ID ;
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . U_ID, $this->getIdJugador());
         $row = false;
@@ -133,8 +133,19 @@ class Jugador extends Database{
         return $row;
     }
 
+    public function Buscar_Jugadores_Equipo(){
+        $query = "SELECT * FROM " . T_JUGADOR. " WHERE " . JUG_EQP . "= :" . JUG_EQP ;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . JUG_EQP, $this->getCodEquipo());
+        $row = false;
+        if ($statement->execute()) {
+            $row = $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $row;
+    }
+
     public function Eliminar_Jugador(){
-        $query = "DELETE FROM " . T_USUARIO . " WHERE " . JUG_ID . "= :" . JUG_ID ;
+        $query = "DELETE FROM " . T_JUGADOR . " WHERE " . JUG_ID . "= :" . JUG_ID ;
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . U_ID, $this->getIdJugador());
 

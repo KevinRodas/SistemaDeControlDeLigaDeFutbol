@@ -48,6 +48,7 @@ define('EST_TEL','telefono');
 
 define('T_PARTIDO','tbl_partido');
 define('PART_ID','id_partido');
+define('PART_NOM','nombre');
 define('PART_TORNEO','id_torneo');
 define('PART_ESTADO','estado');
 define('PART_EQP1','id_equipo1');

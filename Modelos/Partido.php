@@ -214,7 +214,7 @@ class Partido extends Database{
 
     public function Buscar_Partido(){
         $row=false;
-        $query = "SELECT * FROM " .T_PARTIDO . "WHERE " . PART_ID . "= :" . PART_ID ;
+        $query = "SELECT * FROM " .T_PARTIDO . " WHERE " . PART_ID . "= :" . PART_ID ;
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . PART_ID, $this->getIdPartido());
 
