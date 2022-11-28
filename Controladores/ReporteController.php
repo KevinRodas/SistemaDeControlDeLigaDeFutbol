@@ -132,6 +132,24 @@ class ReporteController
                                 echo $_POST[$cadenaMotv]."<br>";
                                 echo $_POST[$cadenaDias]."<br>";
                                 echo $_POST[$cadenaPrecio]."<br>";
+                               
+                                if($_POST[$cadenaAmarilla] == 0 && $_POST[$cadenaRoja] == 0){
+                                    echo "----NO hay sancion------<br>";
+                                }
+                                else{
+                                    if($_POST[$cadenaAmarilla] >= 1 && $_POST[$cadenaRoja] == 0){
+                                        $categoria = "Leve";
+                                    }
+                                    elseif ($_POST[$cadenaAmarilla] < 1 && $_POST[$cadenaRoja]>1) {
+                                        $categoria = "Grave";
+                                    }
+                                    elseif ($_POST[$cadenaAmarilla] >= 1 && $_POST[$cadenaRoja]>=1) {
+                                        $categoria = "Grave";
+                                    }
+    
+                                    $this->generarSanciones($_POST[$cadenaId],$_POST[PART_ID],$_POST[ARB_ID],$categoria,$_POST[$cadenaDias],$_POST[$cadenaPrecio],$_POST[REPORT_ID],$_POST[$cadenaMotv]);
+    
+                                }
                                 $tarjetasE2 = $tarjetasE2 + $_POST[$cadenaAmarilla] + $_POST[$cadenaRoja];
                             }
                             else{
