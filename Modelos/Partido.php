@@ -214,7 +214,7 @@ class Partido extends Database{
 
     public function Buscar_Partido(){
         $row=false;
-        $query = "SELECT * FROM " .T_PARTIDO . " WHERE " . PART_ID . "= :" . PART_ID ;
+        $query = "SELECT * FROM " .T_PARTIDO . " WHERE " . PART_ID . "=:" . PART_ID ;
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . PART_ID, $this->getIdPartido());
 
@@ -249,4 +249,49 @@ class Partido extends Database{
         }
         return $message;
     }
+
+    public function Actualizar_Solvencia1(){
+        $query = "UPDATE " . T_PARTIDO . " SET ".  PART_SOLV1."=:" .  PART_SOLV1. " WHERE " . PART_ID . "=:" . PART_ID;
+        //$query = "UPDATE " . TBL_FACTURAS_CONF . " SET " . F_ESTADO . "=:" . F_ESTADO . " WHERE " . F_ID . "=:" . F_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . PART_ID,  $this->getIdPartido());
+        $statement->bindValue(':' . PART_SOLV1, $this->getSolvencia1());
+        echo $this->getIdPartido();
+        echo $this->getSolvencia1();
+        var_dump($statement);
+        $message = "<h1>Error al actualizar estadio!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
+
+    public function Actualizar_Solvencia2(){
+        $query = "UPDATE " . T_PARTIDO . " SET ".  PART_SOLV2."=:" .  PART_SOLV2. " WHERE " . PART_ID . "=:" . PART_ID;
+        //$query = "UPDATE " . TBL_FACTURAS_CONF . " SET " . F_ESTADO . "=:" . F_ESTADO . " WHERE " . F_ID . "=:" . F_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . PART_ID,  $this->getIdPartido());
+        $statement->bindValue(':' . PART_SOLV2, $this->getSolvencia2());
+        echo $this->getIdPartido();
+        echo $this->getSolvencia2();
+        var_dump($statement);
+        $message = "<h1>Error al actualizar estadio!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
+
+    public function Buscar_Partido_Solventar(){
+        $row=false;
+        $query = "SELECT * FROM " .T_PARTIDO . " WHERE sol_equipo1= 'Pendiente' || sol_equipo2= 'Pendiente' && estado_repre1= 'Confirmado' && estado_repre2= 'Confirmado'" ;
+        $statement = $this->conexion->prepare($query);
+        
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
+
 }

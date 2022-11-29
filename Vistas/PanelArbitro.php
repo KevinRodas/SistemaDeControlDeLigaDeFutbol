@@ -33,12 +33,18 @@
     <button class="boton">Crear Reportes </button>
 </a>
 
-<a href="<?= BASE_DIR.'PanelArbitro/showAdminRepote' ?>">
+<a href="<?= BASE_DIR.'Reporte/showDescripcionReporte' ?>">
     <button class="boton">Detalle Reporte</button>
 </a>
+</div>
 
-<a href="<?= BASE_DIR.'PanelArbitro/showAdminRepote' ?>">
+<div class="container2">
+<a href="<?= BASE_DIR.'Reporte/showReportes' ?>">
     <button class="boton">Listado de reportes</button>
+</a>
+
+<a href="<?= BASE_DIR.'Partidos/showSolvencia' ?>">
+    <button class="boton">Solvencia de equipos</button>
 </a>
 
 

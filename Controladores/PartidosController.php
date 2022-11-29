@@ -57,6 +57,159 @@ class PartidosController
     
     }
 
+    public function showSolvencia(){
+        $Partido = new Partido(); //Creamos una instancia de la clase Torneo
+
+        $registros = $Partido->Buscar_Partido_Solventar(); //Pedimos la lista de torneos
+        $data[T_PARTIDO] = "";
+
+        if ($registros != null) {
+            $data[T_PARTIDO] = $registros;
+        }
+
+        if(!empty($_POST['partido'])){
+            //echo $_POST['partido'];
+            $Partido2 = new Partido();
+            $Partido2->setIdPartido($_POST['partido']);
+            $registro2 = $Partido2->Buscar_Partido();
+            $data2[T_PARTIDO]="";
+            if ($registro2 != null) {
+                $data2[T_PARTIDO] = $registro2;
+                //echo $_POST['partido'];
+                
+
+            }
+        }
+        require_once "Vistas/SolvenciaPartido.php";
+
+    }
+
+    public function actualizarSolvencia(){
+        //echo $_POST['solvencia1']."<br>";
+        echo $_POST['solvencia2']."<br>";
+
+        if(isset($_POST['solvencia1']) && isset($_POST['solvencia2'])){
+            if(!empty($_POST['solvencia1']) && !empty($_POST['solvencia2'])){
+                if($_POST['solvencia1'] == 1 && $_POST['solvencia2'] == 1){
+                    echo "El equipo 1 esta solvente\n";
+                    $part= new Partido();
+                    $part->setIdPartido($_POST['partidoID']);
+                    $part->setSolvencia1('Solventada');
+                    //$part->Actualizar_Solvencia1();
+    
+                    echo "El equipo 2 esta solvente\n";
+                    $part2= new Partido();
+                    $part2->setIdPartido($_POST['partidoID']);
+                    $part2->setSolvencia1('Solventada');
+                    
+    
+                    if($part->Actualizar_Solvencia1() ){
+                        if($part2->Actualizar_Solvencia2()){
+                            header("Location:".BASE_DIR.'/PanelArbitro/showHome');
+                            //require_once "Vistas/prueba.php";
+                        }
+                        else{
+                            header("Location:".BASE_DIR.'/Partidos/showSolvencia');
+                        }
+                        
+                    }
+                }
+
+                else if($_POST['solvencia1'] == 1 && $_POST['solvencia2'] != 1){
+                    echo "El equipo 1 esta solvente\n";
+                    $part= new Partido();
+                    $part->setIdPartido($_POST['partidoID']);
+                    $part->setSolvencia1('Solventada');
+                    //$part->Actualizar_Solvencia1();
+    
+                    if($part->Actualizar_Solvencia1() ){
+                            header("Location:".BASE_DIR.'/PanelArbitro/showHome');
+                            //require_once "Vistas/prueba.php";                        
+                    }
+                    else {
+                        header("Location:".BASE_DIR.'/Partidos/showSolvencia');
+                    }
+                }
+
+                else if($_POST['solvencia2'] == 1 && $_POST['solvencia1'] != 1){
+                   
+                    echo "El equipo 2 esta solvente\n";
+                    $part2= new Partido();
+                    $part2->setIdPartido($_POST['partidoID']);
+                    $part2->setSolvencia1('Solventada');
+                    
+                        if($part2->Actualizar_Solvencia2()){
+                            header("Location:".BASE_DIR.'/PanelArbitro/showHome');
+                            //require_once "Vistas/prueba.php";
+                        }
+                        else {
+                            header("Location:".BASE_DIR.'/Partidos/showSolvencia');
+                        }
+                }
+    
+            }
+            else{
+                header("Location:".BASE_DIR.'/Partidos/showSolvencia');
+
+            }
+        }
+        else if(isset($_POST['solvencia1'])){
+            if(!empty($_POST['solvencia1'])){
+                if($_POST['solvencia1']==1){
+                    echo "El equipo 1 esta solvente\n";
+                    $part= new Partido();
+                    $part->setSolvencia1('Solventada');
+                    $part->setIdPartido($_POST['partidoID']);
+    
+                    if($part->Actualizar_Solvencia1()){
+                        header("Location:".BASE_DIR.'/PanelArbitro/showHome');
+                        //require_once "Vistas/prueba.php";
+                    }
+                    else {
+                        header("Location:".BASE_DIR.'/´Partidos/showSolvencia');
+
+                    }
+                }
+    
+            }
+            else{
+                header("Location:".BASE_DIR.'/Partidos/showSolvencia');
+
+            }
+        }
+        else if(isset($_POST['solvencia2'])){
+            if(!empty($_POST['solvencia2'])){
+                if($_POST['solvencia2']==1){
+                    echo "El equipo 2 esta solvente\n";
+                    $part= new Partido();
+                    $part->setSolvencia2('Solventada');
+                    $part->setIdPartido($_POST['partidoID']);
+    
+                    if($part->Actualizar_Solvencia2()){
+                        //require_once "Vistas/prueba.php";
+                        header("Location:".BASE_DIR.'/PanelArbitro/showHome');
+                    }
+                    else{
+                        header("Location:".BASE_DIR.'/Partidos/showSolvencia');
+                    }
+                }
+                else{
+                    header("Location:".BASE_DIR.'/Partidos/showSolvencia');
+
+                }
+            }
+        }
+        else{
+            header("Location:".BASE_DIR.'/Partidos/showSolvencia');
+
+        }
+
+
+        
+
+        //require_once "Vistas/prueba.php";
+    }
+
   public function buscarDireccion($action){
     if ($action=='showcreatePartido') {
            $this->showcreatePartido();
@@ -66,6 +219,12 @@ class PartidosController
     }
     elseif ($action=="crearPartido") {
         $this->crearPartido();
+    }
+    elseif ($action=="showSolvencia") {
+        $this->showSolvencia();
+    }
+    elseif ($action=="actualizarSolvencia") {
+        $this->actualizarSolvencia();
     }
     else{
         return false;

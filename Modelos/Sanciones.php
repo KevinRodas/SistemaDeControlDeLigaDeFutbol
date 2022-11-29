@@ -192,9 +192,22 @@ class Sanciones extends Database{
 
     public function Buscar_Sancion(){
         $row=false;
-        $query = "SELECT * FROM " .T_SANCIONES . "WHERE " . SANCION_ID . "= :" . SANCION_ID ;
+        $query = "SELECT * FROM " .T_SANCIONES . " WHERE " . SANCION_ID . "= :" . SANCION_ID ;
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . SANCION_ID, $this->getCodSancion());
+
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
+
+    public function Buscar_Sanciones(){
+        $row=false;
+        $query = "SELECT * FROM " .T_SANCIONES . " WHERE " . SANCION_REPORTE . "=:" . SANCION_REPORTE ;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . SANCION_REPORTE, $this->getIdReporte());
 
         if ($statement->execute()) {
            $row= $statement->fetchAll(PDO::FETCH_ASSOC);

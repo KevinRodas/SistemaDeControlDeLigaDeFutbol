@@ -90,6 +90,21 @@ class Reportes extends Database{
         return $message;
     }
 
+    public function Actualizar_Reporte_Observacion(){
+        $query = "UPDATE " . T_REPORTE . " SET ".  REPORT_OBSERV."=:" .  REPORT_OBSERV. " WHERE " . REPORT_ID . "=:" . REPORT_ID;
+        //$query = "UPDATE " . TBL_FACTURAS_CONF . " SET " . F_ESTADO . "=:" . F_ESTADO . " WHERE " . F_ID . "=:" . F_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . REPORT_ID,  $this->getIdReporte());
+        $statement->bindValue(':' . REPORT_OBSERV, $this->getObservaciones());
+        echo $this->getIdReporte();
+        echo $this->getObservaciones();
+        var_dump($statement);
+        $message = "<h1>Error al actualizar estadio!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
     
     
     public function Ver_Reportes(){
@@ -103,9 +118,9 @@ class Reportes extends Database{
     }
 
     public function Buscar_Reporte(){
-        $query = "SELECT * FROM " . T_REPORTE . "WHERE " . REPORT_ID . "= :" . REPORT_ID ;
+        $query = "SELECT * FROM " . T_REPORTE . " WHERE " . REPORT_ID . "=:" . REPORT_ID ;
         $statement = $this->conexion->prepare($query);
-        $statement->bindValue(':' . DET_ID, $this->getIdReporte());
+        $statement->bindValue(':' . REPORT_ID, $this->getIdReporte());
         $rows = false;
         if ($statement->execute()) {
             $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -114,9 +129,9 @@ class Reportes extends Database{
     }
 
     public function Eliminar_Reporte(){
-        $query = "DELETE FROM " . T_REPORTE . "WHERE " . REPORT_ID . "= :" . REPORT_ID ;
+        $query = "DELETE FROM " . T_REPORTE . " WHERE " . REPORT_ID . "= :" . REPORT_ID ;
         $statement = $this->conexion->prepare($query);
-        $statement->bindValue(':' . DET_ID, $this->getIdReporte());
+        $statement->bindValue(':' . REPORT_ID, $this->getIdReporte());
         $rows = false;
         if ($statement->execute()) {
             $rows = true;
