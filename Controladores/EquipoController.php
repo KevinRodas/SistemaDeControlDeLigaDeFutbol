@@ -39,8 +39,8 @@ public function showAdminNoticias(){
      require_once "Vistas/AdministrarEstadio.php";
 }
 
-public function showAdminTorneo(){
-    require_once "Vistas/AdministrarTorneo.php";
+public function showCreatePartido(){
+    require_once "Vistas/RegistrarEquipo.php";
 }
 
 public function showEquipos(){
@@ -59,11 +59,11 @@ public function buscarDireccion($action){
      if ($action=='showEquipos') {
           $this->showEquipos();
      }
-     /*
-      elseif ($action=="showAdminPartido") {
-          $this->showAdminPartido();
+     
+      elseif ($action=="showCreatePartido") {
+          $this->showCreatePartido();
      }
-     elseif ($action=='showAdminEquipo') {
+     /*elseif ($action=='showAdminEquipo') {
           $this->showAdminEquipo();
       }
       elseif ($action=='cancelarSancion') {

@@ -6,6 +6,7 @@
     <title>Listado de Equipos</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
     <link rel="stylesheet" href="../Assets/css/administrador.css">
+    <link rel="stylesheet" href="../Assets/css/tabla.css">
 
 </head>
 <body>
@@ -26,10 +27,9 @@
 </div>
 
 
-<div class="container-filtrar">
 
-    <button class="boton-filtrar">Filtrar</button>
-    <input type="text">
+
+<div class="container3">
 
     <?php
                 if(!empty($data[T_EQUIPO])){
@@ -88,11 +88,7 @@
 
 </div>
 
-<div class="">
 
-    <textarea name="Comentarios" id="" cols="40" rows="10"></textarea>
-
-</div>
 
 <footer class="footer">
 

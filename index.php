@@ -276,6 +276,23 @@ if(is_file($fullController))
             }
         }
 
+        elseif ($controller=='PartidosController') { //controlador vinculado al entorno administrador
+            if(!empty($_COOKIE["Rol"])){
+                if ($_COOKIE["Rol"] == ROL_ADMIN) {
+                    $j = new PartidosController();     
+                    $j->buscarDireccion($action);
+                }
+                else{
+                    //intento acceder a un area que no le corresponde
+                header('Location: '.BASE_DIR);
+                }
+            }
+            else{
+                //no hay cookie
+                header('Location: '.BASE_DIR);
+            }
+        }
+
         elseif ($controller=='AdministradorController') { //controlador vinculado al entorno administrador
             if(!empty($_COOKIE["Rol"])){
                 if ($_COOKIE["Rol"] == ROL_ADMIN) {

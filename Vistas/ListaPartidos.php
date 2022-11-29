@@ -6,6 +6,7 @@
     <title>Listado de partidos</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
     <link rel="stylesheet" href="../Assets/css/administrador.css">
+    <link rel="stylesheet" href="../Assets/css/tabla.css">
 
 </head>
 <body>

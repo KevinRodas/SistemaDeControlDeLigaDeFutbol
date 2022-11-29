@@ -30,11 +30,12 @@
 
 <div class="container2">
 
+<a href="<?= BASE_DIR.'Equipo/showCreatePartido' ?>">
 <button class="boton">
     <p>Registrar Equipo</p>
 </button>
 
-<a href="<?= BASE_DIR.'AdministrarEquipos/showEquipos' ?>">
+<a href="<?= BASE_DIR.'Equipo/showEquipos' ?>">
 <button class="boton">
     <p>Listado de Equipos</p>
 </button>
