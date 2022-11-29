@@ -48,6 +48,7 @@ define('EST_TEL','telefono');
 
 define('T_PARTIDO','tbl_partido');
 define('PART_ID','id_partido');
+define('PART_NOM','nombre');
 define('PART_TORNEO','id_torneo');
 define('PART_ESTADO','estado');
 define('PART_EQP1','id_equipo1');
@@ -106,10 +107,12 @@ define('REPORT_OBSERV','observaciones');
 //Definiciones de constantes para tabla sanciones
 define('T_SANCIONES','tbl_sanciones');
 define('SANCION_ID','id_sancion');
+define('SANCION_REPORTE','id_reporte');
 define('SANCION_PART','id_partido');
 define('SANCION_ARB','id_arbitro');
 define('SANCION_ID_SAN','id_sancionado');
 define('SANCION_CAT','categoria');
+define('SANCION_DESCRIP','descripcion');
 define('SANCION_INICIO','fecha_sancion');
 define('SANCION_FIN','fecha_fin');
 define('SANCION_DIA','dias_penalizado');

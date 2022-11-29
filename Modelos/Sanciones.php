@@ -13,6 +13,8 @@ class Sanciones extends Database{
     public $dias_penalizacion;
     public $precio;
     public $estado;
+    public $id_reporte;
+    public $descripcion;
 
     public function __construct()
     {
@@ -108,9 +110,28 @@ class Sanciones extends Database{
         $this->estado = $est;
         return $this;
     }
+
+    public function getIdReporte(){
+        return $this->id_reporte;
+    }
+
+    public function setIdReporte($id){
+        $this->id_reporte = $id;
+        return $this;
+    }
+
+    public function getDescripcion(){
+        return $this->descripcion;
+    }
+
+    public function setDescripcion($d){
+        $this->descripcion = $d;
+        return $this;
+    }
     
     public function Crear_Sancion(){
-        $query = "INSERT INTO " . T_SANCIONES . "(". SANCION_ID. ','. SANCION_PART.','. SANCION_ARB.','. SANCION_ID_SAN.','. SANCION_CAT.','. SANCION_INICIO.','. SANCION_FIN.','. SANCION_DIA.','. SANCION_PR.','. SANCION_EST.")" . " VALUES(:" . SANCION_ID . ", :" . SANCION_PART. ", :" . SANCION_ARB . ", :" . SANCION_ID_SAN . ", :" . SANCION_CAT . ", :" . SANCION_INICIO . ", :" . SANCION_FIN . ", :" . SANCION_DIA . ", :" . SANCION_PR . ", :" . SANCION_EST .")";
+        $query = "INSERT INTO " . T_SANCIONES . "(". SANCION_ID. ','. SANCION_PART.','. SANCION_ARB.','. SANCION_ID_SAN.','. SANCION_CAT.','. SANCION_INICIO.','. SANCION_FIN.','. SANCION_DIA.','. SANCION_PR.','. SANCION_EST.','. SANCION_REPORTE.','. SANCION_DESCRIP.")" . 
+        " VALUES(:" . SANCION_ID . ", :" . SANCION_PART. ", :" . SANCION_ARB . ", :" . SANCION_ID_SAN . ", :" . SANCION_CAT . ", :" . SANCION_INICIO . ", :" . SANCION_FIN . ", :" . SANCION_DIA . ", :" . SANCION_PR . ", :" . SANCION_EST . ", :" . SANCION_REPORTE . ", :" . SANCION_DESCRIP .")";
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . SANCION_ID, NULL);
         $statement->bindValue(':' . SANCION_PART, $this->getCodPartido());
@@ -122,6 +143,8 @@ class Sanciones extends Database{
         $statement->bindValue(':' . SANCION_DIA, $this->getDias_Penalizacion());
         $statement->bindValue(':' . SANCION_PR, $this->getPrecio());
         $statement->bindValue(':' . SANCION_EST, $this->getEstado());
+        $statement->bindValue(':' . SANCION_REPORTE, $this->getIdReporte());
+        $statement->bindValue(':' . SANCION_DESCRIP, $this->getDescripcion());
 
 
         $message = "<h1>Error al ingresar datos!</h1>";
@@ -132,8 +155,8 @@ class Sanciones extends Database{
     }
     
     public function Actualizar_Sancion(){
-        $query = " UPDATE " . T_SANCIONES . "SET(". SANCION_ID. ','. SANCION_PART.','. SANCION_ARB.','. SANCION_ID_SAN.','. SANCION_CAT.','. SANCION_INICIO.','. SANCION_FIN.','. SANCION_DIA.','. SANCION_PR.','. SANCION_EST.")" . 
-        " VALUES(:" . SANCION_ID . ", :" . SANCION_PART. ", :" . SANCION_ARB . ", :" . SANCION_ID_SAN . ", :" . SANCION_CAT . ", :" . SANCION_INICIO . ", :" . SANCION_FIN . ", :" . SANCION_DIA . ", :" . SANCION_PR . ", :" . SANCION_EST .") WHERE " . SANCION_ID . "= :" . SANCION_ID;
+        $query = " UPDATE " . T_SANCIONES . "SET(". SANCION_ID. ','. SANCION_PART.','. SANCION_ARB.','. SANCION_ID_SAN.','. SANCION_CAT.','. SANCION_INICIO.','. SANCION_FIN.','. SANCION_DIA.','. SANCION_PR.','. SANCION_EST.','. SANCION_REPORTE.','. SANCION_DESCRIP.")" . 
+        " VALUES(:" . SANCION_ID . ", :" . SANCION_PART. ", :" . SANCION_ARB . ", :" . SANCION_ID_SAN . ", :" . SANCION_CAT . ", :" . SANCION_INICIO . ", :" . SANCION_FIN . ", :" . SANCION_DIA . ", :" . SANCION_PR . ", :" . SANCION_EST . ", :" . SANCION_REPORTE . ", :" . SANCION_DESCRIP .") WHERE " . SANCION_ID . "= :" . SANCION_ID;
 
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . SANCION_ID, NULL);
@@ -146,6 +169,8 @@ class Sanciones extends Database{
         $statement->bindValue(':' . SANCION_DIA, $this->getDias_Penalizacion());
         $statement->bindValue(':' . SANCION_PR, $this->getPrecio());
         $statement->bindValue(':' . SANCION_EST, $this->getEstado());
+        $statement->bindValue(':' . SANCION_REPORTE, $this->getIdReporte());
+        $statement->bindValue(':' . SANCION_DESCRIP, $this->getDescripcion());
 
         $message = "<h1>Error al modificar datos!</h1>";
         if ($statement->execute()) {
