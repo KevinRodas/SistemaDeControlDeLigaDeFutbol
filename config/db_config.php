@@ -28,13 +28,13 @@ define('TOR_FINAL','fecha_final');
 define('T_EQUIPO','tbl_equipo');
 define('EQP_ID','id_equipo');
 define('EQP_NOM','nombre');
-define('EQP_DIR','');
-define('EQP_DEP','');
-define('EQP_REPRE','');
-define('EQP_INTEGRANTE','');
-define('EQP_INDUMENTARIA','');
-define('EQP_SANCIONES','');
-define('EQP_ESTADO','');
+define('EQP_DIR','direccion');
+define('EQP_DEP','departamento');
+define('EQP_REPRE','id_representante');
+define('EQP_INTEGRANTE','n_ integrantes');
+define('EQP_INDUMENTARIA','id_indumentaria');
+define('EQP_SANCIONES','n_sanciones');
+define('EQP_ESTADO','estado');
 
 //Definiciones de constantes para tabla estadio
 define('T_ESTADIO','tbl_estadio');
