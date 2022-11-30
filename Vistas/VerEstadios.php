@@ -26,7 +26,7 @@ require_once "./config/db_config.php";
             <a href="<?= BASE_DIR.'/Login/salir'?>"> <li>LogOut</li></a>
         </ul>
         <ul>
-        <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
+            <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li>   </li></a>
         </ul>
     </nav>
 </div>

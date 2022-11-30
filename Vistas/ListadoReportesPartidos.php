@@ -11,15 +11,16 @@
 <div class="menu">
     <nav>
         <ul>
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+            <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>        
         </ul>
         <ul>       
-            <li>Crear Partido</li>
-            <li>Listado de Reportes de Partidos</li>
-            <li>Listado de Partidos</li>
+            <a href="<?= BASE_DIR.'AdministrarPartidos/createPartido' ?>"><li>Crear Partido</li></a>
+            <a href="<?= BASE_DIR.'AdministrarPartidos/showReporte' ?>"><li>Listado de Reportes de Partidos</li></a>
+            <a href="<?= BASE_DIR.'AdministrarPartidos/showPartido' ?>"><li>Lista de Partidos</li></a>
         </ul>
         <ul>
-        <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
+            <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li></li></a>
         </ul>
     </nav>
 </div>

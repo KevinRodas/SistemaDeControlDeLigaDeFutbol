@@ -6,29 +6,28 @@ require_once "./config/configGeneral.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Administrador Partidos</title>
-    <link rel="stylesheet" href="../Assets/css/estilo.css">
+    <title>Administrador Torneos</title>
+    <link rel="stylesheet" href="../Assets/css/administrador.css">
 
 </head>
 <body>
 <div class="menu">
     <nav>
         <ul>
-        <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
         <ul>       
-            <li><a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>">Inicio</a> </li>
-            <li><a href="<?= BASE_DIR.'PanelAdministrador/showAdminPartido' ?>">Partidos</a> </li>
-            <li><a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>">Equipos</a> </li>
-            <li><a href="">Miembros</a> </li>
-            <li><a href="">Sanciones</a> </li>
-            <li><a href="">Localidades</a> </li>
-            <li><a href="">Noticias</a> </li>
-            <li><a href="<?= BASE_DIR.'/Login/salir'?>"> LogOut</a></li>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminPartido' ?>"><li>Partidos</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>"><li>Equipos</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminMiembro'?>"><li>Miembros</li></a> 
+            <a href=""><li>Sanciones</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminLocal'?>"><li>Localidades</li></a>
+            <a href=""><li>Noticias</li></a>
         </ul>
         <ul>
-        <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
+            <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li></li></a>
         </ul>
     </nav>
 </div>

@@ -10,8 +10,9 @@
 <body>
 <div class="menu">
     <nav>
-        <ul>
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+    <ul>
+            <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>            
         </ul>
         <ul>       
             <li>Registrar Arbitro</li>
@@ -19,7 +20,7 @@
             <li>Listado de Arbitro</li>
         </ul>
         <ul>
-        <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
+        <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li></li></a>
         </ul>
     </nav>
 </div>

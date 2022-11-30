@@ -11,19 +11,17 @@
 <div class="menu">
     <nav>
         <ul>
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+            <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
+            
         </ul>
         <ul>       
-            <li>Inicio</li>
-            <li>Partidos</li>
-            <li>Equipos</li>
-            <li>Miembros</li>
-            <li>Sanciones</li>
-            <li>Localidades</li>
-            <li>Noticias</li>
+            <a href="<?= BASE_DIR.'/Jugador/showRegistro' ?>"><li>Registrar Equipo</li></a>
+            <a href="<?= BASE_DIR.'/Jugador/showUpdate' ?>"><li>Listado de Equipos</li></a>
+            <a href="<?= BASE_DIR.'/Jugador/showListado'?>"><li>Listado de Jugador</li></a>     
         </ul>
         <ul>
-        <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
+        <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li>   </li></a>
         </ul>
     </nav>
 </div>

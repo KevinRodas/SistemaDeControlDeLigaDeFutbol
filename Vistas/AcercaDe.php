@@ -8,30 +8,33 @@
 </head>
 <body>
 <div class="menu">
-    <nav>
-        <ul>
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+    <nav class="nav">
+    <ul>
+            <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>        
         </ul>
         <ul>       
-            <li>Inicio</li>
-            <li>Acerca de</li>
-            <li>Partidos</li>
-            <li>Noticias</li>
-            <li>Equipos</li>
-            <li>Login</li>
+        <a href="<?= BASE_DIR.'/Vistas/Inicio.php' ?>"><li>Inicio </li></a>
+            <a href="<?= BASE_DIR.'/Vistas/AcercaDe.php' ?>"><li>Acaerca De</li></a>
+            <a href="<?= BASE_DIR.'/Vistas/Partidos.php'?>"><li>Partidos</li></a>
+            <a href="<?= BASE_DIR.'/Vistas/Noticias.php'?>"><li>Noticias</li></a> 
+            <a href="<?= BASE_DIR.'/Vistas/Equipos.php'?>"><li>Equipos</li></a>
+
+            <a href="http://localhost/SistemaDeControlDeLigaDeFutbol/Login/login"><li>Login</li></a>
         </ul>
     </nav>
 </div>
 
 
-<div class="container3">
+<div class="caja">
 
-    <h1>Acerca De</h1>
+    <h1>Mas sobre las ADFA's</h1>
+    <br>
+    <br>
 
-    <p>Gema Emperatriz Manzano</p>
-    <p>Kevin Josue Martinez</p>
-    <p>Nelson Eduardo Vásquez</p>
-    <p>Juan Jose Corvera</p>
+    <h2></h2>
+
+    <p>Las ADFAS forman parte de la estructura orgánica de la Federación Salvadoreña de Fútbol, reconocidas como Autoridad Deportiva, dentro de la circunscripción Departamental para promover, convocar, organizar, y dirigir los diferentes torneos y campeonatos de fútbol y sus modalidades en el sector aficionado.</p>
 
 </div>
 
