@@ -21,12 +21,21 @@ body {
     margin: 30%;
 }
 .menu{
-   background-color: aliceblue;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-   font-size: large;
-   color: white;
-   background-color: #3360CF;
+    width: 100%;
+    background-color: aliceblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-size: large;
+    color: white;
+    background-color: #3360CF;
+    align-items: center;
+    text-align: center;
 }
+.menu ul a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    color: white;
+    list-style: none;
+ }
+
 
 nav{
     width: 100%;
@@ -85,11 +94,10 @@ ul li{
 }
 
 .resultados {
-    background-image: url("Assets/img/fondo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 10px;
-    background-color: antiquewhite;
+    background-color: #F2F6FE;
     border: 25px;
 }
 
@@ -97,7 +105,7 @@ ul li{
     text-align: center;
     align-items: center;
     font-family: 'Times New Roman', Times, serif;
-    background-color: darkgray;
+    background-color: #C5D4FB;
 }
 
 .resultados h4 {
@@ -121,4 +129,11 @@ ul li{
     display: flex;
     align-items: center;
 
+}
+
+.container-resultados h1 {
+    text-align: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #C5D4FB;
 }

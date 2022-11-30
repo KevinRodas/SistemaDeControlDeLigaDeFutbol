@@ -10,12 +10,15 @@
 <div class="menu">
     <nav>
         <ul>
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+            <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>            
         </ul>
         <ul>       
-            <li>Registrar Jugador</li>
-            <li>Actualizar Jugador</li>
-            <li>Listado de Jugador</li>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>
+            <a href="<?= BASE_DIR.'/Jugador/showRegistro' ?>"><li>Registrar Jugador</li></a>
+            <a href="<?= BASE_DIR.'/Jugador/showUpdate' ?>"><li>Actualizar Jugador</li></a>
+            <a href="<?= BASE_DIR.'/Jugador/showListado'?>"><li>Listado de Jugador</li></a>
+         
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>

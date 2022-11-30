@@ -1,17 +1,20 @@
+<?php
+require_once "./config/configGeneral.php";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Administrador Partidos</title>
-    <link rel="stylesheet" href="../Assets/css/estilo.css">
+    <title>Administrador Torneos</title>
+    <link rel="stylesheet" href="../Assets/css/administrador.css">
+
 </head>
 <body>
 <div class="menu">
     <nav>
         <ul>
-
-        <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
         <ul>       
@@ -22,11 +25,9 @@
             <a href=""><li>Sanciones</li></a>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminLocal'?>"><li>Localidades</li></a>
             <a href=""><li>Noticias</li></a>
-            <a href="<?= BASE_DIR.'Login/salir'?>"><li> LogOut</li></a></li>
         </ul>
-        
         <ul>
-        <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li></li></a>
+            <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li></li></a>
         </ul>
     </nav>
 </div>
@@ -34,15 +35,11 @@
 <div class="container2">
 
 <button class="boton">
-    <p>Crear Partidos</p>
+<a href="<?= BASE_DIR.'Torneo/showcreateTorneo' ?>">Crear Torneo</a>
 </button>
 
 <button class="boton">
-    <p>Listado de reportes de Partidos</p>
-</button>
-
-<button class="boton">
-    <p>Lista de Partidos</p>
+<a href="<?= BASE_DIR.'Torneo/showTorneos' ?>">Listado de torneos</a>
 </button>
 
 </div>
