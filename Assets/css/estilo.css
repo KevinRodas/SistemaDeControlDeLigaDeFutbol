@@ -14,27 +14,32 @@ body {
     font-family: sans-serif;
 }
 
+
+
 .imagen{
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin: 30%;
+
 }
 .menu{
-   background-color: aliceblue;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-   font-size: large;
-   color: white;
-   background-color: #3360CF;
+    width: 100%;
+    background-color: aliceblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-size: large;
+    color: white;
+    background-color: #3360CF;
+    align-items: center;
+    text-align: center;
+    list-style: none;
 }
 .menu ul a{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     color: white;
  }
-
+ 
 nav{
     width: 100%;
-    color: white;
     height: 150px;
     display: flex;
     align-items: center;
@@ -72,7 +77,8 @@ ul li{
     height: 100px;
     align-items: center;
     margin: 50px;
-    padding: 10px;
+    padding: 50px;
+    color: #000;
 
 }
 
@@ -116,6 +122,12 @@ textarea {
 }
 
 h1 {
+    font-size: 50px;
+    align-items: center;
+    text-align: center;
+}
+
+h2 {
     align-items: center;
     text-align: center;
 }
@@ -219,6 +231,13 @@ p {
     color: white;
     align-items: center;
     text-align: center;
+}
+
+.footer p {
+    font-family: 'Times New Roman', Times, serif;
+    align-items: center;
+    text-align: justify;
+    font-size: 20px;
 }
 
 .card {

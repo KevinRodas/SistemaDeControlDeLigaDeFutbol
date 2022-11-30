@@ -10,15 +10,16 @@
 <div class="menu">
     <nav>
         <ul>
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
-        </ul>
+            <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>        </ul>
         <ul>       
-            <li><a href=""></a>Inicio</li>
-            <li>Acerca de</li>
-            <li>Partidos</li>
-            <li>Noticias</li>
-            <li>Equipos</li>
-            <li>Login</li>
+        <a href="<?= BASE_DIR.'/Vistas/Inicio.php' ?>"><li>Inicio </li></a>
+            <a href="<?= BASE_DIR.'/Vistas/AcercaDe.php' ?>"><li>Acaerca De</li></a>
+            <a href="<?= BASE_DIR.'/Vistas/Partidos.php'?>"><li>Partidos</li></a>
+            <a href="<?= BASE_DIR.'/Vistas/Noticias.php'?>"><li>Noticias</li></a> 
+            <a href="<?= BASE_DIR.'/Vistas/Equipos.php'?>"><li>Equipos</li></a>
+
+            <a href="http://localhost/SistemaDeControlDeLigaDeFutbol/Login/login"><li>Login</li></a>
         </ul>
     </nav>
 </div>

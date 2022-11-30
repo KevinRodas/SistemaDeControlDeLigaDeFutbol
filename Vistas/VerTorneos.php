@@ -6,7 +6,7 @@ require_once "./config/configGeneral.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Administrador Partidos</title>
+    <title>Administrador Torneos</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
     <link rel="stylesheet" href="../Assets/css/tabla.css">
     <link rel="stylesheet" href="../Assets/css/administrador.css">
@@ -22,10 +22,9 @@ require_once "./config/configGeneral.php";
         <ul>       
             <a href="<?= BASE_DIR.'Torneo/showcreateTorneo' ?>"><li>Crear Torneo</li></a>
             <a href="<?= BASE_DIR.'Torneo/showTorneos' ?>"><li>Listado de Torneos</li></a>
-            <a href="<?= BASE_DIR.'/Login/salir'?>"> <li>LogOut</li></a>
         </ul>
         <ul>
-        <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
+        <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li>   </li></a>
         </ul>
     </nav>
 </div>

@@ -5,22 +5,21 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Partidos</title>
     <link rel="stylesheet" href="../Assets/css/partidos.css">
-    <link rel="stylesheet" href="../Assets/css/administrador.css">
-
 </head>
 <body>
 <div class="menu">
     <nav>
         <ul>
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
-        </ul>
+            <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>        </ul>
         <ul>       
-            <li>Inicio</li>
-            <li>Acerca de</li>
-            <li>Partidos</li>
-            <li>Noticias</li>
-            <li>Equipos</li>
-            <li>Login</li>
+        <a href="<?= BASE_DIR.'/Vistas/Inicio.php' ?>"><li>Inicio </li></a>
+            <a href="<?= BASE_DIR.'/Vistas/AcercaDe.php' ?>"><li>Acaerca De</li></a>
+            <a href="<?= BASE_DIR.'/Vistas/Partidos.php'?>"><li>Partidos</li></a>
+            <a href="<?= BASE_DIR.'/Vistas/Noticias.php'?>"><li>Noticias</li></a> 
+            <a href="<?= BASE_DIR.'/Vistas/Equipos.php'?>"><li>Equipos</li></a>
+
+            <a href="http://localhost/SistemaDeControlDeLigaDeFutbol/Login/login"><li>Login</li></a>
         </ul>
     </nav>
 </div>
@@ -110,7 +109,7 @@
 </div>
 
 <footer class="footer">
-<p>©2022 Grupo # 1 Administracion de proyectos | Todos los derechos reservados</p>
+    <p>©2022 Grupo # 1 Administracion de proyectos | Todos los derechos reservados</p>
     <p>Políticas de Privacidad | Desarrollado por Grupo #1 API Sistema Web </p>
 </footer>
 

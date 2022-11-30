@@ -18,15 +18,22 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin: 30%;
 }
 .menu{
-   background-color: aliceblue;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-   font-size: large;
-   color: white;
-   background-color: #3360CF;
+    width: 100%;
+    background-color: aliceblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-size: large;
+    color: white;
+    background-color: #3360CF;
+    align-items: center;
+    text-align: center;
+    list-style: none;
 }
+.menu ul a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    color: white;
+ }
 
 nav{
     width: 100%;
@@ -83,6 +90,12 @@ ul li{
     background-color: #1883ba;
     border-radius: 6px;
     border: 2px solid #0016b0;
+}
+
+.boton a {
+    font-size: 50px;
+    color: white;
+    text-decoration: none;
 }
 
 .footer {

@@ -12,25 +12,18 @@
 <body>
 <div class="menu">
     <nav>
-        <ul>
+    <ul>
             <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
             
         </ul>
-        <ul>       
-            
-            <a href="<?= BASE_DIR?>"><li>Registrar Equipo</li></a>
-            <a href="<?= BASE_DIR?>"><li>Listado de Equipos </li></a>
-            <!-- <a href=""><li>Administrar Indumentaria de Equipo</li></a> -->
-            
-            <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>  
+        <ul>           
             <a href="<?= BASE_DIR.'/Jugador/showRegistro' ?>"><li>Registrar Equipo</li></a>
             <a href="<?= BASE_DIR.'/Jugador/showUpdate' ?>"><li>Listado de Equipos</li></a>
             <a href="<?= BASE_DIR.'/Jugador/showListado'?>"><li>Listado de Jugador</li></a>
-            
         </ul>
         <ul>
-        <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
+        <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li>   </li></a>
         </ul>
     </nav>
 </div>
