@@ -111,6 +111,7 @@ if(is_file($fullController))
                         $inicio= new PanelRepresentanteController();     
                         $inicio->showHome();  
                         
+                        
                     }
                     
                     else{
@@ -133,7 +134,7 @@ if(is_file($fullController))
         elseif ($controller=='PanelArbitroController') {
             if(!empty($_COOKIE["Rol"])){
 
-                if ($_COOKIE["Rol"] == ROL_REP) {
+                if ($_COOKIE["Rol"] == ROL_ARB) {
                     if ($action='showHome') {
                         $inicio= new PanelArbitroController();     
                         $inicio->showHome();  
@@ -176,6 +177,23 @@ if(is_file($fullController))
            }
        }
 
+       elseif ($controller=='EquipoController') { //controlador vinculado al entorno administrador
+            if(!empty($_COOKIE["Rol"])){
+                if ($_COOKIE["Rol"] == ROL_ADMIN) {
+                $j= new EquipoController();     
+                $j->buscarDireccion($action);
+            }
+                else{
+                    //intento acceder a un area que no le corresponde
+                header('Location: '.BASE_DIR);
+                }
+            }
+            else{
+                //no hay cookie
+                header('Location: '.BASE_DIR);
+            }
+        }
+
        elseif ($controller=='TorneoController') { //controlador vinculado al entorno administrador
             if(!empty($_COOKIE["Rol"])){
                 if ($_COOKIE["Rol"] == ROL_ADMIN) {
@@ -209,6 +227,122 @@ if(is_file($fullController))
                 header('Location: '.BASE_DIR);
             }
         }
+
+        elseif ($controller=='AdministrarMiembrosController') { //controlador vinculado al entorno administrador
+            if(!empty($_COOKIE["Rol"])){
+                if ($_COOKIE["Rol"] == ROL_ADMIN) {
+                    $j = new AdministrarMiembrosController();     
+                    $j->buscarDireccion($action);
+                }
+                else{
+                    //intento acceder a un area que no le corresponde
+                header('Location: '.BASE_DIR);
+                }
+            }
+            else{
+                //no hay cookie
+                header('Location: '.BASE_DIR);
+            }
+        }
+
+        elseif ($controller=='JugadorController') { //controlador vinculado al entorno administrador
+            if(!empty($_COOKIE["Rol"])){
+                
+                    $j = new JugadorController();     
+                    $j->buscarDireccion($action);
+                
+                    //intento acceder a un area que no le corresponde
+                
+            }
+            else{
+                //no hay cookie
+                header('Location: '.BASE_DIR);
+            }
+        }
+        elseif ($controller=='ArbitroController') { //controlador vinculado al entorno administrador
+            if(!empty($_COOKIE["Rol"])){
+                if ($_COOKIE["Rol"] == ROL_ADMIN) {
+                    $j = new ArbitroController();     
+                    $j->buscarDireccion($action);
+                }
+                else{
+                    //intento acceder a un area que no le corresponde
+                header('Location: '.BASE_DIR);
+                }
+            }
+            else{
+                //no hay cookie
+                header('Location: '.BASE_DIR);
+            }
+        }
+
+        elseif ($controller=='PartidosController') { //controlador vinculado al entorno administrador
+            if(!empty($_COOKIE["Rol"])){
+                if ($_COOKIE["Rol"] == ROL_ADMIN) {
+                    $j = new PartidosController();     
+                    $j->buscarDireccion($action);
+                }
+                else{
+                    //intento acceder a un area que no le corresponde
+                header('Location: '.BASE_DIR);
+                }
+            }
+            else{
+                //no hay cookie
+                header('Location: '.BASE_DIR);
+            }
+        }
+
+        elseif ($controller=='AdministradorController') { //controlador vinculado al entorno administrador
+            if(!empty($_COOKIE["Rol"])){
+                if ($_COOKIE["Rol"] == ROL_ADMIN) {
+                    $j = new AdministradorController();     
+                    $j->buscarDireccion($action);
+                }
+                else{
+                    //intento acceder a un area que no le corresponde
+                header('Location: '.BASE_DIR);
+                }
+            }
+            else{
+                //no hay cookie
+                header('Location: '.BASE_DIR);
+            }
+        }
+        elseif ($controller=='RepresentanteController') { //controlador vinculado al entorno administrador
+            if(!empty($_COOKIE["Rol"])){
+                if ($_COOKIE["Rol"] == ROL_ADMIN) {
+                    $j = new RepresentanteController();     
+                    $j->buscarDireccion($action);
+                }
+                else{
+                    //intento acceder a un area que no le corresponde
+                header('Location: '.BASE_DIR);
+                }
+            }
+            else{
+                //no hay cookie
+                header('Location: '.BASE_DIR);
+            }
+        }
+
+        elseif ($controller=='ReporteController') { //controlador vinculado al entorno administrador
+            if(!empty($_COOKIE["Rol"])){
+                if ($_COOKIE["Rol"] == ROL_ARB) {
+                    $j = new ReporteController();     
+                    $j->buscarDireccion($action);
+                }
+                else{
+                    //intento acceder a un area que no le corresponde
+                header('Location: '.BASE_DIR);
+                }
+            }
+            else{
+                //no hay cookie
+                header('Location: '.BASE_DIR);
+            }
+        }
+
 
         else{
             echo 'No hay controlador';
