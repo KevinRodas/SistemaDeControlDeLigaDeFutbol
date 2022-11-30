@@ -7,7 +7,8 @@ class JugadorController
 {
     public function createJugador(){
         $m=NULL;
-        if(!empty($_POST)){
+        if(!empty($_POST) && $_POST[U_ID] != '' && $_POST[U_ID] != '' && $_POST[JUG_EQP] != '' && $_POST[U_NOM] != '' && $_POST[U_LN] != '' && 
+        $_POST[U_AGE] != '' && $_POST[U_TEL] != '' && $_POST[U_MAIL] != '' && $_POST[U_PASS] != ''){
             $j= new Jugador();
             $j->setIdJugador($_POST[U_ID]);
             $j->setCodEquipo($_POST[JUG_EQP]);
