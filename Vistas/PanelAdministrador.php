@@ -87,13 +87,6 @@ require_once "./config/configGeneral.php";
     <button class="boton" > Cancelación de sanciones</button>
 </a>
 
-<a href="<?= BASE_DIR.'/PanelAdministrador/showHome'?>">
-    <button class="boton"><p>Solvencia de equipos</p></button>
-</a>
-    
-
-
-
 </div>
 
 <footer class="footer">

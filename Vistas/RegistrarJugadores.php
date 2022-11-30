@@ -15,10 +15,23 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
         <ul>     
+            <?php 
+                if($_COOKIE["Rol"] == ROL_ADMIN){
+            
+            ?>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>  
             <a href="<?= BASE_DIR.'/Jugador/showRegistro' ?>"><li>Registrar Jugador</li></a>
             <a href="<?= BASE_DIR.'/Jugador/showUpdate' ?>"><li>Actualizar Jugador</li></a>
             <a href="<?= BASE_DIR.'/Jugador/showListado'?>"><li>Listado de Jugador</li></a>
+            <?php 
+                }
+                elseif($_COOKIE["Rol"] == ROL_REP){
+            ?>
+            <a href="<?= BASE_DIR.'/PanelRepresentante/showHome' ?>"><li>Inicio </li></a>  
+            <?php 
+                }
+                
+            ?>
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
