@@ -41,14 +41,14 @@
 </div>
 
 
-<div class="form">
+<!--<div class="form">
     <form  class="formulario" method="POST" action="">
         <h1>Crear partido</h1><br>
         <input type="text"  placeholder="Torneo" name="id_torneo" required autocomplete="off">    
-        <input type="text"  placeholder="Equipo 1" name="id_equipo1" required autocomplete="off"><!-- cambiar a select -->
+        <input type="text"  placeholder="Equipo 1" name="id_equipo1" required autocomplete="off"><-- cambiar a select ->
         <input type="text"  placeholder="Equipo 2" name="id_equipo2" required autocomplete="off">
-        <input type="text"  placeholder="Representante 1" name="id_repre1" required ><!--cambiar a autocomplementar-->
-        <input type="text"  placeholder="Representante 2" name="id_repre2" required ><!--cambiar a autocomplementar-->
+        <input type="text"  placeholder="Representante 1" name="id_repre1" required ><--cambiar a autocomplementar->
+        <input type="text"  placeholder="Representante 2" name="id_repre2" required ><--cambiar a autocomplementar->
         <select id="arbitro">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -59,6 +59,22 @@
         <button>Guardar</button>
 
     </form>
+</div>-->
+
+<div class="formulario-registro">
+<form action="<?= BASE_DIR.'/Partidos/crearPartido'?>" method="post">
+    <h4>Registro Partido</h4>
+
+    <input class="controls" type="text" name="<?=PART_TORNEO ?>" id="torneo" placeholder="Torneo">
+    <input class="controls" type="text" name="<?= PART_EQP1 ?>" id="equipo1" placeholder="Equipo 1">
+    <input class="controls" type="text" name="<?= PART_EQP2 ?>" id="equipo2" placeholder="Equipo 2">
+    <input class="controls" type="email" name="<?= PART_REPRE1?>" id="representante1" placeholder="Representante 1">
+    <input class="controls" type="text" name="<?= PART_REPRE2 ?>" id="representante2" placeholder="Representante 2">
+    <input class="controls" type="text" name="<?= PART_ARB ?>" id="arbitro" placeholder="Arbitro">
+
+    <input class="botons" type="submit" value="Registrar">
+
+     
 </div>
 
 <div class="container3">
