@@ -40,7 +40,7 @@ require_once "./config/configGeneral.php";
 
 
 
-<a href="<?= BASE_DIR.'AdministrarPartidos/showcreatePartido' ?>">
+<a href="<?= BASE_DIR.'Partidos/showcreatePartido' ?>">
     <button class="boton">
     Crear Partidos
     </button>

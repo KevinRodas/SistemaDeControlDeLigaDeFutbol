@@ -64,7 +64,7 @@ class JugadorController
     public function showRegistro(){
         require_once "Controladores/EquipoController.php";
         $e = new EquipoController();
-        $e->llenarSelect();
+        $e->showEquipos();
         require_once "Vistas/RegistrarJugadores.php";
         
     }

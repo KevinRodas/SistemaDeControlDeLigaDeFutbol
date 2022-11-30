@@ -1,4 +1,7 @@
 <?php
+require_once "config/configGeneral.php";
+require_once "config/db_config.php";
+require_once "Modelos/Partido.php";
 class AdministrarPartidosController{
     public function __construct()
     {
@@ -13,7 +16,17 @@ class AdministrarPartidosController{
         //require_once "Vistas/AdministrarPartidos.php";
    }
    public function showPartido(){
-        require_once "Vistas/partidos.php";
+     $Partido = new Partido(); //Creamos una instancia de la clase Torneo
+
+     $registros = $Partido->Ver_Partidos(); //Pedimos la lista de torneos
+     $data[T_PARTIDO] = "";
+
+     if ($registros != null) {
+         $data[T_PARTIDO] = $registros;
+         
+     }
+
+        require_once "Vistas/ListaPartidos.php";
     //require_once "Vistas/AdministrarPartidos.php";
     }
 
