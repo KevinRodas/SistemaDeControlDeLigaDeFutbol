@@ -178,6 +178,24 @@ class Sanciones extends Database{
         }
         return $message;
     }
+
+    public function Actualizar_Estado_Sancion(){
+        $query = "UPDATE " . T_SANCIONES . " SET ".  SANCION_EST."=:" .  SANCION_EST. " WHERE " . SANCION_ID_SAN . "=:" . SANCION_ID_SAN ." && ".SANCION_PART . "=:" . SANCION_PART;
+        //$query = "UPDATE " . TBL_FACTURAS_CONF . " SET " . F_ESTADO . "=:" . F_ESTADO . " WHERE " . F_ID . "=:" . F_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . SANCION_ID_SAN,  $this->getCodSancionado());
+        $statement->bindValue(':' . SANCION_EST, $this->getEstado());
+        $statement->bindValue(':' . SANCION_PART, $this->getCodPartido());
+        echo $this->getIdReporte()."<br>";
+        echo $this->getEstado()."<br>";
+        echo $this->getCodPartido()."<br>";
+        var_dump($statement);
+        $message = "<h1>Error al actualizar sancion!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
     
     public function Ver_Sancion(){
         $row=false;
@@ -208,6 +226,43 @@ class Sanciones extends Database{
         $query = "SELECT * FROM " .T_SANCIONES . " WHERE " . SANCION_REPORTE . "=:" . SANCION_REPORTE ;
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . SANCION_REPORTE, $this->getIdReporte());
+
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
+
+    public function Buscar_Sanciones_Partido(){
+        $row=false;
+        $query = "SELECT * FROM " .T_SANCIONES . " WHERE " . SANCION_PART . "=:" . SANCION_PART." && ". SANCION_EST. "= 'Pendiente'" ;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . SANCION_PART, $this->getCodPartido());
+
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
+
+    public function Buscar_Sanciones_Sancionado(){
+        $row=false;
+        $query = "SELECT * FROM " .T_SANCIONES . " WHERE " . SANCION_ID_SAN . "=:" . SANCION_ID_SAN." && ". SANCION_EST. "= 'Pendiente'" ;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . SANCION_ID_SAN, $this->getCodSancionado());
+
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
+    public function Buscar_Sanciones_Pendientes(){
+        $row=false;
+        $query = "SELECT * FROM " .T_SANCIONES . " WHERE ". SANCION_EST. "= 'Pendiente'" ;
+        $statement = $this->conexion->prepare($query);
 
         if ($statement->execute()) {
            $row= $statement->fetchAll(PDO::FETCH_ASSOC);
