@@ -65,11 +65,10 @@ if(is_file($fullController))
     {
         if($controller=='InicioController'){
             //echo 'Entro en el if';
-            if ($action=='showInicio') {
                 //echo 'valido funcion'; 
                 $inicio= new InicioController();      
-                $inicio->showInicio();       
-            }
+                $inicio->buscarDireccion($action);       
+            
         }  
         elseif ($controller=='LoginController') {
             if ($action=='login') {
@@ -277,7 +276,7 @@ if(is_file($fullController))
 
         elseif ($controller=='PartidosController') { //controlador vinculado al entorno administrador
             if(!empty($_COOKIE["Rol"])){
-                if ($_COOKIE["Rol"] == ROL_ADMIN) {
+                if ($_COOKIE["Rol"] == ROL_ADMIN || $_COOKIE["Rol"] == ROL_ARB) {
                     $j = new PartidosController();     
                     $j->buscarDireccion($action);
                 }
