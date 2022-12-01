@@ -7,6 +7,10 @@ body{
     background-attachment: fixed;
     background-size: cover;
 }
+textarea{
+    background-color: #2146C7;
+    font-size: 14px;
+}
 .form{
     padding: 80px;
   
@@ -50,6 +54,7 @@ input {
     font-size: 14px;
 }
 
+
 select{
     -webkit-box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
@@ -91,3 +96,4 @@ button{
 button:hover{
     background: #4649FF;
 }
+

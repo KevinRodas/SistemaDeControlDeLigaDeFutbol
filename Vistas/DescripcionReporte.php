@@ -6,6 +6,9 @@
     <title>Descripción de Reporte</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
     <link rel="stylesheet" href="../Assets/css/administrador.css">
+    <link rel="stylesheet" href="../Assets/css/formulario.css">
+    <link rel="stylesheet" href="../Assets/css/text-area.css">
+
 
 </head>
 <body>
@@ -20,6 +23,7 @@
             <li>Descripción de Reporte</li>
             <li>Listado de Reportes</li>
         </ul>
+
         <ul>
             <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li></li></a>
         </ul>
@@ -27,22 +31,30 @@
 </div>
 
 
-<div class="container3">
+<div class="form">
 
-    <p>N° de Reporte <input type="text"></p>
+    <?php
+    
+        if (!empty($dataSelectReporte[T_REPORTE])) {
+            echo "<form class='formulario' method='post' action= '".BASE_DIR."/Reporte/actualizarObservacion"."' id='descripcion'>"; 
+            //echo "<form method='post' action= '". BASE_DIR."/Reporte/generar '".">";                 
+            echo "<select name='reporte' >";
+            echo "<option value='0'>Seleccione el reporte</option>";
+            foreach ($dataSelectReporte[T_REPORTE] as $dato) {
+                 echo "<option value=".$dato[REPORT_ID].">".$dato[REPORT_ID]."</option>";
+            }
+            echo "</select>";
+            echo "<textarea   form='descripcion' name='observacion' id='' cols='20' rows='10' placeholder='Ingrese observaciones del partido'></textarea>";
+            echo "<button type='submit'>Guardar</button>";
+            echo "</form>";
+        }
+        
+    ?>
+
+    
 
 </div>
 
-<div class="">
-
-    <p>Observaciones</p>
-    <textarea name="Comentarios" id="" cols="40" rows="10"></textarea>
-
-</div>
-
-<div class="container3">
-    <button class="boton-enviar">Enviar</button>
-</div>
 
 <footer class="footer">
 

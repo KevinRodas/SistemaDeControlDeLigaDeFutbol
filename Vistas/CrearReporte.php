@@ -149,8 +149,7 @@
                     }
                 echo "</tbody>";
                 echo "</table>";  
-                echo "<button type='submit'>Crear Reporte</button>";
-                echo "</form>";
+                
                 
         }
         else {
@@ -186,55 +185,43 @@
                 echo "</thead>";
                 echo "<form>";
                 echo "<tbody>";
-                
+                $i=1;
                     foreach ($data3[T_JUGADOR] as $dato) {
                         echo "<tr>";
-                        echo "<td>" . $dato[JUG_ID] . "</td>";
+                        echo "<td>" . $dato[JUG_ID] ."<input type='hidden' name='e1-id".$i."' id='' value='".$dato[JUG_ID]."' >". "</td>";
                         echo "<td>" . "</td>";
                         echo "<td>" . "</td>";
-                        echo "<td>" . "</td>";
-                        echo "<td>" . "</td>";
-                        echo "<td>" . "</td>";
-                        echo "<td>" . "</td>";
-                        echo "<td>" . "</td>";
+                        echo "<td>" ."<input type='number' name='e1-amarilla".$i."' id=''>". "</td>";
+                        echo "<td>" ."<input type='number' name='e1-roja".$i."' id=''>". "</td>";
+                        //echo "<td>" ."<input style='height=30px' type='text' name='e1-motv".$i."' id=''>". "</td>";
+                        echo "<td>" ."<textarea style='height: 100px; border:none;' form='form_reporte' id='' name='e1-motv".$i."' rows='2' cols='20'></textArea>". "</td>";
+                        
+                        echo "<td>" ."<input type='number' name='e1-dias".$i."' id=''>". "</td>";
+                        echo "<td>" ."<input type='number' name='e1-precio".$i."' id='' >". "</td>";
                                    
                         //echo "<td><a class='btn btn-prestar ' href='" . BASE_DIR . "Inventario/datosInventario&id=" . $dato[I_ID] . "'><span data-tooltip='Visualizar'><p class='fas fa-eye fa-lg'></p></span></a></td>";
                         //echo "<td><a class='btn btn-modificar' href='" . BASE_DIR . "Inventario/modificar&id=" . $dato[I_ID] . "'><span data-tooltip='Modificar'><p class='fas fa-pen-alt fa-lg'></p></span></a></td>";
-                        /*if ($_COOKIE["Rol"] == ROL_ARB) {
-                            $_POST["id_jugador"]=$dato[JUG_ID];
-                            //$_POST["id_jugador"]=$dato[ADMIN_ID];
-                            echo "<td>
-                                <button class='boton-ver'>
-                                    <img class='img-boton' src='".BASE_DIR."/Assets/img/ver.png'  alt=''>
-                                </button>
-                                <button class='boton-edit'>
-                                    <img class='img-boton' src='".BASE_DIR."/Assets/img/editar.png'  alt=''>
-                                </button>
-
-                                <button class='boton-delete'>
-                                    <img class='img-boton' src='".BASE_DIR."/Assets/img/eliminar.png'  alt=''>
-                                </button>
-                            </td>";
-                            //echo "<td><a class='btn btn-eliminar' onclick='return checkDelete()' href='" . BASE_DIR . "Inventario/eliminar&id=" . $dato[I_ID] . "'><span data-tooltip='Eliminar'><p class='fas fa-trash fa-lg'></p></span></a></td>";
-                        }*/
+                       
                        echo "</tr>";
+                    
+                       $i++;
                     }
                     
                 echo "</tbody>";
                 echo "</table>";  
-                echo "<form>";
+                
         }
         else {
             echo "<h1>No hay datos</h1>";
         }
-    
+        echo "<button type='submit'>Crear Reporte</button>";
+        echo "</form>";
 
 
                     
 ?>
 <!-- Fin tabla equipo 2 -->
 
-<h3>Observaciones: </h3>
 <?php
 /*
 <div class="">

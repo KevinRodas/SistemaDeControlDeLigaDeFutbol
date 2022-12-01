@@ -259,54 +259,7 @@ class ReporteController
    }
 
    public function generar(){
-    require_once "Modelos/Jugador.php";
-    require_once "Modelos/Partido.php";
-    require_once "Modelos/Equipo.php";
-    if(isset($_POST["partido"])){
-
-        $partido =new Partido();
-        $equipo1 = new Equipo();
-        $equipo2 = new Equipo();
-        $jugadores_e1 = new Jugador();
-        $jugadores_e2 = new Jugador();
-
-
-
-        //buscamos el partido
-        $partido->setIdPartido($_POST['partido']);
-        $datos=$partido->Buscar_Partido();
-
-        if ($datos != null) {
-            $data[T_PARTIDO]=$partido->Buscar_Partido();
-            $dato1='';
-            $dato2='';
-            foreach ($data[T_PARTIDO] as $dato) {
-                $dato1=$equipo1->setID(strval($dato[PART_EQP1]));
-                $dato2=$equipo2->setID(strval($dato[PART_EQP2]));
-                //echo "<h1>" . $dato[PART_EQP1] . "</h1>";
-                //echo "<h1>" . $dato[PART_EQP2] . "</h1>";
-            }
-
-            foreach ($data[T_PARTIDO] as $dato) {
-                $dato1=$dato[PART_EQP1];
-                $dato2=$dato[PART_EQP2];
-               // echo "<h1>" . $dato[PART_EQP1] . "</h1>";
-                //echo "<h1>" . $dato[PART_EQP2] . "</h1>";
-            }
-
-            //$dato1=$equipo1->setID($datos[PART_EQP1]);
-            //$dato2=$equipo2->setID($datos[PART_EQP2]);
-            $jugadores_e1->setCodEquipo(strval($dato1));
-            $jugadores_e2->setCodEquipo(strval($dato2));
-
-            $data2[T_JUGADOR]=$jugadores_e1->Buscar_Jugadores_Equipo();
-            $data3[T_JUGADOR] = $jugadores_e2->Buscar_Jugadores_Equipo(); 
-            require_once "Vistas/CrearReporte.php";
-            //header("Location:".BASE_DIR.'Reporte/showcreateReporte' );
-
-        }
-
-    }      
+    
    }
    
 
@@ -314,9 +267,9 @@ class ReporteController
 
    
    public function showReportes(){
-        $Reporte = new Reportes(); //Creamos una instancia de la clase Torneo
+        $Reporte = new Reportes(); //Creamos una instancia de la clase reporte
 
-        $registros = $Reporte->Ver_Reportes(); //Pedimos la lista de torneos
+        $registros = $Reporte->Ver_Reportes(); //Pedimos la lista de reporte
         $data[T_REPORTE] = "";
 
         if ($registros != null) {
@@ -324,8 +277,65 @@ class ReporteController
             
         }
 
-        require_once "Vistas/";
+        require_once "Vistas/lista-reportes.php";
     
+    }
+
+    public function showDescripcionReporte(){
+        $Reporte = new Reportes(); //Creamos una instancia de la clase Torneo
+
+        $registros = $Reporte->Ver_Reportes(); //Pedimos la lista de torneos
+        $dataSelectReporte[T_REPORTE] = "";
+
+        if ($registros != null) {
+            $dataSelectReporte[T_REPORTE] = $registros;
+            
+        }
+
+        require_once "Vistas/DescripcionReporte.php";
+    
+    }
+
+    public function actualizarObservacion(){
+        if(isset($_POST) && !empty($_POST["reporte"]) && !empty($_POST["observacion"])){
+            $Reporte = new Reportes();
+            $Reporte->setIdReporte($_POST["reporte"]);
+            $Reporte->setObservaciones($_POST["observacion"]);
+            if($Reporte->Actualizar_Reporte_Observacion()){
+                header("Location:".BASE_DIR.'/PanelArbitro/showHome');
+            }
+            else{
+               echo $Reporte->setIdReporte($_POST["reporte"]);
+               echo $Reporte->setObservaciones($_POST["observacion"]);
+                require_once('Vistas/prueba.php');
+                //header("Location:".BASE_DIR.'/Reporte/showDescripcionReporte');
+            }
+        }
+    }
+
+    public function VerDetalleReporte(){
+        if(!empty($_POST['idR'])){
+            $Reporte = new Reportes();
+            $Reporte->setIdReporte($_POST['idR']);
+            $registros = $Reporte->Buscar_Reporte(); //Pedimos la lista de reporte
+            $data[T_REPORTE] = "";
+    
+            if ($registros != null) {
+                $data[T_REPORTE] = $registros;
+                
+            }
+
+            $SancionesR = new Sanciones();
+            $SancionesR->setIdReporte($_POST['idR']);
+            $registros2 = $SancionesR->Buscar_Sanciones(); //Pedimos la lista de reporte
+            $data2[T_SANCIONES] = "";
+    
+            if ($registros2 != null) {
+                $data2[T_SANCIONES] = $registros2;
+                
+            }
+        }
+        require_once "Vistas/VerDetalleReporte.php";
     }
 
   public function buscarDireccion($action){
@@ -338,8 +348,14 @@ class ReporteController
     elseif ($action=="crearReporte") {
         $this->crearReporte();
     }
-    elseif ($action=="generar") {
-        $this->generar();
+    elseif ($action == "showDescripcionReporte") {
+        $this->showDescripcionReporte();
+    }
+    elseif ($action == "actualizarObservacion") {
+        $this->actualizarObservacion();
+    }
+    elseif ($action == "VerDetalleReporte") {
+        $this->VerDetalleReporte();
     }
     else{
         return false;

@@ -1,0 +1,13 @@
+.btn-cancelarSancion{
+    margin: 15px;
+    border-radius: 10px;
+    border: 10px;
+    border-color: black;
+    background-color: #FB2576;
+    color: whitesmoke;
+}
+.btn-cancelarSancion:hover{
+    border: 2ch;
+    color: #FB2576;
+    background-color: aliceblue;
+}

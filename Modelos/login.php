@@ -53,6 +53,7 @@ class Login extends Database
                     //creamos una cookie
                     setcookie("SessionId", true, strtotime('+1 day'), '/');
                     setcookie("Rol", $result[U_ROL], strtotime('+1 day'), '/');
+                    setcookie("User", $result[U_ID], strtotime('+1 day'), '/');
 
                     return $result;
                 } else { //En caso que las contraseñas no coincidan, retornara false
@@ -70,6 +71,7 @@ class Login extends Database
     public function logout(){
         setcookie("SessionId", null, strtotime('+1 second'), '/');
         setcookie("Rol", null, strtotime('+1 second'), '/');
+        setcookie("User",null, strtotime('+1 day'), '/');
         unset($_COOKIE);
         unset($_SESSION);
         

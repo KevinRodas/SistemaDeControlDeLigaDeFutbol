@@ -31,7 +31,20 @@ class SancionesController
 
     }
 
-  
+    public function cancelarSancion(){
+        if(isset($_POST) && !empty($_POST[SANCION_ID_SAN]) && !empty($_POST[SANCION_PART])){
+            $sancion = new Sanciones();
+            $sancion->setCodSancionado($_POST[SANCION_ID_SAN]);
+            $sancion->setCodPartido($_POST[SANCION_PART]);
+            $sancion->setEstado('Cancelado');
+            if($sancion->Actualizar_Estado_Sancion()){
+                header("Location:".BASE_DIR.'/ ');
+            }
+            else{
+                header("Location:".BASE_DIR.'/PanelAdministrador/cancelarSancion ');
+            }
+        }
+    } 
 
     public function showcrearSancion(){
         require_once "Vistas/";
@@ -41,7 +54,31 @@ class SancionesController
         require_once "Vistas/";
     }
 
-    
+    public function buscarDireccion($action){
+        if ($action=='cancelarSancion') {
+               $this->cancelarSancion();
+        }
+        /*elseif ($action=="showReportes") {
+            $this->showReportes();
+        }
+        elseif ($action=="crearReporte") {
+            $this->crearReporte();
+        }
+        elseif ($action == "showDescripcionReporte") {
+            $this->showDescripcionReporte();
+        }
+        elseif ($action == "actualizarObservacion") {
+            $this->actualizarObservacion();
+        }
+        elseif ($action == "VerDetalleReporte") {
+            $this->VerDetalleReporte();
+        }*/
+        else{
+            return false;
+        }
+    }
+
+   
 
    
 

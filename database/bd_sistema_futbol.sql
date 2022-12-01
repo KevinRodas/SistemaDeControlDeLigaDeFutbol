@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-11-2022 a las 11:46:56
+-- Tiempo de generación: 01-12-2022 a las 02:45:08
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -138,6 +138,21 @@ CREATE TABLE `tbl_horario` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tbl_indumentaria`
+--
+
+CREATE TABLE `tbl_indumentaria` (
+  `id_indumentaria` int(11) NOT NULL,
+  `id_equipo` varchar(50) NOT NULL,
+  `logo` int(11) NOT NULL,
+  `uniforme` int(11) NOT NULL,
+  `color_primordial` varchar(30) NOT NULL,
+  `color_secundario` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tbl_jugador`
 --
 
@@ -156,6 +171,22 @@ CREATE TABLE `tbl_jugador` (
 INSERT INTO `tbl_jugador` (`id_jugador`, `id_equipo`, `n_partidos`, `n_sanciones`, `n_goles`) VALUES
 ('JUG_1', 'EQP_MIG', 0, 0, 0),
 ('JUG_ST', 'EQP_MIG', 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_mensaje`
+--
+
+CREATE TABLE `tbl_mensaje` (
+  `id_mensaje` int(11) NOT NULL,
+  `id_partido` int(11) NOT NULL,
+  `id_emisor` varchar(50) NOT NULL,
+  `id_receptor` varchar(50) NOT NULL,
+  `asunto` varchar(100) NOT NULL,
+  `contenido` varchar(100) NOT NULL,
+  `estado` enum('Leido','No leido') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -195,11 +226,18 @@ INSERT INTO `tbl_partido` (`id_partido`, `nombre`, `id_torneo`, `estado`, `id_eq
 --
 
 CREATE TABLE `tbl_reporte` (
-  `id_reporte` varchar(50) NOT NULL,
+  `id_reporte` varchar(100) NOT NULL,
   `id_partido` int(11) NOT NULL,
   `n_tarjetas` int(11) NOT NULL,
   `observaciones` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_reporte`
+--
+
+INSERT INTO `tbl_reporte` (`id_reporte`, `id_partido`, `n_tarjetas`, `observaciones`) VALUES
+('REPORT_MIG_VS_RIO_26-11-2022', 2, 3, 'NJDNJKSDNJSKLX  JJDSKJCNJNNSCN ZXJ JOIMNDONSWONDjnjosdcmodncjonojnojn onomoimkm  ndosmdionoisndonsodmoireunnfns');
 
 -- --------------------------------------------------------
 
@@ -228,10 +266,12 @@ INSERT INTO `tbl_representante` (`id_representante`, `direccion`, `id_equipo`) V
 
 CREATE TABLE `tbl_sanciones` (
   `id_sancion` int(11) NOT NULL,
+  `id_reporte` varchar(100) NOT NULL,
   `id_partido` int(11) NOT NULL,
   `id_arbitro` varchar(50) NOT NULL,
   `id_sancionado` varchar(50) NOT NULL,
-  `categoria` enum('Liviana','Grave','Muy Grave') NOT NULL,
+  `categoria` enum('Leve','Grave','Muy Grave') NOT NULL,
+  `descripcion` varchar(200) NOT NULL,
   `fecha_sancion` date NOT NULL,
   `fecha_fin` date NOT NULL,
   `dias_penalizado` int(11) NOT NULL,
@@ -331,10 +371,23 @@ ALTER TABLE `tbl_horario`
   ADD PRIMARY KEY (`id_horario`);
 
 --
+-- Indices de la tabla `tbl_indumentaria`
+--
+ALTER TABLE `tbl_indumentaria`
+  ADD PRIMARY KEY (`id_indumentaria`),
+  ADD KEY `id_equipo` (`id_equipo`);
+
+--
 -- Indices de la tabla `tbl_jugador`
 --
 ALTER TABLE `tbl_jugador`
   ADD PRIMARY KEY (`id_jugador`);
+
+--
+-- Indices de la tabla `tbl_mensaje`
+--
+ALTER TABLE `tbl_mensaje`
+  ADD PRIMARY KEY (`id_mensaje`);
 
 --
 -- Indices de la tabla `tbl_partido`
@@ -347,20 +400,25 @@ ALTER TABLE `tbl_partido`
 -- Indices de la tabla `tbl_reporte`
 --
 ALTER TABLE `tbl_reporte`
-  ADD PRIMARY KEY (`id_reporte`);
+  ADD PRIMARY KEY (`id_reporte`),
+  ADD KEY `id_partido` (`id_partido`);
 
 --
 -- Indices de la tabla `tbl_representante`
 --
 ALTER TABLE `tbl_representante`
-  ADD PRIMARY KEY (`id_representante`);
+  ADD PRIMARY KEY (`id_representante`),
+  ADD KEY `id_equipo` (`id_equipo`);
 
 --
 -- Indices de la tabla `tbl_sanciones`
 --
 ALTER TABLE `tbl_sanciones`
   ADD PRIMARY KEY (`id_sancion`),
-  ADD KEY `id_partido` (`id_partido`);
+  ADD KEY `id_reporte` (`id_reporte`),
+  ADD KEY `id_partido` (`id_partido`),
+  ADD KEY `id_arbitro` (`id_arbitro`),
+  ADD KEY `id_sancionado` (`id_sancionado`);
 
 --
 -- Indices de la tabla `tbl_torneo`
@@ -397,6 +455,18 @@ ALTER TABLE `tbl_horario`
   MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `tbl_indumentaria`
+--
+ALTER TABLE `tbl_indumentaria`
+  MODIFY `id_indumentaria` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_mensaje`
+--
+ALTER TABLE `tbl_mensaje`
+  MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `tbl_partido`
 --
 ALTER TABLE `tbl_partido`
@@ -406,7 +476,7 @@ ALTER TABLE `tbl_partido`
 -- AUTO_INCREMENT de la tabla `tbl_sanciones`
 --
 ALTER TABLE `tbl_sanciones`
-  MODIFY `id_sancion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sancion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_torneo`
@@ -425,10 +495,36 @@ ALTER TABLE `tbl_administrativo`
   ADD CONSTRAINT `tbl_administrativo_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `tbl_usuario` (`id_usuario`);
 
 --
+-- Filtros para la tabla `tbl_indumentaria`
+--
+ALTER TABLE `tbl_indumentaria`
+  ADD CONSTRAINT `tbl_indumentaria_ibfk_1` FOREIGN KEY (`id_equipo`) REFERENCES `tbl_equipo` (`id_equipo`);
+
+--
+-- Filtros para la tabla `tbl_reporte`
+--
+ALTER TABLE `tbl_reporte`
+  ADD CONSTRAINT `tbl_reporte_ibfk_1` FOREIGN KEY (`id_partido`) REFERENCES `tbl_partido` (`id_partido`);
+
+--
+-- Filtros para la tabla `tbl_representante`
+--
+ALTER TABLE `tbl_representante`
+  ADD CONSTRAINT `tbl_representante_ibfk_1` FOREIGN KEY (`id_representante`) REFERENCES `tbl_usuario` (`id_usuario`),
+  ADD CONSTRAINT `tbl_representante_ibfk_2` FOREIGN KEY (`id_equipo`) REFERENCES `tbl_equipo` (`id_equipo`);
+
+--
 -- Filtros para la tabla `tbl_sanciones`
 --
 ALTER TABLE `tbl_sanciones`
-  ADD CONSTRAINT `id_partido` FOREIGN KEY (`id_partido`) REFERENCES `tbl_partido` (`id_partido`);
+  ADD CONSTRAINT `id_partido` FOREIGN KEY (`id_partido`) REFERENCES `tbl_partido` (`id_partido`),
+  ADD CONSTRAINT `tbl_sanciones_ibfk_1` FOREIGN KEY (`id_reporte`) REFERENCES `tbl_reporte` (`id_reporte`),
+  ADD CONSTRAINT `tbl_sanciones_ibfk_2` FOREIGN KEY (`id_partido`) REFERENCES `tbl_partido` (`id_partido`),
+  ADD CONSTRAINT `tbl_sanciones_ibfk_3` FOREIGN KEY (`id_reporte`) REFERENCES `tbl_reporte` (`id_reporte`),
+  ADD CONSTRAINT `tbl_sanciones_ibfk_4` FOREIGN KEY (`id_partido`) REFERENCES `tbl_partido` (`id_partido`),
+  ADD CONSTRAINT `tbl_sanciones_ibfk_5` FOREIGN KEY (`id_arbitro`) REFERENCES `tbl_arbitro` (`id_arbitro`),
+  ADD CONSTRAINT `tbl_sanciones_ibfk_6` FOREIGN KEY (`id_sancionado`) REFERENCES `tbl_jugador` (`id_jugador`),
+  ADD CONSTRAINT `tbl_sanciones_ibfk_7` FOREIGN KEY (`id_sancionado`) REFERENCES `tbl_equipo` (`id_equipo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

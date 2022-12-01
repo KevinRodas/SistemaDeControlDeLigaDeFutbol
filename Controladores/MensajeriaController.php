@@ -5,10 +5,9 @@
  require_once "Modelos/Usuario.php";
 class JugadorController 
 {
-    public function createJugador(){
+    public function createMensaje(){
         $m=NULL;
-        if(!empty($_POST) && $_POST[U_ID] != '' && $_POST[U_ID] != '' && $_POST[JUG_EQP] != '' && $_POST[U_NOM] != '' && $_POST[U_LN] != '' && 
-        $_POST[U_AGE] != '' && $_POST[U_TEL] != '' && $_POST[U_MAIL] != '' && $_POST[U_PASS] != ''){
+        if(!empty($_POST)){
             $j= new Jugador();
             $j->setIdJugador($_POST[U_ID]);
             $j->setCodEquipo($_POST[JUG_EQP]);
@@ -61,10 +60,10 @@ class JugadorController
 
     }
 
-    public function showRegistro(){
-        /*require_once "Controladores/EquipoController.php";
+    public function showRedactar(){
+        require_once "Controladores/EquipoController.php";
         $e = new EquipoController();
-        $e->showEquipos();*/
+        $e->showEquipos();
         require_once "Vistas/RegistrarJugadores.php";
         
     }
