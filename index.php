@@ -192,6 +192,24 @@ if(is_file($fullController))
             header('Location: '.BASE_DIR);
         }
     }
+        
+        elseif ($controller=='IndumentariaController') { //controlador vinculado al entorno administrador
+            if(!empty($_COOKIE["Rol"])){
+                if ($_COOKIE["Rol"] == ROL_ADMIN) {
+                $j= new IndumentariaController();     
+                $j->buscarDireccion($action);
+            }
+                else{
+                    //intento acceder a un area que no le corresponde
+                header('Location: '.BASE_DIR);
+                }
+            }
+            else{
+                //no hay cookie
+                header('Location: '.BASE_DIR);
+            }
+        }
+        
        elseif ($controller=='TorneoController') { //controlador vinculado al entorno administrador
             if(!empty($_COOKIE["Rol"])){
                 if ($_COOKIE["Rol"] == ROL_ADMIN) {
