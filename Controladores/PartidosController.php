@@ -88,9 +88,9 @@ class PartidosController
                 $h->setIdPartido($idPartido);
                 $h->setIdEstadio($_POST[HOR_ESTADIO]);
     
-                $estadio = new Estadio();
+                /* $estadio = new Estadio();
                 $estadio->setId($_POST[EST_ID]);
-                $estadio->setDisponibilidad('No Disponible');
+                $estadio->setDisponibilidad('No Disponible');*/
 
                 $mensaje1 = "Buenas tardes /n
             Me comunico por este medio para solicitar su confirmacion de participacion
@@ -112,19 +112,19 @@ class PartidosController
             $msj->setIdReceptor($repre1);
             $msj->setAsunto('Solicitud de confirmacion de participacion');
             $msj->setContenido($mensaje1);
-            $msj->setTipo($_POST['Consulta']);
+            $msj->setTipo('Consulta');
             $msj->setEstadoMensaje('No leido');
 
             $msj2= new Mensaje();
-            $msj2->setIdPartido($_POST[MSJ_PART]);
+            $msj2->setIdPartido($idPartido);
             $msj2->setIdEmisor($_COOKIE["User"]);
-            $msj2->setIdReceptor($_POST[$repre2]);
+            $msj2->setIdReceptor($repre2);
             $msj2->setAsunto('Solicitud de confirmacion de participacion');
-            $msj2->setContenido($_POST[MSJ_CONTENIDO]);
-            $msj2->setTipo($_POST['Consulta']);
+            $msj2->setContenido($mensaje2);
+            $msj2->setTipo('Consulta');
             $msj2->setEstadoMensaje('No leido');
-                
-                if($h->Crear_Horario() && $estadio->Actualizar_Disponibilidad()){
+                //$h->Crear_Horario() && $estadio->Actualizar_Disponibilidad()
+                if($h->Crear_Horario()){
                     if($msj->Crear_Mensaje() && $msj2->Crear_Mensaje()){
                         header("Location:".BASE_DIR.'/PanelAdministrador/showAdminPartido');
                     }

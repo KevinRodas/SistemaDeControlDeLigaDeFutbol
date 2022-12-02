@@ -201,4 +201,16 @@ class Equipo extends Database{
         }
         return $row;
     }
+
+    public function buscar_Equipo_repre(){
+        $row=false;
+        $query = "SELECT * FROM " .T_EQUIPO." WHERE ".EQP_REPRE."=:".EQP_REPRE;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . EQP_REPRE , $this->getIdRepre());
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
 }

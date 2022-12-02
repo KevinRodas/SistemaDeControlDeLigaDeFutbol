@@ -36,6 +36,16 @@ define('EQP_INDUMENTARIA','id_indumentaria');
 define('EQP_SANCIONES','n_sanciones');
 define('EQP_ESTADO','estado');
 
+//Definiciones de constantes para tabla indumentaria
+define('T_INDUMENTARIA','tbl_indumentaria');
+define('INDUMT_ID','id_indumentaria');
+define('INDUMT_EQP','id_equipo');
+define('INDUMT_LOGO','logo');
+define('INDUMT_UNIF','uniforme');
+define('INDUMT_COLORP','color_primordial');
+define('INDUMT_COLORS','color_secundario');
+
+
 //Definiciones de constantes para tabla estadio
 define('T_ESTADIO','tbl_estadio');
 define('EST_ID','id_estadio');

@@ -79,8 +79,18 @@
                     foreach ($data[T_EQUIPO] as $d) {
                         echo "<option value='".$d[EQP_REPRE]."'>".$d[EQP_REPRE]." - ".$d[EQP_NOM]."</option>";
                     }
+
+
                     echo "</select>";
-                    echo "<input type='text'  value='". $dato[MSJ_PART]."' name=".MSJ_PART." required readonly autocomplete='off'>";
+                    echo "<input type='text'  value='Consulta' name=".MSJ_TIPO." hidden>";
+                    echo "<select name='repre' id=''>";
+                    echo "<option value='0'>Seleccione puesto de equipo</option>";
+                    echo "<option value='1'>Equipo1</option>";
+                    echo "<option value='2'>Equipo2</option>";
+                    echo "</select>";
+                   
+
+                    echo "<input type='hidden'  value='". $dato[MSJ_PART]."' name=".MSJ_PART." required readonly autocomplete='off'>";
                 }
             }   
             else if($dato[MSJ_TIPO] == 'Confirmacion' && $_COOKIE['Rol'] == ROL_ADMIN){
@@ -95,11 +105,9 @@
         echo "<textarea name='".MSJ_CONTENIDO."' id='' cols='50' rows='50'></textarea>";
 
 
-        if($_COOKIE['Rol'] == ROL_REP){
-            echo "<button>Enviar</button>";
-        }
+            echo "<button type='submit'>Enviar</button>";
+        
 ?>
-
     </form>
     <?php
     }

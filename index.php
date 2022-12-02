@@ -378,8 +378,11 @@ if(is_file($fullController))
 
         elseif ($controller=='MensajeriaController') { //controlador vinculado al entorno administrador
             if(!empty($_COOKIE["Rol"])){
-                $msj = new MensajeriaController();
-                $msj->buscarDireccion($action);
+                if($_COOKIE["Rol"] == ROL_REP || $_COOKIE["Rol"] == ROL_ADMIN ){
+                    $msj = new MensajeriaController();
+                    $msj->buscarDireccion($action);
+                }
+                
             }
             else{
                 //no hay cookie

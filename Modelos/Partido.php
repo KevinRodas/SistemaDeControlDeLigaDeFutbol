@@ -306,6 +306,38 @@ class Partido extends Database{
         return $message;
     }
 
+    public function Actualizar_Representante1(){
+        $query = "UPDATE " . T_PARTIDO . " SET ".  PART_EST_R1."=:" .  PART_EST_R1. " WHERE " . PART_ID . "=:" . PART_ID;
+        //$query = "UPDATE " . TBL_FACTURAS_CONF . " SET " . F_ESTADO . "=:" . F_ESTADO . " WHERE " . F_ID . "=:" . F_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . PART_ID,  $this->getIdPartido());
+        $statement->bindValue(':' . PART_EST_R1, $this->getEstadoRepresentante1());
+        echo $this->getIdPartido();
+        echo $this->getEstadoRepresentante1();
+        var_dump($statement);
+        $message = "<h1>Error al actualizar PARTIDO!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
+
+    public function Actualizar_Representante2(){
+        $query = "UPDATE " . T_PARTIDO . " SET ".  PART_EST_R2."=:" .  PART_EST_R2. " WHERE " . PART_ID . "=:" . PART_ID;
+        //$query = "UPDATE " . TBL_FACTURAS_CONF . " SET " . F_ESTADO . "=:" . F_ESTADO . " WHERE " . F_ID . "=:" . F_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . PART_ID,  $this->getIdPartido());
+        $statement->bindValue(':' . PART_SOLV2, $this->getEstadoRepresentante2());
+        echo $this->getIdPartido();
+        echo $this->getEstadoRepresentante2();
+        var_dump($statement);
+        $message = "<h1>Error al actualizar estadio!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
+
     public function Buscar_Partido_Solventar(){
         $row=false;
         $query = "SELECT * FROM " .T_PARTIDO . " WHERE sol_equipo1= 'Pendiente' || sol_equipo2= 'Pendiente' && estado_repre1= 'Confirmado' && estado_repre2= 'Confirmado'" ;
@@ -316,6 +348,67 @@ class Partido extends Database{
             return $row;
         }
         return $row;
+    }
+
+    public function Actualizar_ID_Equipo1(){
+        $query = "UPDATE " . T_PARTIDO . " SET ".  PART_EQP1."=:" .  PART_EQP1. " WHERE " . PART_ID . "=:" . PART_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . PART_ID,  $this->getIdPartido());
+        $statement->bindValue(':' . PART_EQP1, $this->getIdEquipo1());
+        $message = "<h1>Error al actualizar estadio!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
+
+    public function Actualizar_Repre_Equipo1(){
+        $query = "UPDATE " . T_PARTIDO . " SET ".  PART_REPRE1."=:" .  PART_REPRE1. " WHERE " . PART_ID . "=:" . PART_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . PART_ID,  $this->getIdPartido());
+        $statement->bindValue(':' . PART_REPRE1,  $this->getIdRepresentante1());
+        $message = "<h1>Error al actualizar estadio!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
+
+    public function Actualizar_ID_Equipo2(){
+        $query = "UPDATE " . T_PARTIDO . " SET ".  PART_EQP2."=:" .  PART_EQP2. " WHERE " . PART_ID . "=:" . PART_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . PART_ID,  $this->getIdPartido());
+        $statement->bindValue(':' . PART_EQP2, $this->getIdEquipo2());
+        $message = "<h1>Error al actualizar estadio!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
+
+    public function Actualizar_Repre_Equipo2(){
+        $query = "UPDATE " . T_PARTIDO . " SET ".  PART_REPRE2."=:" .  PART_REPRE2. " WHERE " . PART_ID . "=:" . PART_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . PART_ID,  $this->getIdPartido());
+        $statement->bindValue(':' . PART_REPRE2,  $this->getIdRepresentante2());
+        $message = "<h1>Error al actualizar estadio!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
+
+    public function Actualizar_NombrePartido(){
+        $query = "UPDATE " . T_PARTIDO . " SET ".  PART_NOM."=:" .  PART_NOM. " WHERE " . PART_ID . "=:" . PART_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . PART_ID,  $this->getIdPartido());
+        $statement->bindValue(':' . PART_NOM,  $this->getNomPartido());
+
+        $message = "<h1>Error al actualizar estadio!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
     }
 
 }
