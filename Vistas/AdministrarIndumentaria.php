@@ -15,36 +15,33 @@ require_once "./config/configGeneral.php";
 <div class="menu">
     <nav>
         <ul>
-            <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a> 
+        <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
-        <ul>             
-            <a href="<?= BASE_DIR.'/Jugador/showRegistro' ?>"><li>Registrar Equipo</li></a>
-            <a href="<?= BASE_DIR.'/Jugador/showUpdate' ?>"><li>Listado de Equipos</li></a>
-            <a href="<?= BASE_DIR.'/Jugador/showListado'?>"><li>Listado de Jugador</li></a>
+        <ul>       
+            <a href="<?= BASE_DIR ?>"><li>Registrar Indumentaria</li></a>
+            <a href="<?= BASE_DIR ?>"><li>Listado Indumentaria</li></a>
+            
+            <a href="<?= BASE_DIR.'/Login/salir'?>"> <li>LogOut</li></a>
         </ul>
         <ul>
-        <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li>   </li></a>
+        <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
         </ul>
     </nav>
 </div>
 
 <div class="container2">
 
-<table cellspacing="0">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Equipo</th>
-                    <th>Color principal</th>
-                    <th>Color secundario</th>                    
-                   
-                </tr>
-                </thead>
-                <tbody>
+<<a href="<?= BASE_DIR.'Indumentaria/showcreateInduentaria' ?>">
+<button class="boton">
+    <p>Registrar Indumentaria</p>
+</button>
 
-                </tbody>
-</table>
+<a href="<?= BASE_DIR.'Indumentaria/showIndumentaria' ?>">
+<button class="boton">
+    <p>Listado Indumentaria</p>
+</button>
+
         
 
 </div>
