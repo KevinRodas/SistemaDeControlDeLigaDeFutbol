@@ -137,4 +137,3 @@ define('MSJ_ASUNTO','asunto');
 define('MSJ_CONTENIDO','contenido');
 define('MSJ_TIPO','tipo');
 define('MSJ_EST','estado');
-?>

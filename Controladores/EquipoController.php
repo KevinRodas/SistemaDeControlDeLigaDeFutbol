@@ -35,8 +35,8 @@ public function showAdminNoticias(){
      require_once "Vistas/AdministrarMiembros.php";
  }
 
- public function showAdminLocal(){
-     require_once "Vistas/AdministrarEstadio.php";
+ public function showIndumentaria(){
+     require_once "Vistas/AdministrarIndumentaria.php";
 }
 
 public function showCreatePartido(){
@@ -63,10 +63,10 @@ public function buscarDireccion($action){
       elseif ($action=="showCreatePartido") {
           $this->showCreatePartido();
      }
-     /*elseif ($action=='showAdminEquipo') {
-          $this->showAdminEquipo();
+     elseif ($action=='showIndumentaria') {
+          $this->showIndumentaria();
       }
-      elseif ($action=='cancelarSancion') {
+      /*elseif ($action=='cancelarSancion') {
           $this->cancelarSancion();
       }
       elseif ($action=='showAdminNoticias') {
