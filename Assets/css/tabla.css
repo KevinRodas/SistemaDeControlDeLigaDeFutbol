@@ -72,3 +72,10 @@ th,tr{
     width: 35px;
     height: 35px;
 }
+
+.img-msj{
+    height: 50px;
+    width: 50px;
+    margin-left: 12%;
+    margin-right: 12%;
+}

@@ -4,3 +4,20 @@
     margin: 10%;
    
 }
+
+
+
+.enc-mesj{
+
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    display: flex;
+}
+
+.div-btn{
+    display:flex; 
+    align-items:center;
+}
