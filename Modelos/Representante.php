@@ -31,21 +31,12 @@ class Representante extends Database{
         return $this;
     }
 
-    public function getCodEquipo(){
-        return $this->cod_equipo;
-    }
-
-    public function setCodEquipo($ceq){
-        $this->cod_equipo = $ceq;
-        return $this;
-    }
 
     public function Crear_Representante(){
-        $query = "INSERT INTO " . T_REPRE. " (". REP_ID. ', '. REP_DIR .', '. REP_EQP.")" . 
-        " VALUES(:" . REP_ID . ", :" . REP_DIR. ", :" . REP_EQP .")";
+        $query = "INSERT INTO " . T_REPRE. " (". REP_ID. ', '. REP_DIR .")" . 
+        " VALUES(:" . REP_ID . ", :" . REP_DIR. ")";
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . REP_ID, $this->getIdRepre());
-        $statement->bindValue(':' . REP_EQP, $this->getCodEquipo());
         $statement->bindValue(':' . REP_DIR, $this->getDireccion());
         
         var_dump($statement);
@@ -58,11 +49,10 @@ class Representante extends Database{
     }
     
     public function Modificar_Representante(){
-        $query = " UPDATE " . T_REPRE . "SET(".  REP_ID. ', '. REP_DIR .', '. REP_EQP.")" . 
-        " VALUES(:" .  REP_ID . ", :" . REP_DIR. ", :" . REP_EQP . ") WHERE " . REP_ID . "= :" . REP_ID ;
+        $query = " UPDATE " . T_REPRE . "SET(".  REP_ID. ', '. REP_DIR .")" . 
+        " VALUES(:" .  REP_ID . ", :" . REP_DIR. ") WHERE " . REP_ID . "= :" . REP_ID ;
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . REP_ID, $this->getIdRepre());
-        $statement->bindValue(':' . REP_EQP, $this->getCodEquipo());
         $statement->bindValue(':' . REP_DIR, $this->getDireccion());
 
         $message = "<h1>Error al modificar datos!</h1>";

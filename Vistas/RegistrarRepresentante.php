@@ -33,7 +33,6 @@
     <input class="controls" type="text" name="<?= U_AGE?>" id="edad" placeholder="Ingrese edad">
     <input class="controls" type="text" name="<?= U_TEL?>" id="numero" placeholder="Ingrese el numero de telefono">
     <input class="controls" type="text" name="<?= REP_DIR?>" id="direccion" placeholder="Ingrese la dirección">
-    <input class="controls" type="text" name="<?= REP_EQP ?>" id="equipo" placeholder="Ingrese el equipo al que representa">
     <input class="controls" type="text" name="<?= U_PASS ?>" id="contraseña" placeholder="Ingrese contraseña para usuario">
     <input class="botons" type="submit" value="Registrar">
 </form>

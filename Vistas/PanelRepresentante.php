@@ -22,6 +22,7 @@
             <a href="<?= BASE_DIR.'Jugador/showRegistro'?>"><li> Registrar jugadores</li></a></li>
             <li>Lista de partidos</li>
             <li>Listado de Jugadores</li>
+            <a href="<?= BASE_DIR.'/Mensajeria/showMensajes' ?>"><li>Mensajeria</li></a>
         </ul>
         <ul>
             <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li></li></a>

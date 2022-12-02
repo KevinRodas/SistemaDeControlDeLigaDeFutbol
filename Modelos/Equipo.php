@@ -176,4 +176,29 @@ class Equipo extends Database{
         }
         return $row;
     }
+
+
+    public function Ver_Equipos_Activos(){
+        $row=false;
+        $query = "SELECT * FROM " . T_EQUIPO . " WHERE " . EQP_ESTADO . "= 'Activo'" ;
+        $statement = $this->conexion->prepare($query);
+        $message = "<h1>Error al buscar estadio!</h1>";
+        if ($statement->execute()) {
+            $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
+
+    public function buscar_Equipos(){
+        $row=false;
+        $query = "SELECT * FROM " .T_EQUIPO." WHERE ".EQP_ID."=:".EQP_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . EQP_ID , $this->getID());
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
 }

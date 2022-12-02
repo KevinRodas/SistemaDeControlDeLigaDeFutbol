@@ -6,6 +6,7 @@
     <title>Listado de partidos</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
     <link rel="stylesheet" href="../Assets/css/tabla.css">
+    <link rel="stylesheet" href="../Assets/css/contener.css">
 
 </head>
 <body>
@@ -21,38 +22,39 @@
             <a href="<?= BASE_DIR.'AdministrarPartidos/showPartido' ?>"><li>Lista de Partidos</li></a>
         </ul>
         <ul>
-            <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li></li></a>
+            <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt="" ><li></li></a>
         </ul>
     </nav>
 </div>
 <h2>Listado de Partidos</h2>
 
-<div class="container-filtrar">
+<div class="contenedor">
 
 <?php
                 if(!empty($data[T_PARTIDO])){
-                    echo "<table cellspacing=0 class='tb'>";
+                    echo "<table cellspacing=0 style='width:100%; margin-left:0;  text-aling:center;'> ";
                     echo "<thead>";
                        echo "<tr>";
-                            echo"<th>Partido</th>";
-                            echo"<th>Torneo</th>";
-                            echo"<th>Estado</th>";
-                            echo"<th>Equipo1</th>";
-                            echo"<th>Equipo2</th>";
-                            echo"<th>SolvenciaEQ1</th>";
-                            echo"<th>SolvenciaEQ2</th>";
-                            echo"<th>Arbitro</th>";
-                            echo"<th>RepresentanteEQ1</th>";
-                            echo"<th>RepresentanteEQ2</th>";
-                            echo"<th>GolesEQ1</th>";
-                            echo"<th>GolesEQ2</th>";
-                            echo"<th>EstadoRepreEQ1</th>";
-                            echo"<th>EstadoRepreEQ2</th>";
+                            echo"<th style='width:5%;padding:10px;'>Partido</th>";
+                            echo"<th style='width:10%;padding:10px;'>Nombre</th>";
+                            echo"<th style='width:5%;padding:10px;'>Torneo</th>";
+                            echo"<th style='width:10%;padding:10px;'>Estado</th>";
+                            echo"<th style='width:10%;padding:10px;'>Equipo1</th>";
+                            echo"<th style='width:10%;padding:10px;'>Equipo2</th>";
+                            //echo"<th>SolvenciaEQ1</th>";
+                            //echo"<th>SolvenciaEQ2</th>";
+                            echo"<th style='width:10%;padding:10px;'>Arbitro</th>";
+                            echo"<th style='width:10%;padding:10px;'>RepresentanteEQ1</th>";
+                            echo"<th style='width:10%;padding:10px;'>RepresentanteEQ2</th>";
+                            echo"<th style='width:10%;padding:10px;'>GolesEQ1</th>";
+                            echo"<th style='width:10%;padding:10px;'>GolesEQ2</th>";
+                            //echo"<th>EstadoRepreEQ1</th>";
+                            //echo"<th>EstadoRepreEQ2</th>";
                             
                             
                             if ($_COOKIE["Rol"] == "Administrador") {
-                                echo "<th>EDITAR</th>";
-                                echo "<th>ELIMINAR</th>";
+                                /*echo "<th>EDITAR</th>";
+                                echo "<th>ELIMINAR</th>";*/
                             }
 
                             echo "</tr>";
@@ -61,26 +63,27 @@
                             foreach ($data[T_PARTIDO] as $dato) {
                                 echo "<tr>";
                                 echo "<td>" . $dato[PART_ID] . "</td>";
+                                echo "<td>" . $dato[PART_NOM] . "</td>";
                                 echo "<td>" . $dato[PART_TORNEO] . "</td>";
                                 echo "<td>" . $dato[PART_ESTADO] . "</td>";
                                 echo "<td>" . $dato[PART_EQP1] . "</td>";
                                 echo "<td>" . $dato[PART_EQP2] . "</td>";
-                                echo "<td>" . $dato[PART_SOLV1] . "</td>";
-                                echo "<td>" . $dato[PART_SOLV2] . "</td>";
+                                //echo "<td>" . $dato[PART_SOLV1] . "</td>";
+                                //echo "<td>" . $dato[PART_SOLV2] . "</td>";
                                 echo "<td>" . $dato[PART_ARB] . "</td>";
                                 echo "<td>" . $dato[PART_REPRE1] . "</td>";
                                 echo "<td>" . $dato[PART_REPRE2] . "</td>";
                                 echo "<td>" . $dato[PART_GOL1] . "</td>";
                                 echo "<td>" . $dato[PART_GOL2] . "</td>";
-                                echo "<td>" . $dato[PART_EST_R1] . "</td>";
-                                echo "<td>" . $dato[PART_EST_R2] . "</td>";
+                                //echo "<td>" . $dato[PART_EST_R1] . "</td>";
+                                //echo "<td>" . $dato[PART_EST_R2] . "</td>";
                                
                                 //echo "<td><a class='btn btn-prestar ' href='" . BASE_DIR . "Inventario/datosInventario&id=" . $dato[I_ID] . "'><span data-tooltip='Visualizar'><p class='fas fa-eye fa-lg'></p></span></a></td>";
                                 //echo "<td><a class='btn btn-modificar' href='" . BASE_DIR . "Inventario/modificar&id=" . $dato[I_ID] . "'><span data-tooltip='Modificar'><p class='fas fa-pen-alt fa-lg'></p></span></a></td>";
                                 if ($_COOKIE["Rol"] == "Administrador") {
                                     $_POST[PART_ID]=$dato[PART_ID];
-                                    echo "<td><button>Editar</button></td>";
-                                    echo "<td><button>Eliminar</button></td>";
+                                    //echo "<td><button>Editar</button></td>";
+                                    //echo "<td><button>Eliminar</button></td>";
                                     //echo "<td><a class='btn btn-eliminar' onclick='return checkDelete()' href='" . BASE_DIR . "Inventario/eliminar&id=" . $dato[I_ID] . "'><span data-tooltip='Eliminar'><p class='fas fa-trash fa-lg'></p></span></a></td>";
                                 }
                                echo "</tr>";
@@ -95,11 +98,6 @@
 
 </div>
 
-<div class="">
-
-    <textarea name="Comentarios" id="" cols="40" rows="10"></textarea>
-
-</div>
 
 <footer class="footer">
 

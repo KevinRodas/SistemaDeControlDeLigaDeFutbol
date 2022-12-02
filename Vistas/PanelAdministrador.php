@@ -31,6 +31,7 @@ require_once "./config/configGeneral.php";
             <a href=""><li>Sanciones</li></a>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminLocal'?>"><li>Localidades</li></a>
             <a href=""><li>Noticias</li></a>
+            <a href="<?= BASE_DIR.'/Mensajeria/showMensajes' ?>"><li>Mensajeria</li></a>
         </ul>
         <ul>
             <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li>   </li></a>

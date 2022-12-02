@@ -59,13 +59,14 @@ class Horario extends Database{
     }
 
     public function Crear_Horario(){
-        $query = "INSERT INTO " . T_HORARIO . "(". HOR_ID. ','. HOR_PART.','. HOR_FECHA.','.HOR_INICIO.','.HOR_FINAL.")" . " VALUES(:" . HOR_ID . ", :" . HOR_PART. ", :" . HOR_FECHA . ", :" . HOR_INICIO . ", :". HOR_FINAL . ")";
+        $query = "INSERT INTO " . T_HORARIO . "(". HOR_ID. ','. HOR_PART.','. HOR_FECHA.','.HOR_INICIO.  ", " . HOR_ESTADIO .")" . " VALUES(:" . HOR_ID . ", :" . HOR_PART. ", :" . HOR_FECHA . ", :" . HOR_INICIO . ", :". HOR_ESTADIO. ")";
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . HOR_ID, NULL);
         $statement->bindValue(':' . HOR_PART, $this->getIdPartido());
         $statement->bindValue(':' . HOR_FECHA, $this->getFecha());
         $statement->bindValue(':' . HOR_INICIO, $this->getHoraInicio());
-        $statement->bindValue(':' . HOR_FINAL, $this->getHoraFinal());
+        $statement->bindValue(':' . HOR_ESTADIO, $this->getIdEstadio());
+        echo $this->getIdPartido()."<br>";
         $message = "<h1>Error al ingresar datos!</h1>";
         if ($statement->execute()) {
             $message = "<h1>Datos ingresados con éxito!</h1>";
@@ -74,14 +75,13 @@ class Horario extends Database{
     }
     
     public function Modificar_Horario(){
-        $query = " UPDATE " . T_HORARIO . "SET(".HOR_PART.','. HOR_FECHA.','.HOR_INICIO.','.HOR_FINAL.")" . 
-        " VALUES(:" . HOR_PART. ", :". HOR_FECHA. ", :" . HOR_INICIO . ", :" . HOR_FINAL .  ") WHERE " . HOR_ID . "= :" . HOR_ID ;
+        $query = " UPDATE " . T_HORARIO . "SET(".HOR_PART.','. HOR_FECHA.','.HOR_INICIO.','.HOR_ESTADIO.")" . 
+        " VALUES(:" . HOR_PART. ", :". HOR_FECHA. ", :" . HOR_INICIO . ", :" . HOR_ESTADIO .  ") WHERE " . HOR_ID . "= :" . HOR_ID ;
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . HOR_ID, $this->getID());
         $statement->bindValue(':' . HOR_PART, $this->getIdPartido());
         $statement->bindValue(':' . HOR_FECHA, $this->getFecha());
         $statement->bindValue(':' . HOR_INICIO, $this->getHoraInicio());
-        $statement->bindValue(':' . HOR_FINAL, $this->getHoraFinal());
 
         $message = "<h1>Error al modificar datos!</h1>";
         if ($statement->execute()) {

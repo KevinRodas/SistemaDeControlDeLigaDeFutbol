@@ -4,6 +4,7 @@ require_once "config/db_config.php";
 require_once "config/configGeneral.php";
 class Partido extends Database{
     public $cod_partido;
+    public $nom_partido;
     public $cod_torneo;
     public $estado;
     public $solvencia_eq1;
@@ -24,6 +25,14 @@ class Partido extends Database{
     }
     public function getIdPartido(){
         return $this->cod_partido;
+    }
+
+    public function setNomPartido($n){
+        $this->nom_partido = $n;
+        return $this;
+    }
+    public function getNomPartido(){
+        return $this->nom_partido;
     }
 
     public function setIdTorneo($id){
@@ -131,13 +140,14 @@ class Partido extends Database{
     }
 
     public function Crear_Partido(){
-        $query = "INSERT INTO " . T_PARTIDO . "(". PART_ID. ','. PART_TORNEO.','.PART_ESTADO.','.PART_EQP1.','.PART_EQP2.','.
+        $query = "INSERT INTO " . T_PARTIDO . "(". PART_ID. ','. PART_NOM. ','. PART_TORNEO.','.PART_ESTADO.','.PART_EQP1.','.PART_EQP2.','.
         PART_SOLV1.','.PART_SOLV2.','.PART_ARB.','.PART_REPRE1.','.PART_REPRE2.','.PART_GOL1.','.PART_GOL2.','.PART_EST_R1.','.PART_EST_R2.")" . 
-        " VALUES(:" . PART_ID. ', :'. PART_TORNEO.', :'.PART_ESTADO.', :'.PART_EQP1.', :'.PART_EQP2.', :'.
+        " VALUES(:" . PART_ID. ', :'. PART_NOM. ', :'. PART_TORNEO.', :'.PART_ESTADO.', :'.PART_EQP1.', :'.PART_EQP2.', :'.
         PART_SOLV1.', :'.PART_SOLV2.', :'.PART_ARB.', :'.PART_REPRE1.', :'.PART_REPRE2.', :'.PART_GOL1.', :'.PART_GOL2.', :'.PART_EST_R1.', :'.PART_EST_R2.")";
                
         $statement = $this->conexion->prepare($query);
-        $statement->bindValue(':' . PART_ID, $this->getIdPartido());
+        $statement->bindValue(':' . PART_ID, NULL);
+        $statement->bindValue(':' . PART_NOM, $this->getNomPartido());
         $statement->bindValue(':' . PART_TORNEO, $this->getIdTorneo());
         $statement->bindValue(':' . PART_ESTADO, $this->getEstado());
         $statement->bindValue(':' . PART_EQP1, $this->getIdEquipo1());
@@ -178,7 +188,8 @@ class Partido extends Database{
         ") WHERE " . PART_ID . "= :" . PART_ID;
 
         $statement = $this->conexion->prepare($query);
-        $statement->bindValue(':' . PART_ID, $this->getIdPartido());
+        $statement->bindValue(':' . PART_ID, NULL);
+        $statement->bindValue(':' . PART_NOM, $this->getIdPartido());
         $statement->bindValue(':' . PART_TORNEO, $this->getIdTorneo());
         $statement->bindValue(':' . PART_ESTADO, $this->getEstado());
         $statement->bindValue(':' . PART_EQP1, $this->getIdEquipo1());
@@ -217,6 +228,19 @@ class Partido extends Database{
         $query = "SELECT * FROM " .T_PARTIDO . " WHERE " . PART_ID . "=:" . PART_ID ;
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . PART_ID, $this->getIdPartido());
+
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
+
+    public function Buscar_ID_Partido(){
+        $row=false;
+        $query = "SELECT * FROM " .T_PARTIDO . " WHERE " . PART_NOM . "=:" . PART_NOM ;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . PART_NOM, $this->getNomPartido());
 
         if ($statement->execute()) {
            $row= $statement->fetchAll(PDO::FETCH_ASSOC);

@@ -69,7 +69,7 @@ define('HOR_ID','id_horario');
 define('HOR_PART','id_partido');
 define('HOR_FECHA','fecha');
 define('HOR_INICIO','h_inicio');
-define('HOR_FINAL','h_final');
+define('HOR_ESTADIO','id_estadio');
 
 //Definiciones de constantes para tabla administrativo
 define('T_ADMIN','tbl_administrativo');
@@ -126,4 +126,15 @@ define('DET_REPORTE','id_reporte');
 define('DET_SANCION','id_sancion');
 define('DET_DESCRIP','descripcion');
 define('DET_EST','estado');
+
+//Definiciones de constantes para tabla Mensajeria
+define('T_MENSAJERIA','tbl_mensaje');
+define('MSJ_ID','id_mensaje');
+define('MSJ_PART','id_partido');
+define('MSJ_EMISOR','id_emisor');
+define('MSJ_RECEPTOR','id_receptor');
+define('MSJ_ASUNTO','asunto');
+define('MSJ_CONTENIDO','contenido');
+define('MSJ_TIPO','tipo');
+define('MSJ_EST','estado');
 ?>
