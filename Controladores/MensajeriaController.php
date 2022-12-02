@@ -7,27 +7,6 @@
  require_once "Modelos/Partido.php";
 class MensajeriaController 
 {
-    public function actualizarNomPart($id){
-        $ActPart = new Partido();
-        $ActPart->setIdPartido($id);
-        $register = $ActPart->Buscar_Partido();
-        $dato[T_PARTIDO]='';
-        $nombre='';
-
-        if($register != null){
-            $dato[T_PARTIDO]= $register;
-        }
-
-        foreach ($dato[T_PARTIDO] as $k) {
-            $nombre = 'PART_'.$k[PART_EQP1].'_VS_'.$k[PART_EQP2];
-        }
-        $ActPart->setNomPartido($nombre);
-        $ActPart->Actualizar_NombrePartido();
-
-        //return $nombre;
-    }
-
-
     public function createMensaje(){
         $m=NULL;
         if(!empty($_POST)){
@@ -41,14 +20,14 @@ class MensajeriaController
             $msj->setEstadoMensaje('No leido');
 
             if($_POST[MSJ_TIPO]=='Confirmacion'){
-                                
-                if($this->actualizar_EstadoRepresentante($_POST[MSJ_PART],$_COOKIE["User"]) &&  $this->actualizarNomPart($_POST[MSJ_PART])){
+                $rs1 = $this->actualizarNomPart($_POST[MSJ_PART]);
+                $rs2 = $this->actualizar_EstadoRepresentante($_POST[MSJ_PART],$_COOKIE["User"]);
+                if($rs1 == true && $rs2 == true){
                     if($msj->Crear_Mensaje()){
                         header("Location:".BASE_DIR);
+                    
                     }
                 }
-                
-                
             }
 
             if($_POST[MSJ_TIPO]=='Rechazo'){
@@ -137,7 +116,38 @@ class MensajeriaController
         }
 
     }
+
+    public function actualizarNomPart($id){
+        $result = false;
+        $ActPart = new Partido();
+        $ActPart->setIdPartido($id);
+        $register = $ActPart->Buscar_Partido();
+        $dato[T_PARTIDO]='';
+        $nombre='PART_';
+
+        if($register != null){
+            $dato[T_PARTIDO]= $register;
+        }
+
+        foreach ($dato[T_PARTIDO] as $k) {
+            $e1 = $k[PART_EQP1];
+            $e2 = $k[PART_EQP2];
+        }
+
+        $nombre = $nombre.$e1.'_VS_'.$e2;
+        echo $nombre; 
+        $ActPart2 = new Partido();
+        $ActPart2->setNomPartido($nombre);
+        $ActPart2->setIdPartido($id);
+        if($ActPart2->Actualizar_NombrePartido()){
+            $result = true;
+        }
+        return $result;
+        //return $nombre;
+    }
+
     public function actualizar_EstadoRepresentante($idPartido,$repre){
+        $result = false;
         $r1='';
         $r2='';
         $M=new Partido();
@@ -155,12 +165,19 @@ class MensajeriaController
         }
         if($repre == $r1){
             $M->setEstadoRepresentante1('Confirmado');
-            $M->Actualizar_Representante1();
+            if($M->Actualizar_Representante1()){
+                $result = true;
+            }
         }
         elseif ($repre == $r2) {
             $M->setEstadoRepresentante2('Confirmado');
-            $M->Actualizar_Representante2();
+            if($M->Actualizar_Representante2()){
+                $result = true;
+            }
+            
         }
+
+        return $result;
     }
 
     public function updateEstadoMensaje($id){

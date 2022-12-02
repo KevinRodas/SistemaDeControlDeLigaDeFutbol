@@ -327,7 +327,7 @@ class Partido extends Database{
         //$query = "UPDATE " . TBL_FACTURAS_CONF . " SET " . F_ESTADO . "=:" . F_ESTADO . " WHERE " . F_ID . "=:" . F_ID;
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . PART_ID,  $this->getIdPartido());
-        $statement->bindValue(':' . PART_SOLV2, $this->getEstadoRepresentante2());
+        $statement->bindValue(':' . PART_EST_R2, $this->getEstadoRepresentante2());
         echo $this->getIdPartido();
         echo $this->getEstadoRepresentante2();
         var_dump($statement);
@@ -403,7 +403,9 @@ class Partido extends Database{
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . PART_ID,  $this->getIdPartido());
         $statement->bindValue(':' . PART_NOM,  $this->getNomPartido());
-
+        var_dump( $statement);
+        echo $this->getIdPartido();
+        echo $this->getNomPartido();
         $message = "<h1>Error al actualizar estadio!</h1>";
         if ($statement->execute()) {
             $message = "<h1>Datos actualizados con éxito!</h1>";
