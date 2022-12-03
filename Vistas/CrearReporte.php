@@ -52,7 +52,7 @@
                 }
                 echo "</select>";
                 echo "<button type='submit'>Generar descripcion</button>";
-                echo "</form";
+                echo "</form>";
             }
 
             /*
@@ -91,7 +91,6 @@
         
 <!-- inicio tabla equipo1 -->
 <div>
-    
     <?php
         
         if(!empty($data2[T_JUGADOR])){
@@ -111,7 +110,7 @@
             echo "<input type='hidden' name='".PART_ID."' id='' value='".$IDpart."' >";
             
            
-            echo "<table cellspacing=0>";
+            echo "<table cellspacing=0 form='form_reporte'> ";
             echo "<thead class='theader'";
                echo "<tr>";
                     echo"<th>Jugador</th>";
@@ -150,18 +149,16 @@
                 echo "</tbody>";
                 echo "</table>";  
                 
-                
         }
         else {
             echo "<h1>No hay datos</h1>";
         }
-    
+        
 
 
-                    
+                        
 ?>
 
-</div>
 <!-- fin tabla equipo 1-->
 
 <!-- Inicio tabla equipo 2 -->
@@ -169,6 +166,15 @@
         echo "<h1>EQUIPO 2 </h1>";
 
         if(!empty($data3[T_JUGADOR])){
+
+            $contador2=0;
+            foreach ($data3[T_JUGADOR] as $dato){
+                $contador2++;
+            }
+
+            echo "<input type='hidden' name='datos2' id='' value='".$contador2."' >";
+
+
             echo "<table cellspacing=0 class='tb'>";
             echo "<thead class='theader'";
                echo "<tr>";
@@ -183,21 +189,21 @@
                     //echo"<th>Faltas</th>";
                 echo "</tr>";
                 echo "</thead>";
-                echo "<form>";
+                //echo "<form>";
                 echo "<tbody>";
                 $i=1;
                     foreach ($data3[T_JUGADOR] as $dato) {
                         echo "<tr>";
-                        echo "<td>" . $dato[JUG_ID] ."<input type='hidden' name='e1-id".$i."' id='' value='".$dato[JUG_ID]."' >". "</td>";
+                        echo "<td>" . $dato[JUG_ID] ."<input type='hidden' name='e2-id".$i."' id='' value='".$dato[JUG_ID]."' >". "</td>";
                         echo "<td>" . "</td>";
                         echo "<td>" . "</td>";
-                        echo "<td>" ."<input type='number' name='e1-amarilla".$i."' id=''>". "</td>";
-                        echo "<td>" ."<input type='number' name='e1-roja".$i."' id=''>". "</td>";
+                        echo "<td>" ."<input type='number' name='e2-amarilla".$i."' id=''>". "</td>";
+                        echo "<td>" ."<input type='number' name='e2-roja".$i."' id=''>". "</td>";
                         //echo "<td>" ."<input style='height=30px' type='text' name='e1-motv".$i."' id=''>". "</td>";
-                        echo "<td>" ."<textarea style='height: 100px; border:none;' form='form_reporte' id='' name='e1-motv".$i."' rows='2' cols='20'></textArea>". "</td>";
+                        echo "<td>" ."<textarea style='height: 100px; border:none;' form='form_reporte' id='' name='e2-motv".$i."' rows='2' cols='20'></textArea>". "</td>";
                         
-                        echo "<td>" ."<input type='number' name='e1-dias".$i."' id=''>". "</td>";
-                        echo "<td>" ."<input type='number' name='e1-precio".$i."' id='' >". "</td>";
+                        echo "<td>" ."<input type='number' name='e2-dias".$i."' id=''>". "</td>";
+                        echo "<td>" ."<input type='number' name='e2-precio".$i."' id='' >". "</td>";
                                    
                         //echo "<td><a class='btn btn-prestar ' href='" . BASE_DIR . "Inventario/datosInventario&id=" . $dato[I_ID] . "'><span data-tooltip='Visualizar'><p class='fas fa-eye fa-lg'></p></span></a></td>";
                         //echo "<td><a class='btn btn-modificar' href='" . BASE_DIR . "Inventario/modificar&id=" . $dato[I_ID] . "'><span data-tooltip='Modificar'><p class='fas fa-pen-alt fa-lg'></p></span></a></td>";
@@ -208,47 +214,21 @@
                     }
                     
                 echo "</tbody>";
-                echo "</table>";  
-                
+                echo "</table>"; 
+                echo "<button type='submit'>Crear Reporte</button>";
+
+                echo "</form>";  
         }
         else {
             echo "<h1>No hay datos</h1>";
         }
-        echo "<button type='submit'>Crear Reporte</button>";
-        echo "</form>";
-
-
-                    
+        
+        
+               
 ?>
 <!-- Fin tabla equipo 2 -->
-
-<?php
-/*
-<div class="">
-    <textarea name="Comentarios" id="" cols="40" rows="10"></textarea>
+    
 </div>
-<div class="container3">
-  
-    <p>Equipo 2: <input id="equipo2" type="text"></p>
-</div>
-<div class="">
-    <textarea name="Comentarios" id="" cols="40" rows="10"></textarea>
-</div>
-<div class="container-resultados">
-<img class="logo-equipo" src="../Assets/img/portugal.png" alt="">
-    <input type="text" name="" id="">
-    <h1> - </h1>
-    <input type="text">
-    <img class="logo-equipo" src="../Assets/img/japon.png" alt="">
-</div>
-<div class="container3">
-<button class="boton-enviar">
-    <p>Enviar</p>
-</button>
-</div>
-*/ ?>
-
-
 <script src="../Assets/js/select_reporte_equipo.js"></script>
 </body>
 </html>

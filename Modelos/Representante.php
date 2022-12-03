@@ -95,6 +95,17 @@ class Representante extends Database{
         }
         return $message;
     }
+
+    public function Buscar_Jugadores_Repre(){
+        $query = "SELECT * FROM " . T_JUGADOR. " WHERE " . REP_ID . "= :" . REP_ID ;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . REP_ID, $this->getIdRepre());
+        $row = false;
+        if ($statement->execute()) {
+            $row = $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $row;
+    }
       /*
     public function Registar_Jugadores(){
       

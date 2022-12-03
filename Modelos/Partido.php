@@ -236,6 +236,19 @@ class Partido extends Database{
         return $row;
     }
 
+    public function Buscar_Partido_Equipo(){
+        $row=false;
+        $query = "SELECT * FROM " .T_PARTIDO . " WHERE " . PART_EQP1 . "=:" . PART_EQP1 .' || ' . PART_EQP2 . "=:" . PART_EQP1;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . PART_EQP1, $this->getIdEquipo1());
+
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
+
     public function Buscar_ID_Partido(){
         $row=false;
         $query = "SELECT * FROM " .T_PARTIDO . " WHERE " . PART_NOM . "=:" . PART_NOM ;

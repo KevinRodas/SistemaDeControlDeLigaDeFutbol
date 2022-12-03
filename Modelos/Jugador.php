@@ -156,6 +156,7 @@ class Jugador extends Database{
         return $message;
     }
     
+    
 
     public function Mostrar_Expediente(){
 

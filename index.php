@@ -106,16 +106,8 @@ if(is_file($fullController))
             if(!empty($_COOKIE["Rol"])){
 
                 if ($_COOKIE["Rol"] == ROL_REP) {
-                    if ($action='showHome') {
                         $inicio= new PanelRepresentanteController();     
-                        $inicio->showHome();  
-                        
-                        
-                    }
-                    
-                    else{
-                        echo 'No existe esa accion';
-                    }
+                        $inicio->buscarDireccion($action);  
                  }
                  else{
                     //intento acceder a un area que no le corresponde

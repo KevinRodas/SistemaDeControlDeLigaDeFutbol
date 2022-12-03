@@ -242,7 +242,7 @@ class PartidosController
                     echo "El equipo 2 esta solvente\n";
                     $part2= new Partido();
                     $part2->setIdPartido($_POST['partidoID']);
-                    $part2->setSolvencia1('Solventada');
+                    $part2->setSolvencia2('Solventada');
                     
     
                     if($part->Actualizar_Solvencia1() ){
@@ -308,7 +308,7 @@ class PartidosController
                         //require_once "Vistas/prueba.php";
                     }
                     else {
-                        header("Location:".BASE_DIR.'/´Partidos/showSolvencia');
+                        header("Location:".BASE_DIR.'/Partidos/showSolvencia');
 
                     }
                 }
