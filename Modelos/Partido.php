@@ -455,4 +455,41 @@ class Partido extends Database{
         }
         return $message;
     }
+
+    public function Buscar_Partidos_Solventar(){
+        $row=false;
+        $query = "SELECT * FROM " .T_PARTIDO . " WHERE sol_equipo1= 'Pendiente' || sol_equipo2= 'Pendiente' && estado_repre1= 'Confirmado' && estado_repre2= 'Confirmado'" ;
+        $statement = $this->conexion->prepare($query);
+        
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
+
+    public function Ver_Resultado_Equipo1(){
+        $row=false;
+        $query = "SELECT tbl_equipo.nombre, tbl_partido.n_goles1, tbl_indumentaria.logo FROM tbl_equipo INNER JOIN tbl_partido ON tbl_equipo.id_equipo = tbl_partido.id_equipo1 INNER JOIN tbl_indumentaria ON tbl_equipo.id_equipo = tbl_indumentaria.id_equipo" ;
+        $statement = $this->conexion->prepare($query);
+        
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
+
+    public function Ver_Resultado_Equipo2(){
+        $row=false;
+        $query = "SELECT tbl_equipo.nombre, tbl_partido.n_goles2, tbl_indumentaria.logo FROM tbl_equipo INNER JOIN tbl_partido ON tbl_equipo.id_equipo = tbl_partido.id_equipo2 INNER JOIN tbl_indumentaria ON tbl_equipo.id_equipo = tbl_indumentaria.id_equipo" ;
+        $statement = $this->conexion->prepare($query);
+        
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
+
 }

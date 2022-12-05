@@ -17,7 +17,7 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>        
         </ul>
         <ul>       
-            <a href="<?= BASE_DIR.'AdministrarPartidos/createPartido' ?>"><li>Crear Partido</li></a>
+            <a href="<?= BASE_DIR.'Partidos/showcreatePartido' ?>"><li>Crear Partido</li></a>
             <a href="<?= BASE_DIR.'AdministrarPartidos/showReporte' ?>"><li>Listado de Reportes de Partidos</li></a>
             <a href="<?= BASE_DIR.'AdministrarPartidos/showPartido' ?>"><li>Lista de Partidos</li></a>
         </ul>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Partidos</title>
     <link rel="stylesheet" href="../Assets/css/partidos.css">
+    <link rel="stylesheet" href="../Assets/css/contener.css">
 </head>
 <body>
 <div class="menu">
@@ -23,7 +24,7 @@
         </ul>
     </nav>
 </div>
-
+<!--
 <div class="resultados">
 
 <h1>resultados</h1>
@@ -105,8 +106,29 @@
     <img class="logo-equipo" src="../Assets/img/japon.png" alt="">
 
 </div>
+</div> -->
+<div class="resultados" style="height: 80%;">
 
+    <h1>RESULTADOS DE PARTIDOS</h1>
+    <div class="container-resultados">
+    <?php 
+        foreach ($data[T_PARTIDO] as $k1) {
+            foreach ($data2[T_PARTIDO] as $k2) {
+                //echo '<div class="container-resultados">';
+                echo '<img class="logo-equipo" src="../Assets/img/'.$k1[INDUMT_LOGO].'" width="50" height="50">';
+                echo '<h2>'.$k1[EQP_NOM].'</h2>';
+                echo '<h1>'.$k1[PART_GOL1].'</h1>';
+                echo '<h1>-</h1>';
+                echo '<h1>'.$k2[PART_GOL2].'</h1>';
+                echo '<h2>'.$k2[EQP_NOM].'</h2>';
+                echo '<img class="logo-equipo" src="../Assets/img/'.$k2[INDUMT_LOGO].'" width="50" height="50">';
+                //echo '</div>';
+            }
+        }
+    ?>
+    </div>
 </div>
+
 
 <footer class="footer">
     <p>©2022 Grupo # 1 Administracion de proyectos | Todos los derechos reservados</p>
