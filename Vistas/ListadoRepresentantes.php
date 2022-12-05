@@ -6,6 +6,7 @@
     <title>Listado de Representantes</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
     <link rel="stylesheet" href="../Assets/css/tabla.css">
+    <link rel="stylesheet" href="../Assets/css/contener.css">
 
 
 </head>
@@ -26,7 +27,7 @@
     </nav>
 </div>
 
-<div class="container3">
+<div class="contenedor">
 <?php
                 if(!empty($data[T_REPRE])){
                     echo "<table cellspacing=0 class='tb'>";

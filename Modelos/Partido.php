@@ -426,4 +426,33 @@ class Partido extends Database{
         return $message;
     }
 
+    public function Actualizar_Gol1(){
+        $query = "UPDATE " . T_PARTIDO . " SET ".  PART_GOL1."=:" .  PART_GOL1. " WHERE " . PART_ID . "=:" . PART_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . PART_ID,  $this->getIdPartido());
+        $statement->bindValue(':' . PART_GOL1,  $this->getGoles1());
+        var_dump( $statement);
+        echo $this->getIdPartido();
+        echo $this->getGoles1();
+        $message = "<h1>Error al actualizar partido!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
+
+    public function Actualizar_Gol2(){
+        $query = "UPDATE " . T_PARTIDO . " SET ".  PART_GOL2."=:" .  PART_GOL2. " WHERE " . PART_ID . "=:" . PART_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . PART_ID,  $this->getIdPartido());
+        $statement->bindValue(':' . PART_GOL2,  $this->getGoles2());
+        var_dump( $statement);
+        echo $this->getIdPartido();
+        echo $this->getGoles2();
+        $message = "<h1>Error al actualizar partido!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
 }

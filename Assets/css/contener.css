@@ -1,5 +1,5 @@
 .contenedor{
-    height: 20%;
+    height: auto;
     align-items: center;
     margin: 10%;
    
@@ -20,4 +20,13 @@
 .div-btn{
     display:flex; 
     align-items:center;
+}
+
+.contenedor_report{
+    text-align: center;
+    height: auto;
+    align-items: center;
+    margin: 10%;
+    padding-left: 30%;
+    padding-right: 30%;
 }

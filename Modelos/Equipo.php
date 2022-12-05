@@ -92,8 +92,8 @@ class Equipo extends Database{
 
 
     public function Crear_Equipo(){
-        $query = "INSERT INTO " . T_EQUIPO . "(". EQP_ID. ','. EQP_NOM.','.EQP_DIR.','.EQP_DEP.','.EQP_REPRE.','.EQP_INTEGRANTE.','.EQP_INDUMENTARIA.','.EQP_SANCIONES.','.EQP_ESTADO.")" . 
-        " VALUES(:" . EQP_ID . ", :" . EQP_NOM. ", :" . EQP_DIR . ", :" . EQP_DEP . ", :". EQP_REPRE . ", :". EQP_INTEGRANTE.", :" . EQP_INDUMENTARIA . ", :". EQP_SANCIONES . ", :". EQP_ESTADO.  ")";
+        $query = "INSERT INTO " . T_EQUIPO . "(". EQP_ID. ','. EQP_NOM.','.EQP_DIR.','.EQP_DEP.','.EQP_REPRE.','.EQP_INTEGRANTE.','.EQP_SANCIONES.','.EQP_ESTADO.")" . 
+        " VALUES(:" . EQP_ID . ", :" . EQP_NOM. ", :" . EQP_DIR . ", :" . EQP_DEP . ", :". EQP_REPRE . ", :". EQP_INTEGRANTE. ", :". EQP_SANCIONES . ", :". EQP_ESTADO.  ")";
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . EQP_ID, $this->getID());
         $statement->bindValue(':' . EQP_NOM, $this->getNom());
@@ -101,7 +101,6 @@ class Equipo extends Database{
         $statement->bindValue(':' . EQP_DEP, $this->getDep());
         $statement->bindValue(':' . EQP_REPRE, $this->getIdRepre());
         $statement->bindValue(':' . EQP_INTEGRANTE, $this->getN_Integrantes());
-        $statement->bindValue(':' . EQP_INDUMENTARIA, $this->getIdIndumentaria());
         $statement->bindValue(':' . EQP_SANCIONES, $this->getN_Sanciones());
         $statement->bindValue(':' . EQP_ESTADO, $this->getEstado());
         $message = "<h1>Error al ingresar datos!</h1>";
@@ -123,8 +122,8 @@ class Equipo extends Database{
     }
     
     public function Editar_Equipo(){
-        $query = " UPDATE " . T_EQUIPO . "SET(". EQP_NOM.','.EQP_DIR.','.EQP_DEP.','.EQP_REPRE.','.EQP_INTEGRANTE.','.EQP_INDUMENTARIA.','.EQP_SANCIONES.','.EQP_ESTADO.")" . 
-        " VALUES(:" . EQP_NOM. ", :" . EQP_DIR . ", :" . EQP_DEP . ", :". EQP_REPRE . ", :". EQP_INTEGRANTE.", :" . EQP_INDUMENTARIA . ", :". EQP_SANCIONES . ", :". EQP_ESTADO.  ") WHERE " . EQP_ID . "= :" . EQP_ID ;
+        $query = " UPDATE " . T_EQUIPO . "SET(". EQP_NOM.','.EQP_DIR.','.EQP_DEP.','.EQP_REPRE.','.EQP_INTEGRANTE.','.EQP_SANCIONES.','.EQP_ESTADO.")" . 
+        " VALUES(:" . EQP_NOM. ", :" . EQP_DIR . ", :" . EQP_DEP . ", :". EQP_REPRE . ", :". EQP_INTEGRANTE.", :" . EQP_SANCIONES . ", :". EQP_ESTADO.  ") WHERE " . EQP_ID . "= :" . EQP_ID ;
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . EQP_ID, $this->getID());
         $statement->bindValue(':' . EQP_NOM, $this->getNom());
@@ -132,7 +131,7 @@ class Equipo extends Database{
         $statement->bindValue(':' . EQP_DEP, $this->getDep());
         $statement->bindValue(':' . EQP_REPRE, $this->getIdRepre());
         $statement->bindValue(':' . EQP_INTEGRANTE, $this->getN_Integrantes());
-        $statement->bindValue(':' . EQP_INDUMENTARIA, $this->getIdIndumentaria());
+        //$statement->bindValue(':' . EQP_INDUMENTARIA, $this->getIdIndumentaria());
         $statement->bindValue(':' . EQP_SANCIONES, $this->getN_Sanciones());
         $statement->bindValue(':' . EQP_ESTADO, $this->getEstado());
         $message = "<h1>Error al modificar datos!</h1>";

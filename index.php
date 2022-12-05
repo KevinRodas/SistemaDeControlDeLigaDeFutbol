@@ -336,7 +336,7 @@ if(is_file($fullController))
 
         elseif ($controller=='ReporteController') { //controlador vinculado al entorno administrador
             if(!empty($_COOKIE["Rol"])){
-                if ($_COOKIE["Rol"] == ROL_ARB) {
+                if ($_COOKIE["Rol"] == ROL_ARB || $_COOKIE["Rol"] == ROL_ADMIN) {
                     $j = new ReporteController();     
                     $j->buscarDireccion($action);
                 }

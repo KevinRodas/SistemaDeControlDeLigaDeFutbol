@@ -16,10 +16,20 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
         <ul>       
+            
+
+            <?php if($_COOKIE["Rol"] == ROL_ARB){?>
             <li>Inicio</li>
             <li>Crear Reporte</li>
             <li>Descripción de Reporte</li>
             <li>Listado de Reportes</li>
+            <?php }
+            elseif ($_COOKIE["Rol"] == ROL_ADMIN) {?>
+
+            <a href="<?= BASE_DIR.'Partidos/showcreatePartido' ?>"><li>Crear Partido</li></a>
+            <a href="<?= BASE_DIR.'AdministrarPartidos/showReporte' ?>"><li>Listado de Reportes de Partidos</li></a>
+            <a href="<?= BASE_DIR.'AdministrarPartidos/showPartido' ?>"><li>Lista de Partidos</li></a>
+            <?php }  ?>
         </ul>
         <ul>
         <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>

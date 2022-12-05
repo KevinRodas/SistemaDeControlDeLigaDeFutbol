@@ -125,7 +125,7 @@ class Jugador extends Database{
     public function Buscar_Jugador(){
         $query = "SELECT * FROM " . T_JUGADOR . " WHERE " . JUG_ID . "= :" . JUG_ID ;
         $statement = $this->conexion->prepare($query);
-        $statement->bindValue(':' . U_ID, $this->getIdJugador());
+        $statement->bindValue(':' . JUG_ID, $this->getIdJugador());
         $row = false;
         if ($statement->execute()) {
             $row = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -156,7 +156,50 @@ class Jugador extends Database{
         return $message;
     }
     
-    
+    public function Actualizar_Gol(){
+        $query = "UPDATE " . T_JUGADOR . " SET ".  JUG_GOL."=:" .  JUG_GOL. " WHERE " . JUG_ID . "=:" . JUG_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . JUG_ID,  $this->getIdJugador());
+        $statement->bindValue(':' . JUG_GOL,  $this->getNgoles());
+        var_dump( $statement);
+        echo $this->getIdJugador();
+        echo $this->getNgoles();
+        $message = "<h1>Error al actualizar partido!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
+
+    public function Actualizar_Partido(){
+        $query = "UPDATE " . T_JUGADOR . " SET ".  JUG_PART."=:" .  JUG_PART. " WHERE " . JUG_ID . "=:" . JUG_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . JUG_ID,  $this->getIdJugador());
+        $statement->bindValue(':' . JUG_PART,  $this->getNpartidos());
+        var_dump( $statement);
+        echo $this->getIdJugador();
+        echo $this->getNpartidos();
+        $message = "<h1>Error al actualizar partido!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
+
+    public function Actualizar_Sancion(){
+        $query = "UPDATE " . T_JUGADOR . " SET ".  JUG_SANC."=:" .  JUG_SANC. " WHERE " . JUG_ID . "=:" . JUG_ID;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . JUG_ID,  $this->getIdJugador());
+        $statement->bindValue(':' . JUG_SANC,  $this->getNsanciones());
+        var_dump( $statement);
+        echo $this->getIdJugador();
+        echo $this->getNsanciones();
+        $message = "<h1>Error al actualizar partido!</h1>";
+        if ($statement->execute()) {
+            $message = "<h1>Datos actualizados con éxito!</h1>";
+        }
+        return $message;
+    }
 
     public function Mostrar_Expediente(){
 

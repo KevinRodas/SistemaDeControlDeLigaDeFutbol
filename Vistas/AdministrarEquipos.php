@@ -30,7 +30,7 @@
 
 <div class="container2">
 
-<a href="<?= BASE_DIR.'Equipo/showCreatePartido' ?>">
+<a href="<?= BASE_DIR.'Equipo/showCreateEquipo' ?>">
 <button class="boton">
     <p>Registrar Equipo</p>
 </button>

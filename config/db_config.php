@@ -31,8 +31,7 @@ define('EQP_NOM','nombre');
 define('EQP_DIR','direccion');
 define('EQP_DEP','departamento');
 define('EQP_REPRE','id_representante');
-define('EQP_INTEGRANTE','n_ integrantes');
-define('EQP_INDUMENTARIA','id_indumentaria');
+define('EQP_INTEGRANTE','n_integrantes');
 define('EQP_SANCIONES','n_sanciones');
 define('EQP_ESTADO','estado');
 

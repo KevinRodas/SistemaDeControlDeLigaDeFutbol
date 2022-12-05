@@ -6,6 +6,8 @@
     <title>Crear Reporte</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
     <link rel="stylesheet" href="../Assets/css/tabla.css">
+    <link rel="stylesheet" href="../Assets/css/botones.css">
+    <link rel="stylesheet" href="../Assets/css/contener.css">
 </head>
 <body>
 <div class="menu">
@@ -114,13 +116,12 @@
             echo "<thead class='theader'";
                echo "<tr>";
                     echo"<th>Jugador</th>";
-                    echo"<th>Nombre</th>";
-                    echo"<th>Apellido</th>";
                     echo"<th>Tarjetas Amarillas</th>";
                     echo"<th>Tarjetas Rojas</th>";
                     echo"<th>Motivo</th>";
                     echo"<th>Dias Penalizacion</th>";
                     echo"<th>Precio</th>";
+                    echo"<th>Goles</th>";
                 echo "</tr>";
                 echo "</thead>";
                 echo "<tbody>";
@@ -129,15 +130,14 @@
                         
                         echo "<tr>";
                         echo "<td>" . $dato[JUG_ID] ."<input type='hidden' name='e1-id".$i."' id='' value='".$dato[JUG_ID]."' >". "</td>";
-                        echo "<td>" . "</td>";
-                        echo "<td>" . "</td>";
-                        echo "<td>" ."<input type='number' name='e1-amarilla".$i."' id=''>". "</td>";
-                        echo "<td>" ."<input type='number' name='e1-roja".$i."' id=''>". "</td>";
+                        echo "<td>" ."<input type='number' name='e1-amarilla".$i."' id='' required>". "</td>";
+                        echo "<td>" ."<input type='number' name='e1-roja".$i."' id='' required>". "</td>";
                         //echo "<td>" ."<input style='height=30px' type='text' name='e1-motv".$i."' id=''>". "</td>";
-                        echo "<td>" ."<textarea style='height: 100px; border:none;' form='form_reporte' id='' name='e1-motv".$i."' rows='2' cols='20'></textArea>". "</td>";
+                        echo "<td>" ."<textarea style='height: 100px; border:none;' form='form_reporte' id='' name='e1-motv".$i."' rows='2' cols='20' required></textArea>". "</td>";
                         
-                        echo "<td>" ."<input type='number' name='e1-dias".$i."' id=''>". "</td>";
-                        echo "<td>" ."<input type='number' name='e1-precio".$i."' id='' >". "</td>";
+                        echo "<td>" ."<input type='number' name='e1-dias".$i."' id='' required>". "</td>";
+                        echo "<td>" ."<input type='number' name='e1-precio".$i."' id='' required>". "</td>";
+                        echo "<td>" ."<input type='number' name='e1-gol".$i."' id='' required>". "</td>";
                                    
                         //echo "<td><a class='btn btn-prestar ' href='" . BASE_DIR . "Inventario/datosInventario&id=" . $dato[I_ID] . "'><span data-tooltip='Visualizar'><p class='fas fa-eye fa-lg'></p></span></a></td>";
                         //echo "<td><a class='btn btn-modificar' href='" . BASE_DIR . "Inventario/modificar&id=" . $dato[I_ID] . "'><span data-tooltip='Modificar'><p class='fas fa-pen-alt fa-lg'></p></span></a></td>";
@@ -175,17 +175,16 @@
             echo "<input type='hidden' name='datos2' id='' value='".$contador2."' >";
 
 
-            echo "<table cellspacing=0 class='tb'>";
+            echo "<table cellspacing=0 >";
             echo "<thead class='theader'";
                echo "<tr>";
                     echo"<th>Juagador</th>";
-                    echo"<th>Nombre</th>";
-                    echo"<th>Apellido</th>";
                     echo"<th>Tarjetas Amarillas</th>";
                     echo"<th>Tarjetas Rojas</th>";
                     echo"<th>Motivo</th>";
                     echo"<th>Dias Penalizacion</th>";
                     echo"<th>Precio</th>";
+                    echo"<th>Goles</th>";
                     //echo"<th>Faltas</th>";
                 echo "</tr>";
                 echo "</thead>";
@@ -195,15 +194,14 @@
                     foreach ($data3[T_JUGADOR] as $dato) {
                         echo "<tr>";
                         echo "<td>" . $dato[JUG_ID] ."<input type='hidden' name='e2-id".$i."' id='' value='".$dato[JUG_ID]."' >". "</td>";
-                        echo "<td>" . "</td>";
-                        echo "<td>" . "</td>";
-                        echo "<td>" ."<input type='number' name='e2-amarilla".$i."' id=''>". "</td>";
-                        echo "<td>" ."<input type='number' name='e2-roja".$i."' id=''>". "</td>";
+                        echo "<td>" ."<input type='number' name='e2-amarilla".$i."' id='' required>". "</td>";
+                        echo "<td>" ."<input type='number' name='e2-roja".$i."' id='' required>". "</td>";
                         //echo "<td>" ."<input style='height=30px' type='text' name='e1-motv".$i."' id=''>". "</td>";
-                        echo "<td>" ."<textarea style='height: 100px; border:none;' form='form_reporte' id='' name='e2-motv".$i."' rows='2' cols='20'></textArea>". "</td>";
+                        echo "<td>" ."<textarea style='height: 100px; border:none;' form='form_reporte' id='' name='e2-motv".$i."' rows='2' cols='20' required></textArea>". "</td>";
                         
-                        echo "<td>" ."<input type='number' name='e2-dias".$i."' id=''>". "</td>";
-                        echo "<td>" ."<input type='number' name='e2-precio".$i."' id='' >". "</td>";
+                        echo "<td>" ."<input type='number' name='e2-dias".$i."' id='' required>". "</td>";
+                        echo "<td>" ."<input type='number' name='e2-precio".$i."' id='' required>". "</td>";
+                        echo "<td>" ."<input type='number' name='e2-gol".$i."' id='' required>". "</td>";
                                    
                         //echo "<td><a class='btn btn-prestar ' href='" . BASE_DIR . "Inventario/datosInventario&id=" . $dato[I_ID] . "'><span data-tooltip='Visualizar'><p class='fas fa-eye fa-lg'></p></span></a></td>";
                         //echo "<td><a class='btn btn-modificar' href='" . BASE_DIR . "Inventario/modificar&id=" . $dato[I_ID] . "'><span data-tooltip='Modificar'><p class='fas fa-pen-alt fa-lg'></p></span></a></td>";
@@ -215,8 +213,10 @@
                     
                 echo "</tbody>";
                 echo "</table>"; 
-                echo "<button type='submit'>Crear Reporte</button>";
 
+                echo "<div class='contenedor_report'>";
+                echo "<button class='btn-sucess' type='submit'>Crear Reporte</button>";
+                echo "</div>";
                 echo "</form>";  
         }
         else {

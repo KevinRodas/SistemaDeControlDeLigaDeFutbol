@@ -16,7 +16,7 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
         <ul>       
-            <a href="<?= BASE_DIR. ?>"><li>Inicio </li></a>
+            <a href="<?= BASE_DIR ?>"><li>Inicio </li></a>
             <a href="<?= BASE_DIR.'/Vistas/AcercaDe.php' ?>"><li>Acerca De</li></a>
             <a href="<?= BASE_DIR.'/Vistas/Partidos.php'?>"><li>Partidos</li></a>
             <a href="<?= BASE_DIR.'/Vistas/Noticias.php'?>"><li>Noticias</li></a> 
