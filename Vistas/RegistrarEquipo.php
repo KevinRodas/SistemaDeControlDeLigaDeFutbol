@@ -29,15 +29,21 @@
 </div>
 
 <div class="form">
-    <form  class="formulario" method="POST" action="">
+    <form  class="formulario" method="POST" action="<?= BASE_DIR."/Equipo/createEquipo"?>">
         <h1>Registrar Equipo</h1><br>
-        <input type="text"  placeholder="nombre_equipo" name="id_equipo" required autocomplete="off">    
-        <input type="text"  placeholder="direccion_equipo" name="id_direccion_equipo" required autocomplete="off"><!-- cambiar a select -->
-        <input type="text"  placeholder="telefono" name="id_telefono" required autocomplete="off">
-        <input type="text"  placeholder="nombre_representante" name="id_repre" required ><!--cambiar a autocomplementar-->
-        <input type="text"  placeholder="Cantidad_jugadores" name="id_cant_jugadores" required ><!--cambiar a autocomplementar-->
-
-        <button>Guardar</button>
+        <input type="text"  placeholder="ID equipo" name="<?= EQP_ID?>" required autocomplete="off">    
+        <input type="text"  placeholder="Nombre" name="<?= EQP_NOM?>" required autocomplete="off"><!-- cambiar a select -->
+        <input type="text"  placeholder="Departamento" name="<?= EQP_DEP?>" required autocomplete="off"><!-- cambiar a select -->
+        <input type="text"  placeholder="Direccion" name="<?= EQP_DIR?>" required autocomplete="off">
+        <?php
+            echo "<select name='".EQP_REPRE."'>";
+            foreach ($data[T_REPRE] as $k) {
+                echo "<option value='". $k[REP_ID]."'>". $k[REP_ID]."</option>";
+            }
+            echo "</select>";
+        ?>
+        <input type="number"  placeholder="Cantidad jugadores" name="<?=EQP_INTEGRANTE?>" required ><!--cambiar a autocomplementar-->
+        <button type="submit">Guardar</button>
 
     </form>
 

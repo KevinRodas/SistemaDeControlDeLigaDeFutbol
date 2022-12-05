@@ -11,3 +11,41 @@
     color: #FB2576;
     background-color: aliceblue;
 }
+
+.btn-mensajes{
+    margin:15px;
+    height: auto;
+    display:inline-flex;
+    margin: 15px;
+    border-radius: 10px;
+    border: 10px;
+    border-color: black;
+    background-color: #177980;
+    color: whitesmoke;
+}
+.btn-mensajes:hover{
+    border: 2ch;
+    color: #5af0d7;
+    background-color: black;
+}
+
+.btn-sucess{
+    text-align: center;
+    margin:15px;
+    height: 50px;
+    width: 150px;
+    display:inline-flex;
+    margin: 15px;
+    border-radius: 10px;
+    border: 10px;
+    border-color: black;
+    background-color: #177980;
+    color: whitesmoke;
+    font-size: large;
+    padding: 15px;
+}
+.btn-sucess:hover{
+    border: 2ch;
+    color: #5af0d7;
+    background-color: black;
+}

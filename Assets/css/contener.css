@@ -1,6 +1,32 @@
 .contenedor{
-    height: 20%;
+    height: auto;
     align-items: center;
     margin: 10%;
    
+}
+
+
+
+.enc-mesj{
+
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    display: flex;
+}
+
+.div-btn{
+    display:flex; 
+    align-items:center;
+}
+
+.contenedor_report{
+    text-align: center;
+    height: auto;
+    align-items: center;
+    margin: 10%;
+    padding-left: 30%;
+    padding-right: 30%;
 }

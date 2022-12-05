@@ -19,9 +19,10 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>            
         </ul>
         <ul>       
-            <a href="<?= BASE_DIR.'Jugador/showRegistro'?>"><li> Registrar jugadores</li></a></li>
-            <li>Lista de partidos</li>
-            <li>Listado de Jugadores</li>
+            <a href="<?= BASE_DIR.'Jugador/showRegistro'?>"><li> Registrar jugadores</li></a>
+            <a href="<?= BASE_DIR.'PanelRepresentante/showListadoPartidos'?>"><li>Listado de Partidos</li></a>
+            <a href="<?= BASE_DIR.'PanelRepresentante/showListadoJugadores'?>"><li>Listado de Jugadores</li></a>
+            <a href="<?= BASE_DIR.'/Mensajeria/showMensajes' ?>"><li>Mensajeria</li></a>
         </ul>
         <ul>
             <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li></li></a>
@@ -34,12 +35,12 @@
     <p>Registrar jugadores</p>
 </button></a>
 
-<a href=""><button class="boton">
+<a href="<?= BASE_DIR.'PanelRepresentante/showListadoPartidos'?>"><button class="boton">
     <p>Lista de partidos</p>
 </button></a>
 
 
-<a href="<?= BASE_DIR.'Jugador/showListado'?>">
+<a href="<?= BASE_DIR.'PanelRepresentante/showListadoJugadores'?>">
     <button class="boton">
         <p>Listado de Jugadores</p>
     </button>

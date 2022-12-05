@@ -33,3 +33,14 @@ function ver() {
 
     
 }
+
+function vertodos(){
+  window.location.href = "http://localhost/SistemaDeControlDeLigaDeFutbol/Mensajeria/showMensajes";
+}
+
+function verRecibidos(){
+  window.location.href = "http://localhost/SistemaDeControlDeLigaDeFutbol/Mensajeria/showMensajesRecibidos";
+}
+function verEnviados(){
+  window.location.href = "http://localhost/SistemaDeControlDeLigaDeFutbol/Mensajeria/showMensajesEnviados";
+}

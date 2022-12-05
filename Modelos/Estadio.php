@@ -122,7 +122,7 @@ class Estadio extends Database{
     }
 
     public function Actualizar_Disponibilidad(){
-        $query = "UPDATE " . T_ESTADIO . "SET(".EST_DISP.")" . " VALUES(:".  EST_DISP .  ") WHERE " . EST_ID . "= :" . EST_ID ;
+        $query = "UPDATE " . T_ESTADIO . " SET ".  EST_DISP."=:" .  EST_DISP. " WHERE " . EST_ID . "=:" . EST_ID;
         $statement = $this->conexion->prepare($query);
         $statement->bindValue(':' . EST_DISP, $this->getDisponibilidad());
         $statement->bindValue(':' . EST_ID, $this->getId());
@@ -137,6 +137,17 @@ class Estadio extends Database{
     public function get_Estadios(){
         $row=false;
         $query = "SELECT * FROM " .T_ESTADIO;
+        $statement = $this->conexion->prepare($query);
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
+
+    public function get_Estadios_Disponible(){
+        $row=false;
+        $query = "SELECT * FROM " .T_ESTADIO." WHERE disponibilidad='Disponible'";
         $statement = $this->conexion->prepare($query);
         if ($statement->execute()) {
            $row= $statement->fetchAll(PDO::FETCH_ASSOC);

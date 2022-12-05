@@ -3,11 +3,14 @@
  require_once "config/db_config.php";
  require_once "Modelos/Reportes.php";
  require_once "Modelos/Sanciones.php";
+ require_once "Modelos/Partido.php";
+ require_once "Modelos/Jugador.php";
 
 class ReporteController 
 {
 
     public function generarSanciones($id_sancionado,$id_partido,$id_arbitro,$categoria,$dias,$precio,$id_reporte,$descripcion){
+        $result = false;
         $sancion= new Sanciones();
 
         $fecha=date("d").'-'. date("m") .'-'.date("Y");
@@ -30,166 +33,215 @@ class ReporteController
         $sancion->setIdReporte($id_reporte);
         $sancion->setDescripcion($descripcion);
 
-        $sancion->Crear_Sancion();
+        if($sancion->Crear_Sancion()){
+            $result=true;
+        }
 
-
+        return $result;
    }
 
     public function crearReporte(){
-        if(!empty($_POST)){
-           
-            if(!empty($_POST[REPORT_ID])){
-                echo " funciono<br>";
-                echo $_POST[REPORT_ID]."<br>";
-                echo $_POST[ARB_ID]."<br>";
-                echo $_POST[PART_ID]."<br>";
+        $idR='';
+        try {
+            
+        
+            if(!empty($_POST)){
+            
+                if(!empty($_POST[REPORT_ID])){
+                    echo " funciono<br>";
+                    echo $_POST[REPORT_ID]."<br>";
+                    echo $_POST[ARB_ID]."<br>";
+                    echo $_POST[PART_ID]."<br>";
 
-                $r= new Reportes();
-                $r->setIdReporte($_POST[REPORT_ID]);
-                $r->setIdPartido($_POST[REPORT_PART]);
-                $r->setNumTarjetas(0);
-                $r->setObservaciones('');
-                $r->Crear_Reporte();
+                    $idR = $_POST[REPORT_ID];
+                    $r= new Reportes();
+                    $r->setIdReporte($_POST[REPORT_ID]);
+                    $r->setIdPartido($_POST[REPORT_PART]);
+                    $r->setNumTarjetas(0);
+                    $r->setObservaciones('');
+                    $r->Crear_Reporte();
 
-                echo "-------------------------<br>";
-                $tarjetasE1 = 0;
-                $tarjetasE2 = 0;
+                    echo "-------------------------<br>";
+                    $tarjetasE1 = 0;
+                    $tarjetasE2 = 0;
+                    $golesE1 = 0;
+                    $golesE2 = 0;
 
-                if(isset($_POST["datos1"]) && !empty($_POST["datos1"])){
-                        
-                    $rows= $_POST["datos1"];
+                    if(isset($_POST["datos1"]) && !empty($_POST["datos1"])){
+                            
+                        $rows= $_POST["datos1"];
+                        echo $rows;
+                        $y = $rows + 1;
+                        for ($i=1; $i < $y; $i++) { 
+                            $cadenaId ="e1-id".$i;
+                            $cadenaAmarilla ="e1-amarilla".$i;
+                            $cadenaRoja ="e1-roja".$i;
+                            $cadenaMotv ="e1-motv".$i;
+                            $cadenaDias ="e1-dias".$i;
+                            $cadenaPrecio ="e1-precio".$i;
+                            $cadenaGol ="e1-gol".$i; 
 
-                    for ($i=1; $i <= $rows; $i++) { 
-                        $cadenaId ="e1-id".$i;
-                        $cadenaAmarilla ="e1-amarilla".$i;
-                        $cadenaRoja ="e1-roja".$i;
-                        $cadenaMotv ="e1-motv".$i;
-                        $cadenaDias ="e1-dias".$i;
-                        $cadenaPrecio ="e1-precio".$i;
+                            if(isset($_POST[$cadenaId])){
 
-                        if(isset($_POST[$cadenaId])){
+                                //if(!empty($_POST[$cadenaAmarilla]) && !empty($_POST[$cadenaRoja]) && !empty($_POST[$cadenaMotv]) && !empty($_POST[$cadenaDias]) && !empty($_POST[$cadenaPrecio]) && !empty($_POST[$cadenaGol])){
+                                    $categoria = "";
+                                    echo "----JUGADOR".$i." EQUIPO 1------<br>";
+                                    echo $_POST[$cadenaId]."<br>";
+                                    echo $_POST[$cadenaAmarilla]."<br>";
+                                    echo $_POST[$cadenaRoja]."<br>";
+                                    echo $_POST[$cadenaMotv]."<br>";
+                                    echo $_POST[$cadenaDias]."<br>";
+                                    echo $_POST[$cadenaPrecio]."<br>";
+                                    echo $_POST[$cadenaGol]."<br>";
 
-                            if(!empty($_POST[$cadenaAmarilla]) && !empty($_POST[$cadenaRoja]) && !empty($_POST[$cadenaMotv]) && !empty($_POST[$cadenaDias]) && !empty($_POST[$cadenaPrecio])){
-                                $categoria = "";
-                                echo "----JUGADOR".$i." EQUIPO 1------<br>";
-                                echo $_POST[$cadenaId]."<br>";
-                                echo $_POST[$cadenaAmarilla]."<br>";
-                                echo $_POST[$cadenaRoja]."<br>";
-                                echo $_POST[$cadenaMotv]."<br>";
-                                echo $_POST[$cadenaDias]."<br>";
-                                echo $_POST[$cadenaPrecio]."<br>";
+                                    if($_POST[$cadenaAmarilla] == 0 && $_POST[$cadenaRoja] == 0){
+                                        echo "----NO hay sancion------<br>";
+                                        
 
-                                if($_POST[$cadenaAmarilla] == 0 && $_POST[$cadenaRoja] == 0){
-                                    echo "----NO hay sancion------<br>";
-                                }
+                                    }
+                                    else{
+                                        if($_POST[$cadenaAmarilla] >= 1 && $_POST[$cadenaRoja] == 0){
+                                            $categoria = "Leve";
+                                        }
+                                        elseif ($_POST[$cadenaAmarilla] < 1 && $_POST[$cadenaRoja]>1) {
+                                            $categoria = "Grave";
+                                        }
+                                        elseif ($_POST[$cadenaAmarilla] >= 1 && $_POST[$cadenaRoja]>=1) {
+                                            $categoria = "Grave";
+                                        }
+                                        
+                                        $createSan = $this->generarSanciones($_POST[$cadenaId],$_POST[PART_ID],$_POST[ARB_ID],$categoria,$_POST[$cadenaDias],$_POST[$cadenaPrecio],$_POST[REPORT_ID],$_POST[$cadenaMotv]);
+                                        //$this->actualizarSancionJugador($_POST[$cadenaId],1);
+                                        if($createSan == true){
+                                            $this->actualizarSancionJugador($_POST[$cadenaId],1);
+                                        }
+                                    }
+                                    $tarjetasE1 = $tarjetasE1 + $_POST[$cadenaAmarilla] + $_POST[$cadenaRoja];
+                                    $golesE1 = $golesE1 +$_POST[$cadenaGol];
+
+                                    $this->actualizarGolesJugador($_POST[$cadenaId],$_POST[$cadenaGol]);
+                                    $this->actualizarPartidoJugador($_POST[$cadenaId],1);
+                                /*}
                                 else{
-                                    if($_POST[$cadenaAmarilla] >= 1 && $_POST[$cadenaRoja] == 0){
-                                        $categoria = "Leve";
-                                    }
-                                    elseif ($_POST[$cadenaAmarilla] < 1 && $_POST[$cadenaRoja]>1) {
-                                        $categoria = "Grave";
-                                    }
-                                    elseif ($_POST[$cadenaAmarilla] >= 1 && $_POST[$cadenaRoja]>=1) {
-                                        $categoria = "Grave";
-                                    }
-    
-                                    $this->generarSanciones($_POST[$cadenaId],$_POST[PART_ID],$_POST[ARB_ID],$categoria,$_POST[$cadenaDias],$_POST[$cadenaPrecio],$_POST[REPORT_ID],$_POST[$cadenaMotv]);
-    
-                                }
-                                $tarjetasE1 = $tarjetasE1 + $_POST[$cadenaAmarilla] + $_POST[$cadenaRoja];
-
+                                    echo "----NO LLENARON LOS CAMPOS------<br>";
+                                }*/
                             }
                             else{
-                                echo "----NO LLENARON LOS CAMPOS------<br>";
+                                echo "----NO HAY JUGADORES EN EL EQUIPO 1------<br>";
                             }
                         }
-                        else{
-                            echo "----NO HAY JUGADORES EN EL EQUIPO 1------<br>";
-                        }
                     }
-                }
 
-                //CONDICIONES DE SANCIONES 2
-                if(isset($_POST["datos2"]) && !empty($_POST["datos2"])){
-                        
-                    $rows= $_POST["datos2"];
+                    //CONDICIONES DE SANCIONES 2
+                    if(isset($_POST["datos2"]) && !empty($_POST["datos2"])){
+                            
+                        $rows= $_POST["datos2"];
+                        $y = $rows + 1;
+                        for ($i=1; $i < $y; $i++) { 
+                            $cadenaId ="e2-id".$i;
+                            $cadenaAmarilla ="e2-amarilla".$i;
+                            $cadenaRoja ="e2-roja".$i;
+                            $cadenaMotv ="e2-motv".$i;
+                            $cadenaDias ="e2-dias".$i;
+                            $cadenaPrecio ="e2-precio".$i;
+                            $cadenaGol ="e2-gol".$i;
 
-                    for ($i=1; $i <= $rows; $i++) { 
-                        $cadenaId ="e2-id".$i;
-                        $cadenaAmarilla ="e2-amarilla".$i;
-                        $cadenaRoja ="e2-roja".$i;
-                        $cadenaMotv ="e2-motv".$i;
-                        $cadenaDias ="e2-dias".$i;
-                        $cadenaPrecio ="e2-precio".$i;
+                            if(isset($_POST[$cadenaId])){
 
-                        if(isset($_POST[$cadenaId])){
-
-                            if(!empty($_POST[$cadenaAmarilla]) && !empty($_POST[$cadenaRoja]) && !empty($_POST[$cadenaMotv]) && !empty($_POST[$cadenaDias]) && !empty($_POST[$cadenaPrecio])){
-                                echo "----JUGADOR".$i." EQUIPO 1------<br>";
-                                echo $_POST[$cadenaId]."<br>";
-                                echo $_POST[$cadenaAmarilla]."<br>";
-                                echo $_POST[$cadenaRoja]."<br>";
-                                echo $_POST[$cadenaMotv]."<br>";
-                                echo $_POST[$cadenaDias]."<br>";
-                                echo $_POST[$cadenaPrecio]."<br>";
-                               
-                                if($_POST[$cadenaAmarilla] == 0 && $_POST[$cadenaRoja] == 0){
-                                    echo "----NO hay sancion------<br>";
-                                }
-                                else{
-                                    if($_POST[$cadenaAmarilla] >= 1 && $_POST[$cadenaRoja] == 0){
-                                        $categoria = "Leve";
+                                //if(!empty($_POST[$cadenaAmarilla]) && !empty($_POST[$cadenaRoja]) && !empty($_POST[$cadenaMotv]) && !empty($_POST[$cadenaDias]) && !empty($_POST[$cadenaPrecio]) && !empty($_POST[$cadenaGol])){
+                                    echo "----JUGADOR".$i." EQUIPO 1------<br>";
+                                    echo $_POST[$cadenaId]."<br>";
+                                    echo $_POST[$cadenaAmarilla]."<br>";
+                                    echo $_POST[$cadenaRoja]."<br>";
+                                    echo $_POST[$cadenaMotv]."<br>";
+                                    echo $_POST[$cadenaDias]."<br>";
+                                    echo $_POST[$cadenaPrecio]."<br>";
+                                    echo $_POST[$cadenaGol]."<br>";
+                                
+                                    if($_POST[$cadenaAmarilla] == 0 && $_POST[$cadenaRoja] == 0){
+                                        echo "----NO hay sancion------<br>";
+                                        
                                     }
-                                    elseif ($_POST[$cadenaAmarilla] < 1 && $_POST[$cadenaRoja]>1) {
-                                        $categoria = "Grave";
+                                    else{
+                                        if($_POST[$cadenaAmarilla] >= 1 && $_POST[$cadenaRoja] == 0){
+                                            $categoria = "Leve";
+                                        }
+                                        elseif ($_POST[$cadenaAmarilla] < 1 && $_POST[$cadenaRoja]>1) {
+                                            $categoria = "Grave";
+                                        }
+                                        elseif ($_POST[$cadenaAmarilla] >= 1 && $_POST[$cadenaRoja]>=1) {
+                                            $categoria = "Grave";
+                                        }
+        
+                                        $this->generarSanciones($_POST[$cadenaId],$_POST[PART_ID],$_POST[ARB_ID],$categoria,$_POST[$cadenaDias],$_POST[$cadenaPrecio],$_POST[REPORT_ID],$_POST[$cadenaMotv]);
+                                        $this->actualizarSancionJugador($_POST[$cadenaId],1);
                                     }
-                                    elseif ($_POST[$cadenaAmarilla] >= 1 && $_POST[$cadenaRoja]>=1) {
-                                        $categoria = "Grave";
-                                    }
-    
-                                    $this->generarSanciones($_POST[$cadenaId],$_POST[PART_ID],$_POST[ARB_ID],$categoria,$_POST[$cadenaDias],$_POST[$cadenaPrecio],$_POST[REPORT_ID],$_POST[$cadenaMotv]);
-    
-                                }
-                                $tarjetasE2 = $tarjetasE2 + $_POST[$cadenaAmarilla] + $_POST[$cadenaRoja];
+                                    $tarjetasE2 = $tarjetasE2 + $_POST[$cadenaAmarilla] + $_POST[$cadenaRoja];
+                                    $golesE2 = $golesE2 +$_POST[$cadenaGol];
+
+                                    $this->actualizarGolesJugador($_POST[$cadenaId],$_POST[$cadenaGol]);
+                                    $actPart = $this->actualizarPartidoJugador($_POST[$cadenaId],1);
+                                //}
+                                /*else{
+                                    echo "----NO LLENARON LOS CAMPOS------<br>";
+                                    echo $_POST[$cadenaId]."<br>";
+                                    echo $_POST[$cadenaAmarilla]."<br>";
+                                    echo $_POST[$cadenaRoja]."<br>";
+                                    echo $_POST[$cadenaMotv]."<br>";
+                                    echo $_POST[$cadenaDias]."<br>";
+                                    echo $_POST[$cadenaPrecio]."<br>";
+                                    echo $_POST[$cadenaGol]."<br>";
+                                }*/
                             }
                             else{
-                                echo "----NO LLENARON LOS CAMPOS------<br>";
+                                echo "----NO HAY JUGADORES EN EL EQUIPO 2------<br>";
                             }
                         }
-                        else{
-                            echo "----NO HAY JUGADORES EN EL EQUIPO 2------<br>";
-                        }
                     }
+                    /////
+                    
+                    echo "Tarjetas E1: ".$tarjetasE1;
+                    echo "Tarjetas E2: ".$tarjetasE2;
+                    $totalTarjetas = $tarjetasE1 + $tarjetasE2;
+
+                    echo "goles E1: ".$golesE1;
+                    echo "goles E2: ".$golesE2;
+                   $rm= new Reportes();
+                    $rm->setIdReporte($_POST[REPORT_ID]);
+                    $rm->setNumTarjetas($totalTarjetas);
+                    $rm-> Actualizar_Reporte_NumTarjetas();
+
+                    $partGol = new Partido();
+                    $partGol->setIdPartido($_POST[PART_ID]);
+                    $partGol->setGoles1($golesE1);
+                    $partGol->setGoles2($golesE2);
+                    $partGol->Actualizar_Gol1();
+                    $partGol->Actualizar_Gol2();
+                    
+                   
                 }
-                /////
-                
-                echo "Tarjetas E1: ".$tarjetasE1;
-                echo "Tarjetas E2: ".$tarjetasE2;
-                $totalTarjetas = $tarjetasE1 + $tarjetasE2;
+                //require_once "Vistas/prueba.php";
+                header('Location: '.BASE_DIR);
+    /*
+                if($r->Crear_Reporte()){
+                    header("Location:".BASE_DIR.'/PanelArbitro/showAdminReporte');
+                }
+                else{
+                    header("Location:".BASE_DIR.'Reporte/showcreateReporte' );
+                }
+                */
 
-                $rm= new Reportes();
-                $rm->setIdReporte($_POST[REPORT_ID]);
-                $rm->setNumTarjetas($totalTarjetas);
-                $rm-> Actualizar_Reporte_NumTarjetas();
-                
-
-            }
-           
-            require_once "Vistas/prueba.php";
-/*
-            if($r->Crear_Reporte()){
-                header("Location:".BASE_DIR.'/PanelArbitro/showAdminReporte');
             }
             else{
-                header("Location:".BASE_DIR.'Reporte/showcreateReporte' );
+                echo "No hay datos";
             }
-            */
-
-        }
-        else{
-            echo "No hay datos";
-        }
-
+    } catch (Exception $th) {
+        $idR = $_POST[REPORT_ID];
+        $mensaje = 'Estimado usuario hay un error en la creacion de las sanciones';
+        $this->eliminar_reporte($idR);
+        require_once "Vistas/Error.php";
+        //require_once "Vistas/prueba.php";
+    }
     }
 
     public function showcreateReporte(){
@@ -258,10 +310,90 @@ class ReporteController
 
    }
 
-   public function generar(){
+   public function eliminar_reporte($id){
+        $san = new Sanciones(); //Creamos una instancia de la clase reporte
+
+        $register_san = $san->Buscar_Sanciones(); //Pedimos la lista de reporte
+        //$data[T_SANCIONES] = "";
+
+        if ($register_san  == null) {
+            $Reporte = new Reportes();
+            $Reporte->Eliminar_Reporte();
+            
+        }
     
    }
    
+   public function actualizarPartidoJugador($id,$n){
+        $partidosActuales = 0;
+        $jug = new Jugador();
+        $jug->setIdJugador($id);
+        $registro = $jug->Buscar_Jugador();
+        $data[T_JUGADOR]='';
+
+        if($registro != null){
+            $data[T_JUGADOR]= $registro;
+        }
+
+        foreach ($data[T_JUGADOR] as $k) {
+            $partidosActuales = $k[JUG_PART];
+        }
+
+        $p = $partidosActuales + $n;
+        $jug->setNpartidos($p);
+        $jug->Actualizar_Partido();
+        
+   }
+
+   public function actualizarSancionJugador($id,$s){
+    $result = false;
+    $sancionesActuales = 0;
+        $jug = new Jugador();
+        $jug->setIdJugador($id);
+        $registro = $jug->Buscar_Jugador();
+        $data[T_JUGADOR]='';
+
+        if($registro != null){
+            $data[T_JUGADOR]= $registro;
+        }
+
+        foreach ($data[T_JUGADOR] as $k) {
+            $sancionesActuales = $k[JUG_SANC];
+        }
+
+        $p = $sancionesActuales + $s;
+        $jug->setNsanciones($p);
+        if($jug->Actualizar_Sancion()){
+            $result = true;
+        }
+
+        return $result;
+}
+
+public function actualizarGolesJugador($id,$g){
+        $result = false;
+        $golesActuales = 0;
+        $jug = new Jugador();
+        $jug->setIdJugador($id);
+        $registro = $jug->Buscar_Jugador();
+        $data[T_JUGADOR]='';
+
+        if($registro != null){
+            $data[T_JUGADOR]= $registro;
+        }
+
+        foreach ($data[T_JUGADOR] as $k) {
+            $golesActuales = $k[JUG_GOL];
+        }
+
+        $p = $golesActuales + $g;
+        $jug->setNgoles($p);
+        
+        if($jug->Actualizar_Gol()){
+            $result = true;
+        }
+    return $result;
+}
 
 
 

@@ -6,6 +6,7 @@
     <title>Listado de Representantes</title>
     <link rel="stylesheet" href="../Assets/css/estilo.css">
     <link rel="stylesheet" href="../Assets/css/tabla.css">
+    <link rel="stylesheet" href="../Assets/css/contener.css">
 
 
 </head>
@@ -26,7 +27,7 @@
     </nav>
 </div>
 
-<div class="container3">
+<div class="contenedor">
 <?php
                 if(!empty($data[T_REPRE])){
                     echo "<table cellspacing=0 class='tb'>";
@@ -34,7 +35,6 @@
                        echo "<tr>";
                             echo"<th>Representante</th>";
                             echo"<th>Direccion</th>";
-                            echo"<th>Equipo</th>";
                             
                             
                             if ($_COOKIE["Rol"] == "Administrador") {
@@ -49,7 +49,6 @@
                                 echo "<tr>";
                                 echo "<td>" . $dato[REP_ID] . "</td>";
                                 echo "<td>" . $dato[REP_DIR] . "</td>";
-                                echo "<td>" . $dato[REP_EQP] . "</td>";
                                
                                 //echo "<td><a class='btn btn-prestar ' href='" . BASE_DIR . "Inventario/datosInventario&id=" . $dato[I_ID] . "'><span data-tooltip='Visualizar'><p class='fas fa-eye fa-lg'></p></span></a></td>";
                                 //echo "<td><a class='btn btn-modificar' href='" . BASE_DIR . "Inventario/modificar&id=" . $dato[I_ID] . "'><span data-tooltip='Modificar'><p class='fas fa-pen-alt fa-lg'></p></span></a></td>";

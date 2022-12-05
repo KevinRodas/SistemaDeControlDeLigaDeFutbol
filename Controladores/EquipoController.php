@@ -2,12 +2,43 @@
 require_once "config/configGeneral.php";
 require_once "config/db_config.php"; 
 require_once "Modelos/Equipo.php";
+require_once "Modelos/Representante.php";
 //session_start();
 class EquipoController
 {
 public function __construct()
 {
      
+}
+
+public function createEquipo(){
+    if(!empty($_POST)){
+        /*echo $_POST[TOR_NOM].'<br>';
+        echo $_POST[TOR_INICIO].'<br>';
+        echo $_POST[TOR_FINAL].'<br>';*/
+        //echo $_POST[EQP_INTEGRANTE];
+        $e= new Equipo();
+        $e->setID($_POST[EQP_ID]);
+        $e->setNom($_POST[EQP_NOM]);
+        $e->setDir($_POST[EQP_DIR]);
+        $e->setDep($_POST[EQP_DEP]);
+        $e->setIdRepre($_POST[EQP_REPRE]);
+        $e->setN_Integrantes($_POST[EQP_INTEGRANTE]);
+        $e->setN_Sanciones(0);
+        $e->setEstado('Activo');
+
+        
+        if($e->Crear_Equipo()){
+            header("Location:".BASE_DIR.'/PanelAdministrador/showAdminLocal');
+        }
+        else{
+            header("Location:".BASE_DIR.'Estadio/showRegistro' );
+        }
+    }
+    else{
+        echo "No hay datos";
+    }
+
 }
  public function showHome(){
       require_once "Vistas/PanelAdministrador.php";
@@ -39,7 +70,13 @@ public function showAdminNoticias(){
      require_once "Vistas/AdministrarIndumentaria.php";
 }
 
-public function showCreatePartido(){
+public function showCreateEquipo(){
+    $repre = new Representante();
+        $register =$repre->Ver_Representante();
+        $data[T_REPRE] = '';
+        if ($register != null) {
+            $data[T_REPRE] = $register;           
+        }
     require_once "Vistas/RegistrarEquipo.php";
 }
 
@@ -60,9 +97,12 @@ public function buscarDireccion($action){
           $this->showEquipos();
      }
      
-      elseif ($action=="showCreatePartido") {
-          $this->showCreatePartido();
+      elseif ($action=="showCreateEquipo") {
+          $this->showCreateEquipo();
      }
+     elseif ($action=="createEquipo") {
+        $this->createEquipo();
+   }
      elseif ($action=='showIndumentaria') {
           $this->showIndumentaria();
       }

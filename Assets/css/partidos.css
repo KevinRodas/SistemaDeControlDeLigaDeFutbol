@@ -49,7 +49,7 @@ nav{
     width: 50px;
     height: 50px;
     border-radius: 75%;
-    margin: 50%;
+    margin: 33.5%;
 }
 
 ul li{
@@ -136,4 +136,13 @@ ul li{
     align-items: center;
     font-family: 'Times New Roman', Times, serif;
     background-color: #C5D4FB;
+}
+
+.container-resultados h2 {
+    
+    margin: 10%;
+    text-align: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+
 }

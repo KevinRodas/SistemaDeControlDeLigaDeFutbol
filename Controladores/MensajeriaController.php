@@ -1,118 +1,314 @@
 <?php
  require_once "config/configGeneral.php";
  require_once "config/db_config.php";
- require_once "Modelos/Jugador.php";
+ require_once "Modelos/Mensaje.php";
  require_once "Modelos/Usuario.php";
-class JugadorController 
+ require_once "Modelos/Equipo.php";
+ require_once "Modelos/Partido.php";
+class MensajeriaController 
 {
     public function createMensaje(){
         $m=NULL;
         if(!empty($_POST)){
-            $j= new Jugador();
-            $j->setIdJugador($_POST[U_ID]);
-            $j->setCodEquipo($_POST[JUG_EQP]);
-            $j->setNpartidos(0);
-            $j->setNsanciones(0);
-            $j->setNgoles(0);
+            $msj= new Mensaje();
+            $msj->setIdPartido($_POST[MSJ_PART]);
+            $msj->setIdEmisor($_COOKIE["User"]);
+            $msj->setIdReceptor($_POST[MSJ_RECEPTOR]);
+            $msj->setAsunto($_POST[MSJ_ASUNTO]);
+            $msj->setContenido($_POST[MSJ_CONTENIDO]);
+            $msj->setTipo($_POST[MSJ_TIPO]);
+            $msj->setEstadoMensaje('No leido');
 
-            $u = new Usuario();
-            $u->setUsuario($_POST[U_ID]);
-            $u->setNombre($_POST[U_NOM]);
-            $u->setApellido($_POST[U_LN]);
-            $u->setEdad($_POST[U_AGE]);
-            $u->setNtelefono($_POST[U_TEL]);
-            $u->setCorreo($_POST[U_MAIL]);
-            $u->setContra($_POST[U_PASS]);
-            $u->setRol("Jugador");
+            if($_POST[MSJ_TIPO]=='Confirmacion'){
+                $rs1 = $this->actualizarNomPart($_POST[MSJ_PART]);
+                $rs2 = $this->actualizar_EstadoRepresentante($_POST[MSJ_PART],$_COOKIE["User"]);
+                if($rs1 == true && $rs2 == true){
+                    if($msj->Crear_Mensaje()){
+                        header("Location:".BASE_DIR);
+                    
+                    }
+                }
+            }
+
+            if($_POST[MSJ_TIPO]=='Rechazo'){
+                echo "Rechazo";
+                if($msj->Crear_Mensaje()){
+                    header("Location:".BASE_DIR);
+                }
+            }
+
+            if($_POST[MSJ_TIPO]=='Consulta'){
+
+                if ($_POST['repre']== 1) {
+
+                    $idEquipo='';
+                    $Eq= new Equipo();
+                    $Eq->setIdRepre($_POST[MSJ_RECEPTOR]);
+                    $busq= $Eq->buscar_Equipo_repre();
+                    $dataT[T_EQUIPO]='';
+
+                    if($busq != null){
+                        $dataT[T_EQUIPO]=$busq;
+                    }
+
+                    foreach ($dataT[T_EQUIPO] as $r) {
+                        $idEquipo = $r[EQP_ID];
+                    }
+
+                    $ActPart = new Partido();
+                    $ActPart->setIdPartido($_POST[MSJ_PART]);
+                    $ActPart->setIdRepresentante1($_POST[MSJ_RECEPTOR]);
+                    $ActPart->setIdEquipo1($idEquipo);
+                    
+                    
+
+                    if($ActPart->Actualizar_ID_Equipo1() && $ActPart->Actualizar_Repre_Equipo1() ){
+                        if($msj->Crear_Mensaje()){
+                            header("Location:".BASE_DIR);
+                        }
+                        else{
+                            $mensaje = "Error al crear Mensaje";
+                            header("Location:".BASE_DIR.'Vistas/Error.php;');
+                        }
+                    }
+                    
+                }
+                else if ($_POST['repre']== 2) {
+
+                    $idEquipo='';
+                    $Eq= new Equipo();
+                    $Eq->setIdRepre($_POST[MSJ_RECEPTOR]);
+                    $busq= $Eq->buscar_Equipo_repre();
+                    $dataT[T_EQUIPO]='';
+
+                    if($busq != null){
+                        $dataT[T_EQUIPO]=$busq;
+                    }
+
+                    foreach ($dataT[T_EQUIPO] as $r) {
+                        $idEquipo = $r[EQP_ID];
+                    }
+
+                    $ActPart = new Partido();
+                    $ActPart->setIdPartido($_POST[MSJ_PART]);
+                    $ActPart->setIdRepresentante2($_POST[MSJ_RECEPTOR]);
+                    $ActPart->setIdEquipo2($idEquipo);
+
+                    $name = $this->actualizarNomPart($_POST[MSJ_PART]);
+                    
+                    if($ActPart->Actualizar_ID_Equipo2() && $ActPart->Actualizar_Repre_Equipo2() ){
+                        if($msj->Crear_Mensaje()){
+                            header("Location:".BASE_DIR);
+                        }
+                        else{
+                            $mensaje = "Error al crear Mensaje";
+                            header("Location:".BASE_DIR.'Vistas/Error.php;');
+                        }
+                    }
+                }
+
+                //$this->actualizar_EstadoRepresentante($_POST[MSJ_PART],$_COOKIE["User"]);
+            }
+                    
+        }
+        else{
+            echo "No hay datos";
+        }
+
+    }
+
+    public function actualizarNomPart($id){
+        $result = false;
+        $ActPart = new Partido();
+        $ActPart->setIdPartido($id);
+        $register = $ActPart->Buscar_Partido();
+        $dato[T_PARTIDO]='';
+        $nombre='PART_';
+
+        if($register != null){
+            $dato[T_PARTIDO]= $register;
+        }
+
+        foreach ($dato[T_PARTIDO] as $k) {
+            $e1 = $k[PART_EQP1];
+            $e2 = $k[PART_EQP2];
+        }
+
+        $nombre = $nombre.$e1.'_VS_'.$e2;
+        echo $nombre; 
+        $ActPart2 = new Partido();
+        $ActPart2->setNomPartido($nombre);
+        $ActPart2->setIdPartido($id);
+        if($ActPart2->Actualizar_NombrePartido()){
+            $result = true;
+        }
+        return $result;
+        //return $nombre;
+    }
+
+    public function actualizar_EstadoRepresentante($idPartido,$repre){
+        $result = false;
+        $r1='';
+        $r2='';
+        $M=new Partido();
+        $M->setIdPartido($idPartido);
+        $registro=$M->Buscar_Partido();
+        $data[T_PARTIDO]='';
+
+        if($registro!=null){
+            $data[T_PARTIDO]=$registro;
+        }
+
+        foreach ($data[T_PARTIDO] as $d) {
+            $r1= $d[PART_REPRE1];
+            $r2= $d[PART_REPRE2];
+        }
+        if($repre == $r1){
+            $M->setEstadoRepresentante1('Confirmado');
+            if($M->Actualizar_Representante1()){
+                $result = true;
+            }
+        }
+        elseif ($repre == $r2) {
+            $M->setEstadoRepresentante2('Confirmado');
+            if($M->Actualizar_Representante2()){
+                $result = true;
+            }
             
-            if ($u->Crear_Usuario() && $j->Crear_Jugador()) {
-                header("Location:".BASE_DIR.'/AdministrarMiembros/showAdminJugador');
+        }
+
+        return $result;
+    }
+
+    public function updateEstadoMensaje($id){
+        $result=false;
+        $m=NULL;
+        if(!empty($_POST)){
+            $msj= new Mensaje();
+            $msj->setIdMensaje($id);
+            $msj->setEstadoMensaje('Leido');
+
+                
+            if ($msj->Actualizar_Estado_Mensaje()) {
+                $result=true;
                     
              }
-            else{
-                $m = "Error al crear jugador";
-                header("Location:".BASE_DIR.'Jugador/showRegistro');
-            }
-        
+        return $result;
 
         }
-        else{
-            echo "No hay datos";
-        }
-
     }
-
-    public function updateJugador(){
-         /*if(!empty($_POST)){
-           
-            $j= new Jugador();
-            $j->setDisponibilidad("Disponible");
-            if($j->Actualizar_Disponibilidad()){
-                header("Location:".BASE_DIR.'/PanelAdministrador/showAdminLocal');
-            }
-            else{
-                header("Location:".BASE_DIR.'Estadio/updateEstadio' );
-            }
-        }
-        else{
-            echo "No hay datos";
-        }*/
-
-    }
-
     public function showRedactar(){
-        require_once "Controladores/EquipoController.php";
+        require_once "Modelos/Equipo.php";
+        if(isset($_POST) && !empty($_POST[MSJ_ID])){
+            $Mensaje = new Mensaje();
+            $Mensaje->setIdMensaje($_POST[MSJ_ID]);
+            $registros = $Mensaje->Ver_Mensaje(); //Pedimos la lista de torneos
+            $data[T_MENSAJERIA] = "";
+
+            if ($registros != null) {
+                $data[T_MENSAJERIA] = $registros;           
+            }
+
+            foreach ($data[T_MENSAJERIA] as $d) {
+                if($d[MSJ_EST]=='No leido' && $d[MSJ_RECEPTOR]==$_COOKIE['User']){
+                    $this->updateEstadoMensaje($_POST[MSJ_ID]);
+                }
+            }
+
+            $Equipo = new Equipo();
+            $registros2 = $Equipo->Ver_Equipos_Activos(); //Pedimos la lista de torneos
+            $data[T_EQUIPO] = "";
+
+            if ($registros != null) {
+                $data[T_EQUIPO] = $registros2;           
+            }
+
+            require_once "Vistas/RedactarMensaje.php";
+        }
+    }
+
+    public function showMensaje(){
+        if(isset($_POST) && !empty($_POST[MSJ_ID])){
+            $Mensaje = new Mensaje();
+            $Mensaje->setIdMensaje($_POST[MSJ_ID]);
+            $registros = $Mensaje->Ver_Mensaje(); //Pedimos la lista de torneos
+            $data[T_MENSAJERIA] = "";
+
+        if ($registros != null) {
+            $data[T_MENSAJERIA] = $registros;           
+        }
+
+        foreach ($data[T_MENSAJERIA] as $d) {
+            if($d[MSJ_EST]=='No leido' && $d[MSJ_RECEPTOR]==$_COOKIE['User']){
+                $this->updateEstadoMensaje($_POST[MSJ_ID]);
+            }
+        }
+        /*require_once "Controladores/EquipoController.php";
         $e = new EquipoController();
-        $e->showEquipos();
-        require_once "Vistas/RegistrarJugadores.php";
+        $e->showEquipos();*/
+        require_once "Vistas/VerMensaje.php";
         
     }
+}
 
-    public function showUpdate(){
-        require_once "Vistas/ActualizarJugadores.php";
-    }
-
-    public function showListado(){
-        $Jugador = new Jugador(); //Creamos una instancia de la clase Torneo
-
-        $registros = $Jugador->Ver_Jugadores(); //Pedimos la lista de torneos
-        $data[T_JUGADOR] = "";
+    public function showMensajes(){
+        $Mensaje = new Mensaje();
+        $Mensaje->setIdEmisor($_COOKIE['User']);
+        $registros = $Mensaje->Mostrar_Mensajes(); //Pedimos la lista de torneos
+        $data[T_MENSAJERIA] = "";
 
         if ($registros != null) {
-            $data[T_JUGADOR] = $registros;           
+            $data[T_MENSAJERIA] = $registros;           
         }
-        require_once "Vistas/ListadoJugadores.php";
+        
+        require_once "Vistas/ListaMensajes.php";
     }
 
-    public function showListadoEquipo($equipo){
-        $Jugador = new Jugador(); //Creamos una instancia de la clase Torneo
-
-        $registros = $Jugador->Ver_Jugadores(); //Pedimos la lista de torneos
-        $data[T_JUGADOR] = "";
+    public function showMensajesRecibidos(){
+        $Mensaje = new Mensaje();
+        $Mensaje->setIdReceptor($_COOKIE['User']);
+        $registros = $Mensaje->Mostrar_Mensajes_Recibidos(); //Pedimos la lista de torneos
+        $data[T_MENSAJERIA] = "";
 
         if ($registros != null) {
-            $data[T_JUGADOR] = $registros;           
-        }
-        require_once "Vistas/ListadoJugadores.php";
+            $data[T_MENSAJERIA] = $registros; 
+        }    
+        require_once "Vistas/ListaMensajes.php";
+    }
+
+    public function showMensajesEnviados(){
+        $Mensaje = new Mensaje();
+        $Mensaje->setIdEmisor($_COOKIE['User']);
+        $registros = $Mensaje->Mostrar_Mensajes_Enviados(); //Pedimos la lista de torneos
+        $data[T_MENSAJERIA] = "";
+
+        if ($registros != null) {
+            $data[T_MENSAJERIA] = $registros; 
+        }    
+
+        require_once "Vistas/ListaMensajes.php";
     }
 
     //public function showDelete()
 
     public function buscarDireccion($action){
-        if ($action=='showRegistro') {
-            $this->showRegistro();
+        if ($action=='createMensaje') {
+            $this->createMensaje();
         }
-        elseif ($action=="showListado") {
-            $this->showListado();
+        elseif ($action=="showRedactar") {
+            $this->showRedactar();
         }
-        elseif ($action=="showUpdate") {
-            $this->showUpdate();
+        elseif ($action=="showMensajes") {
+            $this->showMensajes();
         }
-        elseif ($action=="createJugador") {
-            $this->createJugador();
+        elseif ($action=="showMensaje") {
+            $this->showMensaje();
         }
-        elseif ($action=="updateJugador") {
-            $this->updateJugador();
+        elseif ($action=="showMensajesRecibidos") {
+            $this->showMensajesRecibidos();
+        }
+        elseif ($action=="showMensajesEnviados") {
+            $this->showMensajesEnviados();
         }
         else{
             return false;

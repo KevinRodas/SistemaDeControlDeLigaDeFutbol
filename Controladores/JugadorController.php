@@ -17,6 +17,7 @@ class JugadorController
             $j->setNgoles(0);
 
             $u = new Usuario();
+            //$nom='JUG_'.$_POST[JUG_EQP].'_';
             $u->setUsuario($_POST[U_ID]);
             $u->setNombre($_POST[U_NOM]);
             $u->setApellido($_POST[U_LN]);

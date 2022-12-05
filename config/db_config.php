@@ -31,8 +31,7 @@ define('EQP_NOM','nombre');
 define('EQP_DIR','direccion');
 define('EQP_DEP','departamento');
 define('EQP_REPRE','id_representante');
-define('EQP_INTEGRANTE','n_ integrantes');
-define('EQP_INDUMENTARIA','id_indumentaria');
+define('EQP_INTEGRANTE','n_integrantes');
 define('EQP_SANCIONES','n_sanciones');
 define('EQP_ESTADO','estado');
 
@@ -44,6 +43,7 @@ define('INDUMT_LOGO','logo');
 define('INDUMT_UNIF','uniforme');
 define('INDUMT_COLORP','color_primordial');
 define('INDUMT_COLORS','color_secundario');
+
 
 //Definiciones de constantes para tabla estadio
 define('T_ESTADIO','tbl_estadio');
@@ -78,7 +78,7 @@ define('HOR_ID','id_horario');
 define('HOR_PART','id_partido');
 define('HOR_FECHA','fecha');
 define('HOR_INICIO','h_inicio');
-define('HOR_FINAL','h_final');
+define('HOR_ESTADIO','id_estadio');
 
 //Definiciones de constantes para tabla administrativo
 define('T_ADMIN','tbl_administrativo');
@@ -135,4 +135,14 @@ define('DET_REPORTE','id_reporte');
 define('DET_SANCION','id_sancion');
 define('DET_DESCRIP','descripcion');
 define('DET_EST','estado');
-?>
+
+//Definiciones de constantes para tabla Mensajeria
+define('T_MENSAJERIA','tbl_mensaje');
+define('MSJ_ID','id_mensaje');
+define('MSJ_PART','id_partido');
+define('MSJ_EMISOR','id_emisor');
+define('MSJ_RECEPTOR','id_receptor');
+define('MSJ_ASUNTO','asunto');
+define('MSJ_CONTENIDO','contenido');
+define('MSJ_TIPO','tipo');
+define('MSJ_EST','estado');

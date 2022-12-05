@@ -106,16 +106,8 @@ if(is_file($fullController))
             if(!empty($_COOKIE["Rol"])){
 
                 if ($_COOKIE["Rol"] == ROL_REP) {
-                    if ($action='showHome') {
                         $inicio= new PanelRepresentanteController();     
-                        $inicio->showHome();  
-                        
-                        
-                    }
-                    
-                    else{
-                        echo 'No existe esa accion';
-                    }
+                        $inicio->buscarDireccion($action);  
                  }
                  else{
                     //intento acceder a un area que no le corresponde
@@ -344,7 +336,7 @@ if(is_file($fullController))
 
         elseif ($controller=='ReporteController') { //controlador vinculado al entorno administrador
             if(!empty($_COOKIE["Rol"])){
-                if ($_COOKIE["Rol"] == ROL_ARB) {
+                if ($_COOKIE["Rol"] == ROL_ARB || $_COOKIE["Rol"] == ROL_ADMIN) {
                     $j = new ReporteController();     
                     $j->buscarDireccion($action);
                 }
@@ -369,6 +361,20 @@ if(is_file($fullController))
                     //intento acceder a un area que no le corresponde
                 header('Location: '.BASE_DIR);
                 }
+            }
+            else{
+                //no hay cookie
+                header('Location: '.BASE_DIR);
+            }
+        }
+
+        elseif ($controller=='MensajeriaController') { //controlador vinculado al entorno administrador
+            if(!empty($_COOKIE["Rol"])){
+                if($_COOKIE["Rol"] == ROL_REP || $_COOKIE["Rol"] == ROL_ADMIN ){
+                    $msj = new MensajeriaController();
+                    $msj->buscarDireccion($action);
+                }
+                
             }
             else{
                 //no hay cookie
