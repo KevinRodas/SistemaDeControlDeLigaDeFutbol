@@ -32,16 +32,16 @@
 <div class="slider">
     <ul>
         <li>
-            <img src="../Assets/img/noticia1.jpg" alt="">
+            <img src="../Assets/img/slider1.jpg" alt="">
         </li>
         <li>
-            <img src="../Assets/img/noticia6.jpg">
+            <img src="../Assets/img/slider2.jpg">
         </li>
         <li>
-            <img src="../Assets/img/noticia7.jpg">
+            <img src="../Assets/img/slider3.jpg">
         </li>
         <li>
-            <img src="../Assets/img/noticia8.jpg">
+            <img src="../Assets/img/slider4.jpg">
         </li>
     </ul>
 </div>
@@ -51,53 +51,57 @@
 
 <div class="card">
     <div class="face front">
-        <img src="../Assets/img/noticia6.jpg" alt="">
-
-        <h3>Tarjeta Uno</h3>
+        <img src="../Assets/img/noticias1.jpg" alt="">
+        <h3>Noticia 1</h3>
     </div>
     <div class="face back">
-        <h3>Tarjeta Uno</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
+        <h3>PROGRAMACION OFICIAL DE LOS JUEGOS</h3>
+        <p>PROGRAMACION OFICIAL DE LOS JUEGOS DE FUTBOL DE LA SUB. COMISION ESPECIAL LIGA MAYOR DE EL TRANSITO, A JUGARCE ESTE SABADO 03 Y DOMINGO 04 DE DICIEMBRE DEL 2022.-</p>
         <div class="link">
+            <a href=""></a>
+        </div>
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="face front">
+        <img src="../Assets/img/noticias2.jpg" alt="">
+        <h3>Noticia 2</h3>
+    </div>
+    <div class="face back">
+        <h3>PROGRAMACION OFICIAL LIGA MENOR </h3>
+        <p>Programación oficial de la liga menor tercera vuelta</p>
+        <div class="link">
+            <a href=""></a>
         </div>
     </div>
 </div>
 
 <div class="card">
     <div class="face front">
-        <img src="../Assets/img/noticia7.jpg" alt="">
-        <h3>Tarjeta Uno</h3>
+        <img src="../Assets/img/noticias3.jpg" alt="">
+        <h3>Noticia 3</h3>
     </div>
     <div class="face back">
-        <h3>Tarjeta Uno</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
+        <h3>PROGRAMACION OFICIAL DE LA SUB.</h3>
+        <p>COMISION  LIGA MAYOR DE LOLOTIQUE A JUGADORCE 19 Y 20 DE NOVIEMBRE DEL 2022.-</p>
         <div class="link">
+            <a href=""></a>
         </div>
     </div>
 </div>
 
 <div class="card">
     <div class="face front">
-        <img src="../Assets/img/noticia8.jpg" alt="">
-        <h3>Tarjeta Uno</h3>
+        <img src="../Assets/img/noticias4.jpg" alt="">
+        <h3>Noticia 4</h3>
     </div>
     <div class="face back">
-        <h3>Tarjeta Uno</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
+        <h3>PORGRAMACION OFICIAL SUB.</h3>
+        <p>COMISION DE LOLOTIQUE.</p>
         <div class="link">
-        </div>
-    </div>
-</div>
-
-<div class="card">
-    <div class="face front">
-        <img src="../Assets/img/noticia1.jpg" alt="">
-        <h3>Tarjeta Uno</h3>
-    </div>
-    <div class="face back">
-        <h3>Tarjeta Uno</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
-        <div class="link">
+            <a href=""></a>
         </div>
     </div>
 </div>

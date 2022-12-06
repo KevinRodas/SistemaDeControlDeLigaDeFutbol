@@ -11,7 +11,7 @@
     <nav class="nav">
     <ul>
             <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
-            <li><img class ="imagen" src="./Assets/img/logo.jpg" alt=""></li></a>        
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>        
         </ul>
         <ul>       
             <a href="<?= BASE_DIR ?>"><li>Inicio </li></a>

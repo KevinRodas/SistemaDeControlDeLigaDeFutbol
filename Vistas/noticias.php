@@ -28,12 +28,12 @@
 
 <div class="card">
     <div class="face front">
-        <img src="../Assets/img/noticia1.jpg" alt="">
+        <img src="../Assets/img/noticias1.jpg" alt="">
         <h3>Noticia 1</h3>
     </div>
     <div class="face back">
-        <h3>Noticia</h3>
-        <p>🏆 🇸🇻l Cada día mas cerca del debut en Liga de Naciones de CONCACAF 2022-2023, nuestra selección enfrentará a: Granada 🇬🇩 y Estados Unidos 🇺🇸</p>
+        <h3>PROGRAMACION OFICIAL DE LOS JUEGOS</h3>
+        <p>PROGRAMACION OFICIAL DE LOS JUEGOS DE FUTBOL DE LA SUB. COMISION ESPECIAL LIGA MAYOR DE EL TRANSITO, A JUGARCE ESTE SABADO 03 Y DOMINGO 04 DE DICIEMBRE DEL 2022.-</p>
         <div class="link">
             <a href=""></a>
         </div>
@@ -43,12 +43,12 @@
 
 <div class="card">
     <div class="face front">
-        <img src="../Assets/img/noticia2.jpg" alt="">
+        <img src="../Assets/img/noticias2.jpg" alt="">
         <h3>Noticia 2</h3>
     </div>
     <div class="face back">
-        <h3>Noticia</h3>
-        <p>Nuestra Selección Nacional Sub20, nos representará en la clasificación para la Copa Mundial Masculina Sub-20 de la FIFA 2023 y los Juegos Olímpicos de París 2024 en Honduras desde el 18 hasta el 29 de junio 2022, se comparte la programación de los juegos de la Azulita.</p>
+        <h3>PROGRAMACION OFICIAL LIGA MENOR </h3>
+        <p>Programación oficial de la liga menor tercera vuelta</p>
         <div class="link">
             <a href=""></a>
         </div>
@@ -57,12 +57,12 @@
 
 <div class="card">
     <div class="face front">
-        <img src="../Assets/img/noticia3.jpg" alt="">
+        <img src="../Assets/img/noticias3.jpg" alt="">
         <h3>Noticia 3</h3>
     </div>
     <div class="face back">
-        <h3>Noticia</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
+        <h3>PROGRAMACION OFICIAL DE LA SUB.</h3>
+        <p>COMISION  LIGA MAYOR DE LOLOTIQUE A JUGADORCE 19 Y 20 DE NOVIEMBRE DEL 2022.-</p>
         <div class="link">
             <a href=""></a>
         </div>
@@ -71,12 +71,12 @@
 
 <div class="card">
     <div class="face front">
-        <img src="../Assets/img/noticia4.jpg" alt="">
+        <img src="../Assets/img/noticias4.jpg" alt="">
         <h3>Noticia 4</h3>
     </div>
     <div class="face back">
-        <h3>Noticia</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
+        <h3>PORGRAMACION OFICIAL SUB.</h3>
+        <p>COMISION DE LOLOTIQUE.</p>
         <div class="link">
             <a href=""></a>
         </div>
@@ -89,12 +89,12 @@
 
 <div class="card">
     <div class="face front">
-        <img src="../Assets/img/noticia5.jpg" alt="">
+        <img src="../Assets/img/noticias5.jpg" alt="">
         <h3>Noticia 5</h3>
     </div>
     <div class="face back">
-        <h3>Noticia</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis voluptatum cupiditate assumenda, ut praesentium.</p>
+        <h3>TABLA DEL GRUPO #5 </h3>
+        <p>Luego de la finalización de la jornada 5</p>
         <div class="link">
             <a href=""></a>
         </div>
@@ -153,10 +153,6 @@ México descontaron
         </div>
     </div>
 </div>
-
-</div>
-
-<div class="container">
 
 </div>
 
