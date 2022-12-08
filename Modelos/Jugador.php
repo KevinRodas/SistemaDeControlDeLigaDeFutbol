@@ -212,4 +212,30 @@ class Jugador extends Database{
     public function Mostrar_Partidos(){
 
     }
+
+    public function Buscar_Jugadores_Equipo_SinSancion(){
+        $query = "SELECT * FROM " . T_JUGADOR. " WHERE " . JUG_EQP . "= :" . JUG_EQP ;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . JUG_EQP, $this->getCodEquipo());
+        $row = false;
+        if ($statement->execute()) {
+            $row = $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $row;
+    }
+
+    public function Buscar_Datos_Jugador(){
+        $query = "SELECT * FROM tbl_jugador INNER JOIN tbl_usuario ON tbl_usuario.id_usuario = tbl_jugador.id_jugador " . " WHERE " . JUG_ID . "= :" . JUG_ID ;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . JUG_ID, $this->getIdJugador());
+        $row = false;
+        if ($statement->execute()) {
+            $row = $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $row;
+    }
+
+
+
+    
 }

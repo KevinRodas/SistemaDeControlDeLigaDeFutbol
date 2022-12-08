@@ -151,6 +151,25 @@ if(is_file($fullController))
             //require_once "config/loginVerify.php";
             
         }
+
+        elseif ($controller=='PanelJugadorController') {
+            if(!empty($_COOKIE["Rol"])){
+
+                if ($_COOKIE["Rol"] == ROL_J) {
+                        $inicio= new PanelJugadorController();     
+                        $inicio->buscarDireccion($action);  
+                 }
+                 else{
+                    //intento acceder a un area que no le corresponde
+                    header('Location: '.BASE_DIR);
+                 }
+
+            }
+            else{
+                //no hay cookie
+                header('Location: '.BASE_DIR);
+            }
+        }
         elseif ($controller=='AdministrarPartidosController') { //controlador vinculado al entorno administrador
             if(!empty($_COOKIE["Rol"])){
                 if ($_COOKIE["Rol"] == ROL_ADMIN) {

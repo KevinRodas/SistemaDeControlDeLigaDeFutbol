@@ -270,4 +270,17 @@ class Sanciones extends Database{
         }
         return $row;
     }
+
+    public function Buscar_Sanciones_Jugador(){
+        $row=false;
+        $query = "SELECT * FROM " .T_SANCIONES . " WHERE " . SANCION_ID_SAN . "=:" . SANCION_ID_SAN ;
+        $statement = $this->conexion->prepare($query);
+        $statement->bindValue(':' . SANCION_ID_SAN, $this->getCodSancionado());
+
+        if ($statement->execute()) {
+           $row= $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        return $row;
+    }
 }

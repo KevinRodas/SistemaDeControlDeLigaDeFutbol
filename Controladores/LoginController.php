@@ -39,9 +39,9 @@ class LoginController
                 elseif ($rol[U_ROL]== ROL_ARB) {
                     header('Location:'.BASE_DIR.'/PanelArbitro/showHome');
                     }
-                    elseif ($rol[U_ROL]== ROL_J) {
-                        # code...
-                        }
+                elseif ($rol[U_ROL]== ROL_J) {
+                    header('Location:'.BASE_DIR.'/PanelJugador/showHome');
+                }
                 else{
                     echo 'Rol de usuario INfefinido';
                 }
@@ -65,6 +65,9 @@ class LoginController
             }
             elseif($_COOKIE["Rol"]== ROL_ARB){
                 header('Location:'.BASE_DIR.'/PanelArbitro/showHome');
+            }
+            elseif($_COOKIE["Rol"]== ROL_J){
+                header('Location:'.BASE_DIR.'/PanelJugador/showHome');
             }
         }
      
