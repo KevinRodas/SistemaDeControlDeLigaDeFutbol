@@ -29,7 +29,11 @@
                 }
                 elseif($_COOKIE["Rol"] == ROL_REP){
             ?>
-            <a href="<?= BASE_DIR.'/PanelRepresentante/showHome' ?>"><li>Inicio </li></a>  
+            <a href="<?= BASE_DIR.'/PanelRepresentante/showHome' ?>"><li>Inicio </li></a> 
+            <a href="<?= BASE_DIR.'Jugador/showRegistro'?>"><li> Registrar jugadores</li></a>
+            <a href="<?= BASE_DIR.'PanelRepresentante/showListadoPartidos'?>"><li>Listado de Partidos</li></a>
+            <a href="<?= BASE_DIR.'PanelRepresentante/showListadoJugadores'?>"><li>Listado de Jugadores</li></a>
+            <a href="<?= BASE_DIR.'/Mensajeria/showMensajes' ?>"><li>Mensajeria</li></a> 
             <?php 
                 }
                 

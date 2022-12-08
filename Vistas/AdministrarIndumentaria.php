@@ -19,13 +19,11 @@ require_once "./config/configGeneral.php";
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
         <ul>       
-            <a href="<?= BASE_DIR ?>"><li>Registrar Indumentaria</li></a>
-            <a href="<?= BASE_DIR ?>"><li>Listado Indumentaria</li></a>
-            
-            <a href="<?= BASE_DIR.'/Login/salir'?>"> <li>LogOut</li></a>
+            <a href="<?= BASE_DIR.'Indumentaria/showcreateInduentaria' ?>"><li>Registrar Indumentaria</li></a>
+            <a href="<?= BASE_DIR.'Indumentaria/showIndumentaria'?>"><li>Listado Indumentaria</li></a>
         </ul>
         <ul>
-        <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
+        <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li>   </li></a>
         </ul>
     </nav>
 </div>

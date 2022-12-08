@@ -15,9 +15,12 @@
             <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>         </ul>
         <ul>       
-            <li>Registrar Arbitro</li>
-            <li>Actualizar Arbitro</li>
-            <li>Listado de Arbitro</li>
+        <a href="<?= BASE_DIR.'/Arbitro/showRegistro' ?>"><li>Registrar Arbitro</li></a>
+        <a href="<?= BASE_DIR.'/Arbitro/showUpdate' ?>"><li>Actualizar Arbitro</li></a>
+        <a href="<?= BASE_DIR.'/Arbitro/showListado' ?>"><li>Listado de Arbitro</li></a>
+            
+            
+            
         </ul>
         <ul>
         <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li>   </li></a>

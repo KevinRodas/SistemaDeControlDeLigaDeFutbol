@@ -16,8 +16,8 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
         </ul>
         <ul>       
-            <li>Registrar Indumentaria</li>
-            <li>Listado Induemntaria</li>
+            <a href="<?= BASE_DIR.'Indumentaria/showcreateInduentaria' ?>"><li>Registrar Indumentaria</li></a>
+            <a href="<?= BASE_DIR.'Indumentaria/showIndumentaria'?>"><li>Listado Indumentaria</li></a>
             
         </ul>
         <ul>

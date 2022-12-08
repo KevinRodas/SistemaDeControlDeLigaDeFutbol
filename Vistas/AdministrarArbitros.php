@@ -19,7 +19,7 @@
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminPartido' ?>"><li>Partidos</li></a>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>"><li>Equipos</li></a>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminMiembro'?>"><li>Miembros</li></a> 
-            <a href=""><li>Sanciones</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/cancelarSancion'?>"><li>Sanciones</li></a>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminLocal'?>"><li>Localidades</li></a>
             <a href=""><li>Noticias</li></a>            
         </ul>

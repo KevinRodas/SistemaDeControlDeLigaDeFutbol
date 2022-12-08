@@ -14,10 +14,10 @@
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>            
         </ul>
         <ul>       
-            <li>Crear Reporte</li>
-            <li>Detalle Reporte</li>
-            <li>Listado de reportes</li>
-            <li>Sanciones</li>
+            <a href="<?= BASE_DIR.'Reporte/showcreateReporte' ?>"><li>Crear Reporte</li></a>
+            <a href="<?= BASE_DIR.'Reporte/showDescripcionReporte' ?>"><li>Descripción de Reporte</li></a>
+            <a href="<?= BASE_DIR.'Reporte/showReportes'?>"><li>Listado de Reportes</li></a>
+            <a href="<?= BASE_DIR.'Partidos/showSolvencia'?>"><li>Solvencia de equipos</li></a> 
         </ul>
         <ul>
             <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li></li></a>

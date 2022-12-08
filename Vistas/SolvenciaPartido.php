@@ -16,17 +16,18 @@
 <div class="menu">
     <nav>
         <ul>
-            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li>
+            <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
+            <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>            
         </ul>
         <ul>       
-            <li>Inicio</li>
-            <li>Crear Reporte</li>
-            <li>Descripción de Reporte</li>
-            <li>Listado de Reportes</li>
+        <a href="<?= BASE_DIR.'Reporte/showcreateReporte' ?>"><li>Crear Reporte</li></a>
+            <a href="<?= BASE_DIR.'Reporte/showDescripcionReporte' ?>"><li>Descripción de Reporte</li></a>
+            <a href="<?= BASE_DIR.'Reporte/showReportes'?>"><li>Listado de Reportes</li></a>
+            <a href="<?= BASE_DIR.'Partidos/showSolvencia'?>"><li>Solvencia de equipos</li></a> 
         </ul>
- <!--       <ul>
-        <li><img class ="imagen" src="../Assets/img/imagen1.png" alt=""></li>
-        </ul>-->
+        <ul>
+            <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li></li></a>
+        </ul>
     </nav>
 </div>
 

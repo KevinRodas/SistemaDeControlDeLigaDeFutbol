@@ -17,9 +17,9 @@
             <a href="<?= BASE_DIR.'PanelAdministrador/showHome' ?>">
             <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>        </ul>
         <ul>       
-            <li>Registrar Representante</li>
-            <li>Actualizar Representante</li>
-            <li>Listado de Representante</li>
+            <a href="<?= BASE_DIR.'/Representante/showRegistro' ?>"><li>Registrar Representante</li></a>
+            <a href="<?= BASE_DIR.'/Representante/showUpdate' ?>"><li>Actualizar Representante</li></a>
+            <a href="<?= BASE_DIR.'/Representante/showListado' ?>"><li>Listado de Representante</li></a>
         </ul>
         <ul>
         <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li>   </li></a>

@@ -18,9 +18,9 @@
           <li><img class ="imagen" src="../Assets/img/logo.jpg" alt=""></li></a>
         </ul>
         <ul>       
-            <a href="<?= BASE_DIR ?>"><li>Registrar Equipo</li></a>
-            <a href="<?= BASE_DIR ?>"><li>Listado de Equipos</li></a>
-            <a href="<?= BASE_DIR ?>"><li>Administrar Indumentaria</li></a>
+            <a href="<?= BASE_DIR.'Equipo/showCreateEquipo' ?>>"><li>Registrar Equipo</li></a>
+            <a href="<?= BASE_DIR.'Equipo/showEquipos' ?>"><li>Listado de Equipos</li></a>
+            <a href="<?= BASE_DIR.'Equipo/showIndumentaria' ?>"><li>Administrar Indumentaria</li></a>
         </ul>
         <ul>
         <a href="<?= BASE_DIR.'/Login/salir'?>"><img class="imagen" src="../Assets/img/imagen1.png" alt=""><li>   </li></a>

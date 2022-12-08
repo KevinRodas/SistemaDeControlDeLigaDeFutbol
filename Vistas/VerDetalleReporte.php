@@ -19,10 +19,10 @@
             
 
             <?php if($_COOKIE["Rol"] == ROL_ARB){?>
-            <li>Inicio</li>
-            <li>Crear Reporte</li>
-            <li>Descripción de Reporte</li>
-            <li>Listado de Reportes</li>
+                <a href="<?= BASE_DIR.'Reporte/showcreateReporte' ?>"><li>Crear Reporte</li></a>
+            <a href="<?= BASE_DIR.'Reporte/showDescripcionReporte' ?>"><li>Descripción de Reporte</li></a>
+            <a href="<?= BASE_DIR.'Reporte/showReportes'?>"><li>Listado de Reportes</li></a>
+            <a href="<?= BASE_DIR.'Partidos/showSolvencia'?>"><li>Solvencia de equipos</li></a> 
             <?php }
             elseif ($_COOKIE["Rol"] == ROL_ADMIN) {?>
 

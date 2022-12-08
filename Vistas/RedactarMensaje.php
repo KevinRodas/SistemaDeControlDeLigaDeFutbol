@@ -28,7 +28,7 @@
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminPartido' ?>"><li>Partidos</li></a>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminEquipo'?>"><li>Equipos</li></a>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminMiembro'?>"><li>Miembros</li></a> 
-            <a href=""><li>Sanciones</li></a>
+            <a href="<?= BASE_DIR.'/PanelAdministrador/cancelarSancion'?>"><li>Sanciones</li></a>
             <a href="<?= BASE_DIR.'/PanelAdministrador/showAdminLocal'?>"><li>Localidades</li></a>
             <a href=""><li>Noticias</li></a>
             <a href="<?= BASE_DIR.'/Mensajeria/showMensajes' ?>"><li>Mensajeria</li></a>
@@ -39,9 +39,9 @@
 
             ?>
 
-            <a href="<?= BASE_DIR.'Jugador/showRegistro'?>"><li> Registrar jugadores</li></a></li>
-            <li>Lista de partidos</li>
-            <li>Listado de Jugadores</li>
+            <a href="<?= BASE_DIR.'Jugador/showRegistro'?>"><li> Registrar jugadores</li></a>
+            <a href="<?= BASE_DIR.'PanelRepresentante/showListadoPartidos'?>"><li>Listado de Partidos</li></a>
+            <a href="<?= BASE_DIR.'PanelRepresentante/showListadoJugadores'?>"><li>Listado de Jugadores</li></a>
             <a href="<?= BASE_DIR.'/Mensajeria/showMensajes' ?>"><li>Mensajeria</li></a>
             <?php
             }

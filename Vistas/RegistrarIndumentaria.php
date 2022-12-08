@@ -18,14 +18,10 @@
             
         </ul>
         <ul>       
-            
-            <a href="<?= BASE_DIR?>"><li>Registrar Indumentaria</li></a>
-            <a href="<?= BASE_DIR?>"><li>Listado Indumentaria </li></a>
             <!-- <a href=""><li>Administrar Indumentaria de Equipo</li></a> -->
-            
             <a href="<?= BASE_DIR.'/PanelAdministrador/showHome' ?>"><li>Inicio </li></a>  
-            <a href="<?= BASE_DIR.'/Jugador/showRegistro' ?>"><li>Registrar Indumentaria</li></a>
-            <a href="<?= BASE_DIR.'/Jugador/showUpdate' ?>"><li>Listado Indumentaria</li></a>
+            <a href="<?= BASE_DIR.'Indumentaria/showcreateInduentaria' ?>"><li>Registrar Indumentaria</li></a>
+            <a href="<?= BASE_DIR.'Indumentaria/showIndumentaria'?>"><li>Listado Indumentaria</li></a>
             
         </ul>
         <ul>
